@@ -46,7 +46,8 @@
                 <!-- /.col -->
                <div class="col-sm-10 invoice-col">
                    <h2 style="text-transform: uppercase; text-align:center">{{ Auth::guard('teacher')->user()->schoolname }}</h2>
-                  <p style="text-transform: uppercase; text-align:center">{{Auth::guard('teacher')->user()->address}}</p>
+                  <p style=" text-align:center">{{Auth::guard('teacher')->user()->address}}</p>
+                  <p style="text-align:center">{{Auth::guard('teacher')->user()->motor}}</p>
                 </div>
                 <!-- /.col -->
                 {{-- <div class="col-sm-2 invoice-col">
@@ -74,7 +75,7 @@
                         <th>Exams</th>
                         <th>Total</th>
                         <th>Grade</th>
-                        {{-- <th>View all </th> --}}
+                        <th>Add Psychomotor </th>
                         
                       </tr>
                       </thead>
@@ -114,13 +115,26 @@
                                 @else
                                 <p>F</p>
                               @endif</td>
+                              <td>@if ($view_myresult_result->status == null)
+                                <span class="badge badge-secondary"> In progress</span>
+                              @elseif($view_myresult_result->status == 'suspend')
+                              <span class="badge badge-warning"> Suspended</span>
+                              @elseif($view_myresult_result->status == 'reject')
+                              <span class="badge badge-danger"> Rejected</span>
+                              @elseif($view_myresult_result->status == 'approved')
+                              <span class="badge badge-info"> Approved</span>
+                              @elseif($view_myresult_result->status == 'admitted')
+                              
+                              <span class="badge badge-success">Admitted</span>
+                              @endif</td>
+                             
                               <th> <a href="{{ url('teacher/addpsychomotorteacher1/'.$view_myresult_result->teacher_id) }}" class="btn btn-sm btn-primary">
-                                <i class="fas fa-user">Add </i> 
-                              </a></th>
-
-                              <th> <a href="{{ url('teacher/addpsychomotorteacher/'.$view_myresult_result->id) }}" class="btn btn-sm btn-primary">
                                 <i class="fas fa-user">Add Psychomotor</i> 
                               </a></th>
+
+                              {{-- <th> <a href="{{ url('teacher/addpsychomotorteacher/'.$view_myresult_result->id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-user">Add </i> 
+                              </a></th> --}}
                             </td>
 
                             </tr>
@@ -205,11 +219,12 @@
                   <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                     Payment
                   </button> --}}
+                  
 
                 </form>
-                  <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                  {{-- <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                     <i class="fas fa-download"></i> Generate PDF
-                  </button>
+                  </button> --}}
                 </div>
               </div>
             </div>

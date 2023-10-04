@@ -58,7 +58,7 @@
                             class='btn btn-default'>
                              <i class="far fa-edit"></i>
 
-                             <td><a href="{{ url('web/deleteterm/'.$view_term->ref_no) }}"
+                             <td><a href="{{ url('web/deleteterm/'.$view_term->connect) }}"
                                 class='btn btn-danger'>
                                 <i class="far fa-trash-alt"></i>
                             

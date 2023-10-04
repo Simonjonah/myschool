@@ -200,6 +200,13 @@
                 </li>
 
                 <li class="nav-item">
+                  <a href="{{ url('admin/viewsuspended') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Schools Suspended</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
                   <a href="{{ url('admin/viewschapproved') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View Schools Approved</p>
@@ -279,35 +286,24 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('admin/addparent') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register Parents</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('admin/viewparents') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Parents</p>
-                </a>
-              </li>
+             
 
               <li class="nav-item">
                 <a href="{{ url('admin/adminprogress') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pimary Pupils</p>
+                  <p> Pupils/Students</p>
                 </a>
               </li>
               
               
              
-              
+{{--               
               <li class="nav-item">
                 <a href="{{ url('admin/admittedstudents') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Secondary Students</p>
                 </a>
-              </li>
+              </li> --}}
              
             </ul>
           </li>
@@ -333,14 +329,12 @@
                   </p>
                 </a>
                 <ul class="nav nav-treeview">
-                  @foreach ($view_clesses as $view_clesse)
                   <li class="nav-item">
-                    <a href="{{ url('admin/classrooms/'.$view_clesse->classname) }}" class="nav-link">
+                    <a href="{{ url('admin/viewclasses') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>{{ $view_clesse->classname }}</p>
+                      <p>View Classes</p>
                     </a>
                   </li>
-                  @endforeach
                   
                  
                 </ul>
@@ -451,20 +445,6 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{ url('admin/queriedteachers') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View  Queried Teachers </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{ url('admin/queriedteachersreply') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View  Query Replied </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="{{ url('admin/allteachers') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View all Teachers </p>
@@ -506,70 +486,56 @@
                 </a>
               </li>
 
-              @foreach ($view_clesses as $view_clesse)
-              <li class="nav-item">
-                <a href="{{ url('admin/classpaymentad/'.$view_clesse->classname) }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_clesse->classname }}</p>
-                </a>
-              </li>
-              @endforeach
+             
             </ul>
           </li>
-
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Generate Payments 
+                Notification 
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
              <ul class="nav nav-treeview">
               <li class="nav-item">
              
-                <a href="{{ url('admin/addschoolfeespaymentad') }}" class="nav-link">
+                <a href="{{ url('admin/addnotification') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add School Fees</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-             
-                <a href="{{ url('admin/addbusfeespaymentad') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Bus Fees</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-             
-                <a href="{{ url('admin/addfeedingfeespaymentad') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Feeding Fees</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-             
-                <a href="{{ url('admin/addpartyfeespaymentad') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Party Fees</p>
+                  <p>Add notification</p>
                 </a>
               </li>
               
-             
+
 
               <li class="nav-item">
-                <a href="{{ url('admin/viewallfees') }}" class="nav-link">
+                <a href="{{ url('admin/viewnotification') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View All Fees</p>
+                  <p>View Notification</p>
                 </a>
               </li>
 
+
+
+              <li class="nav-item">
+                <a href="{{ url('admin/viewcontact') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Contact</p>
+                </a>
+              </li>
+
+
+              
+              <li class="nav-item">
+                <a href="{{ url('admin/viewvisit') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Visit</p>
+                </a>
+              </li>
             </ul>
           </li>
+         
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -616,7 +582,7 @@
               </li>
             </ul>
           </li>
-          
+         
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
@@ -626,18 +592,11 @@
               </p>
             </a>
              <ul class="nav nav-treeview">
-              @foreach ($view_clesses as $view_clesse)
-              <li class="nav-item">
-                <a href="{{ url('admin/viewclassresults/'.$view_clesse->classname) }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_clesse->classname }}</p>
-                </a>
-              </li>
-              @endforeach
+            
               
               <li class="nav-item">
              
-                <a href="{{ url('admin/viewresultbyadmin') }}" class="nav-link">
+                <a href="{{ url('admin/viewresultbyadmins') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Results</p>
                 </a>
@@ -646,6 +605,13 @@
                 <a href="{{ url('admin/viewapproveresultsbyad') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Approved Results</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('admin/viewallresults') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View All Results</p>
                 </a>
               </li>
                
@@ -678,7 +644,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Lesson Note Section
+                Psycomotor Section
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -686,19 +652,22 @@
               <li class="nav-item">
                 
                 <li class="nav-item">
-                  <a href="{{ url('admin/viewlessonnotesad') }}" class="nav-link">
+                  <a href="{{ url('admin/viewpsycomotor') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>View Lesson Notes</p>
+                    <p>View Psycomotor</p>
                   </a>
                 </li>
               </li>
 
-              {{-- <li class="nav-item">
-                <a href="{{ url('admin/viewcontact') }}" class="nav-link">
+              <li class="nav-item">
+                <a href="{{ url('admin/teacherpsycomotor') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Contact</p>
+                  <p>Teacher Psycomotor</p>
                 </a>
-              </li> --}}
+              </li>
+            </li>
+
+             
             </li>
             </ul>
           </li>

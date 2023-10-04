@@ -29,9 +29,9 @@
     <div class="card-body register-card-body">
 
       
-      <form action="{{ url('checkyourresults') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ url('yourresultfinale') }}" method="post" enctype="multipart/form-data">
           @csrf
-
+          {{-- $phone checkyourresults = User::find(1)->phone; --}}
     @if (Session::get('success'))
       <div class="alert alert-success">
         {{ Session::get('success') }}

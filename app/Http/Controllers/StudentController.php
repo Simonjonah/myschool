@@ -181,8 +181,7 @@ class StudentController extends Controller
     }
    
     public function viewyourstudentsecondary(){
-        $view_secondarystudents = Student::where('user_id', auth::guard('web')->id()
-        )->where('section', 'Secondary')->get();
+        $view_secondarystudents = Student::where('user_id', auth::guard('web')->id())->get();
         return view('dashboard.viewyourstudentsecondary', compact('view_secondarystudents'));
     }
     
@@ -219,6 +218,60 @@ class StudentController extends Controller
   }
 
 
+  public function viewstudent($ref_no){
+    $view_students = Student::where('ref_no', $ref_no)->first();
+    return view('dashboard.admin.viewstudent', compact('view_students'));
+    }
+    public function editstudent($ref_no){
+        $edit_students = Student::where('ref_no', $ref_no)->first();
+        $add_class = Classname::all();
+        return view('dashboard.admin.editstudent', compact('add_class', 'edit_students'));
+    }
+    public function studentpdf($ref_no){
+        $print_students = Student::where('ref_no', $ref_no)->first();
+        return view('dashboard.admin.studentpdf', compact('print_students'));
+    }
+
+    public function schoolstudents($user_id){
+        // $views_students = User::where('user_id', $user_id)->first();
+        $views_students = Student::where('user_id', $user_id)->get();
+
+        return view('dashboard.admin.schoolstudents', compact('views_students'));
+    }
+
+     
+
+    public function suspendstudent($ref_no){
+        $suspend_student = Student::where('ref_no', $ref_no)->first();
+        $suspend_student->status = 'suspend';
+        $suspend_student->save();
+        return redirect()->back()->with('success', 'you have approved successfully');
+    }
+    public function suspendstudents(){
+        $suspend_students = Student::where('status', 'suspend')->get();
+        return view('dashboard.admin.suspendstudents', compact('suspend_students'));
+    }
+
+    public function viewsuspended(){
+        $suspend_students = Student::where('status', 'suspend')->get();
+        return view('dashboard.admin.viewsuspended', compact('suspend_students'));
+    }
+
+    public function studentsaddmit($ref_no){
+        $admit_student = Student::where('ref_no', $ref_no)->first();
+        $admit_student->status = 'admitted';
+        $admit_student->save();
+        return redirect()->back()->with('success', 'you have approved successfully');
+    }
+
+    
+    public function rejectstudent($ref_no){
+        $reject_student = Student::where('ref_no', $ref_no)->first();
+        $reject_student->status = 'reject';
+        $reject_student->save();
+        return redirect()->back()->with('success', 'you have approved successfully');
+    }
+
   
   public function addresultsbyteacher($ref_no){
     $view_studentsubject = Student::where('ref_no', $ref_no)->first();
@@ -229,5 +282,58 @@ class StudentController extends Controller
 
     return view('dashboard.teacher.addresultsbyteacher', compact('view_teachersubjects','view_studentsubject'));
 }
+
+ 
+
+public function searchclass(Request $request){
+    $request->validate([
+        'classname' => ['required', 'string'],
+        'schoolname' => ['required', 'string'],
+    ]);
+    if($view_students = Student::where('classname', $request->classname)
+    ->where('schoolname', $request->schoolname)
+    ->exists()) {
+        $view_students = Student::orderby('created_at', 'DESC')
+        ->where('schoolname', $request->schoolname)
+        ->where('classname', $request->classname)
+   
+        ->get(); 
+        }else{
+            return redirect()->back()->with('fail', 'There is no students in these class!');
+        }
+        return view('dashboard.admin.yourclass', compact('view_students'));
+
+    }
+
+
+
+    public function searchresults(Request $request){
+        $request->validate([
+            'classname' => ['required', 'string'],
+            'schoolname' => ['required', 'string'],
+        ]);
+        if($view_students = Student::where('classname', $request->classname)
+        ->where('schoolname', $request->schoolname)
+        ->exists()) {
+            $view_students = Student::orderby('created_at', 'DESC')
+            ->where('schoolname', $request->schoolname)
+            ->where('classname', $request->classname)
+       
+            ->get(); 
+            }else{
+                return redirect()->back()->with('fail', 'There is no students in these class!');
+            }
+            return view('dashboard.admin.yourclass', compact('view_students'));
+    
+        }
+
+
+    public function adminprogress(){
+        $view_primarypupls = Student::latest()->get();
+        return view('dashboard.admin.adminprogress', compact('view_primarypupls'));
+    }
+
+
+
 
 }

@@ -38,6 +38,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>School Name</th>
                     <th>Subjects</th>
                     <th>Section</th>
                     <th>Assign Teacher</th>
@@ -58,8 +59,9 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($viewnursery_subjects as $viewnursery_subject)
-                        @if ($viewnursery_subject->section = 'Primary')
+                        @if ($viewnursery_subject->section == 'Primary' || $viewnursery_subject->section == 'Elementary' || $viewnursery_subject->section == 'Pre-School' || $viewnursery_subject->section == 'Pre-school' || $viewnursery_subject->section == 'Nursery' || $viewnursery_subject->section == 'Creche')
                         <tr>
+                            <td><a href="{{ url('admin/viewsinglesubjectschool/'.$viewnursery_subject->user_id) }}">{{ $viewnursery_subject->user['schoolname'] }}</a></td>
                             <td>{{ $viewnursery_subject->subjectname }}</td>
                             <td>{{ $viewnursery_subject->section }}</td>
                          
@@ -80,6 +82,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                      <th>School Name</th>
                         <th>Subjects</th>
                         <th>Section</th>
                         <th>Assign Teacher</th>

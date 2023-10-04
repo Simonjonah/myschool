@@ -49,6 +49,8 @@
                     <th>Images</th>
                     {{-- <th>Status</th> --}}
                     <th>Action</th>
+                    <th>Add Results</th>
+                    <th>Delete</th>
 
                     
                   </tr>
@@ -66,20 +68,24 @@
                           <td> {{ $view_classnametudent->term }}</td>
                           <td> {{ $view_classnametudent->gender }}</td>
                           <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_classnametudent->images")}}" alt=""></td>
-                          <td> <span class="badge badge-success">{{ $view_classnametudent->status }}</span></td>
+                          {{-- <td> <span class="badge badge-success">{{ $view_classnametudent->status }}</span></td> --}}
                           
-                          {{-- <td><a href="{{ url('web/assignedstudent/'.$view_classnametudent->ref_no1) }}"
+                          <td><a href="{{ url('web/editstudentsc/'.$view_classnametudent->ref_no1) }}"
                             class='btn btn-default'>
-                             <i class="far fa-eye"></i>
-                       --}}
-
-                             <td><a href="{{ url('web/addresults/'.$view_classnametudent->ref_no1) }}"
-                                class='btn btn-info'>
-                                 Add Results
-                             </a></td>
-                        </tr>
-
+                             <i class="far fa-edit"></i>
+                      
                         
+
+                        <td><a href="{{ url('web/addresults/'.$view_classnametudent->ref_no1) }}"
+                          class='btn btn-info'>
+                           Add Results
+                       </a></td>
+
+                       <td><a href="{{ url('web/deletestudentsc/'.$view_classnametudent->ref_no1) }}"
+                        class='btn btn-danger'>
+                         Delete
+                     </a></td>
+                    </tr>
                     {{-- @else
                     @endif --}}
                   @endforeach
@@ -99,6 +105,8 @@
                       <th>Images</th>
                       {{-- <th>Status</th> --}}
                       <th>Action</th>
+                      <th>Add Results</th>
+                    <th>Delete</th>
                       
                     </tr>
                   </tfoot>
@@ -114,104 +122,6 @@
       </div>
       <!-- /.container-fluid -->
     </section>
-
-
-
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              
-  
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">DataTable with default features</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table id="example1" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                      <th>First name</th>
-                      <th>Middlename</th>
-                      <th>Surname</th>
-                      <th>section</th>
-                      <th>Classname</th>
-                      <th>Term</th>
-                      <th>Gender</th>
-  
-                      <th>Images</th>
-                      {{-- <th>Status</th> --}}
-                      <th>Action</th>
-  
-                      
-                    </tr>
-                    </thead>
-                    <tbody>
-  
-                      @foreach ($view_student_secondaries as $view_student_secondarie)
-                        {{-- @if ($view_student_secondarie->section == Auth::guard('web')->user()->section &&  $view_student_secondarie->term == Auth::guard('web')->user()->term && $view_student_secondarie->classname == Auth::guard('web')->user()->classname && $view_student_secondarie->role == Auth::guard('web')->user()->role = null) --}}
-                          <tr>
-                            <td>{{ $view_student_secondarie->fname }}</td>
-                            <td>{{ $view_student_secondarie->middlename }}</td>
-                            <td>{{ $view_student_secondarie->surname }}</td>
-                            <td> {{ $view_student_secondarie->section }}</td>
-                            <td> {{ $view_student_secondarie->classname }}</td>
-                            <td> {{ $view_student_secondarie->term }}</td>
-                            <td> {{ $view_student_secondarie->gender }}</td>
-                            <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_student_secondarie->images")}}" alt=""></td>
-                            <td> <span class="badge badge-success">{{ $view_student_secondarie->status }}</span></td>
-                            
-                            {{-- <td><a href="{{ url('web/assignedstudent/'.$view_student_secondarie->ref_no1) }}"
-                              class='btn btn-default'>
-                               <i class="far fa-eye"></i>
-                         --}}
-  
-                               <td><a href="{{ url('web/addresults/'.$view_student_secondarie->ref_no1) }}"
-                                  class='btn btn-info'>
-                                   Add Results
-                               </a></td>
-                          </tr>
-  
-                          
-                      {{-- @else
-                      @endif --}}
-                    @endforeach
-                        
-                  
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th>First name</th>
-                        <th>Middlename</th>
-                        <th>Surname</th>
-                        <th>section</th>
-                        <th>Classname</th>
-                        <th>Term</th>
-                        <th>Gender</th>
-    
-                        <th>Images</th>
-                        {{-- <th>Status</th> --}}
-                        <th>Action</th>
-                        
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-      </section>
-
-
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

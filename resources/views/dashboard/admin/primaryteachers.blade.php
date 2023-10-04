@@ -39,10 +39,10 @@
                   <thead>
                   <tr>
                     <th>Lastname</th>
-                    <th>Middlename</th>
+                    
                     <th>First Name</th>
                     <th>Images</th>
-
+                    <th>School Name</th>
                     
                     <th>Classname</th>
                     <th>Section</th>
@@ -71,13 +71,13 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($view_uyoteachers as $view_uyoteacher)
-                      @if ($view_uyoteacher->status = 'teacher')
+                    @if ($view_uyoteacher->section == 'Prmary' || $view_uyoteacher->section == 'Elementary' || $view_uyoteacher->section == 'Creche' || $view_uyoteacher->section == 'Pre-School' || $view_uyoteacher->section == 'Pre - Schools' || $view_uyoteacher->section == 'Pre-school' || $view_uyoteacher->section == 'Nursery')
+
                       <tr>
                         <td>{{ $view_uyoteacher->surname }}</td>
-                        <td>{{ $view_uyoteacher->middlename }}</td>
                         <td>{{ $view_uyoteacher->fname }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_uyoteacher->images")}}" alt=""></td>
-                        {{-- <td>{{ $view_uyoteacher->centername }}</td> --}}
+                        <td>{{ $view_uyoteacher->schoolname }}</td>
                         <td>{{ $view_uyoteacher->classname }}</td>
                         <td>{{ $view_uyoteacher->section }}</td>
                         <td>{{ $view_uyoteacher->term }}</td>

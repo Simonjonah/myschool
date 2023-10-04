@@ -55,12 +55,12 @@
        
                       <tr>
                         <td><a href="{{ url('admin/viewsingleteacher/'.$display_teachersubject->user['ref_no1']) }}" target="_blank" rel="noopener noreferrer">{{ $display_teachersubject->user['surname'] }}</a></td>
-                        <td>{{ $display_teachersubject->user['middlename'] }}</td>
-                        <td>{{ $display_teachersubject->user['fname'] }}</td>
+                        <td>{{ $display_teachersubject->teacher['schoolname'] }}</td>
+                        <td>{{ $display_teachersubject->teacher['fname'] }}</td>
                         <td>{{ $display_teachersubject->subject['subjectname'] }}</td>
 
-                        <td>{{ $display_teachersubject->user['classname'] }}</td>
-                        <td>{{ $display_teachersubject->user['section'] }}</td>
+                        <td>{{ $display_teachersubject->teacher['classname'] }}</td>
+                        <td>{{ $display_teachersubject->teacher['section'] }}</td>
                        
                       
                       

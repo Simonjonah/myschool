@@ -64,8 +64,8 @@ class TermController extends Controller
         return redirect()->back()->with('success', 'you have added successfully');
 
     }
-    public function deleteterm($ref_no){
-        $edit_events = Term::where('ref_no', $ref_no)->delete();
+    public function deleteterm($connect){
+        $edit_events = Term::where('connect', $connect)->delete();
 
      
 

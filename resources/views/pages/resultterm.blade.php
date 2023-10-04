@@ -9,6 +9,8 @@
     height:auto;
     table-layout:fixed;
 } */
+
+
 td {
   height: 3px; /* Adjust the height as per your requirements */
 }
@@ -87,8 +89,8 @@ table, tr, td{
        
 
             <tr>
-                <th colspan="2" style="text-align: center; text-transform: uppercase;">{{ $getyour_result->term }} REPORT FOR {{ $getyour_result->academic_session }} <br>
-                    {{ $getyour_result->surname }}, {{ $getyour_result->middlename }} {{ $getyour_result->surname }}
+                <th colspan="2" style="text-align: center; text-transform: uppercase;">{{ $getyour_result->term }} REPORT FOR {{ $getyour_result->academic_session }} SESSION <br>
+                    {{ $getyour_result->surname }}, {{ $getyour_result->fname }} {{ $getyour_result->middlename }}
                 </th>
                 <th>-</th>
             </tr>
@@ -132,6 +134,7 @@ table, tr, td{
             <tr>
                 <td>{{ $getyour_result->subjectname }}</td>
                 <td>{{ $getyour_result->test_1 }}</td>
+                <td>{{ $getyour_result->test_1 }}</td>
                 <td>{{ $getyour_result->test_2 }}</td>
                 <td>{{ $getyour_result->test_3 }}</td>
                 <td>{{ $getyour_result->exams }}</td>
@@ -169,18 +172,6 @@ table, tr, td{
             @endforeach
 
         
-            
-
-            {{-- <tr>
-                <td>Mathematics</td>
-                <td>5</td>
-                <td>5</td>
-                <td>3</td>
-                <td>67</td>
-                <td>89</td>
-                <td>A</td>
-                <td>67.9</td>
-              </tr> --}}
 
               <tr>
                 <td>Total</td>
@@ -198,283 +189,103 @@ table, tr, td{
 
           </table>
 
+          <style>
+            .container .row .col .psy{
+                width: 200px;
+                display: inline-block;
+            }
 
-          <table  style="margin-top: 20px;">
-            <tr>
-              <th>AFFECTIVE DOMAIN</th>
-              <th colspan="5">GRADE</th>
-              <th>PSYCOMOTOR DOMAIN</th>
-              <th colspan="4">GRADE</th>
-              <th></th>
-              <th colspan="5">GRADING AND KEY</th>
-             
-              
-              
-            </tr>
-            <tr>
-              <td>-</td>
-              <td>4</td>
-              <td>3</td>
-              <td>2</td>
-              <td>1</td>
+          </style>
+          
+          <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="psy">
+                        <table class="table">
+                            <tr>
+                              <th>AFFECTIVE DOMAIN</th>
+                              <th colspan="5">GRADE</th>
+                             
+                
+                            @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
+                            @if ($getyour_resultsdomain->psycomoto == 'Cognitive Domain')
+                                <tr>
+                                <td>{{ $getyour_resultsdomain->cogname }}</td>
+                                <td>{{ $getyour_resultsdomain->punt1 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt2 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt3 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt4 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt5 }}</td>
+                            </tr>
+                            @else
+                                
+                            @endif
+                            
+                            @endforeach
+                 
+                          </table>
+                    </div>
 
-              <td></td>
-              <td>-</td>
-              {{-- <td>Club & Society</td> --}}
-              <td>4</td>
-              <td>3</td>
-              <td>2</td>
-              <td>1</td>
-
-
-              <td></td>
-              <td>0</td>
-              <td>-</td>
-              <td>39</td>
-              <td>F</td>
-              <td>FAIL</td>
-            </tr>
-            
-            <tr>
-                <td>Responsibility</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <td></td>
-                <td>Club & Society</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>40</td>
-                <td>-</td>
-                <td>49</td>
-                <td>E</td>
-                <td>FAIR</td>
-            </tr>
-
-            <tr>
-                <td>Punctuality</td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Handwriting</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                    <div class="psy">
+                        <table class="table">
+                            <tr>
+                              
+                              <th>PSYCOMOTOR DOMAIN</th>
+                              <th colspan="4">GRADE</th>
+                             
+                            @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
+                            @if ($getyour_resultsdomain->psycomoto == 'Psychomotor Domain')
+                                <tr>
+                                <td>{{ $getyour_resultsdomain->cogname }}</td>
+                                <td>{{ $getyour_resultsdomain->punt1 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt2 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt3 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt4 }}</td>
+                                <td>{{ $getyour_resultsdomain->punt5 }}</td>
+                            </tr>
+                            @else
+                                
+                            @endif
+                            
+                            {{-- <td colspan="5" style="text-align: center">AFFECTIVE/PSYCOMOTOR DOMAIN</td> --}}
+                
+                            @endforeach
+                            
+                
+                          </table>
+                    </div>
 
 
-                <td></td>
-                <td>50</td>
-                <td>-</td>
-                <td>59</td>
-                <td>D</td>
-                <td>PASS</td>
-            </tr>
+                    <div class="psy">
+                        <table class="table">
+                            <tr>
+                    
+                              <th colspan="5">GRADING AND KEY</th>
+                             
+                            </tr>
+                            <tr>
 
-            <tr>
-                <td>Politeness</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                              <td>4</td>
+                              <td>3</td>
+                              <td>2</td>
+                              <td>1</td>
+                
+                            </tr> 
 
-                <td></td>
-                <td>Technical Works</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
+                            <tr>
+                                <td> Exellence</td>
+                                <td> Very Good</td>
+                                <td> Good</td>
+                                <td> Fair</td>
+                            </tr>
+                           
+                          </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
 
-
-
-                <td></td>
-                <td>60</td>
-                <td>-</td>
-                <td>69</td>
-                <td>C</td>
-                <td>GOOD</td>
-            </tr>
-            <tr>
-                <td>Corporation</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
-
-
-
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>70</td>
-                <td>-</td>
-                <td>79</td>
-                <td>B </td>
-                <td>VERY GOOD</td>
-            </tr>
-
-            <tr>
-                <td>Attentiveness</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Handling Tools</td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>80</td>
-                <td>-</td>
-                <td>100</td>
-                <td>A</td>
-                <td>EXCELLENCE</td>
-            </tr>
-
-            <tr>
-                <td>Initiative</td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-
-
-                <td></td>
-                <td>Practical Works</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-                <td></td>
-                <td colspan="5" style="text-align: center">AFFECTIVE/PSYCOMOTOR DOMAIN</td>
-               
-            </tr>
-
-            <tr>
-                <td>Organisation</td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Craftmanship</td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-
-
-                <td></td>
-                <td>4</td>
-                <td style="text-align: center" colspan="5">Exellence</td>
-            </tr>
-            
-            <tr>
-                <td>Neatness</td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-
-
-
-                <td></td>
-                <td>Music Skills</td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-
-
-
-                <td></td>
-                <td>3</td>
-                <td style="text-align: center" colspan="5">Very Good</td>
-            </tr>
-
-            <tr>
-                <td>Perseverance</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Computer Skills</td>
-                <td></td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>2</td>
-                <td style="text-align: center" colspan="5"> Good</td>
-            </tr>
-
-            <tr>
-                <td>Attitude to Work</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Sports</td>
-                <td>Yes</td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>1</td>
-                <td style="text-align: center" colspan="5"> Fair</td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
-                <td></td>
-                <td>Drawing/Painting</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Yes</td>
-            </tr>
           </table>
 
 
@@ -483,7 +294,7 @@ table, tr, td{
                 <td>REG CODE:</td>
                 <td>{{ $getyour_result->regnumber }}</td>
                 <td>SEX:</td>
-                <td>{{ $getyour_result->user['gender'] }}</td>
+                <td>{{ $getyour_result->gender }}</td>
                 <td>TOTAL SCORE OBTAINABLE:</td>
                 <td>{{ $total_subject * 100 }}</td>
                 <td>NO. OF DISTINGTIONS (A-B):</td>
@@ -498,12 +309,11 @@ table, tr, td{
                 <td>SCORE OBTAINED:</td>
                 <td>{{ $total_score }}</td>
     
-                <td>NO. OF CREDITS (C-D):</td>
-                <td>6C's 3D's</td>
+                
             </tr>
             <tr>
                 <td>AGE:</td>
-                <td>{{ $getyour_result->user['dob'] }}</td>
+                <td>{{ $getyour_result->student['dob'] }}</td>
                 <td colspan="2"></td>
                
                 <td>PERCENTAGE:</td>

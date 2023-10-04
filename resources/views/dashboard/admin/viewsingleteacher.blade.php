@@ -7,10 +7,10 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-              <img style="width: 200px; height: 80px;" class="fas fa-globe float-left" src="{{ asset('assets/dist/img/AdminLTELogo.jpg') }}" alt="">
+              <img style="width: 200px; height: 80px;" class="fas fa-globe float-left" src="{{ asset('/public/../'.$view_singteachers->logo)}}" alt="">
 
               <h2 class="page-header text-center">
-                 Golden Academy Schools
+                 {{ $view_singteachers->schoolname }}
               </h2>
             </div>
             <!-- /.col -->
@@ -149,16 +149,16 @@
                     </div> --}}
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
-                        <a class="btn btn-primary" href="../lecturersprint/{{ $view_singteachers->ref_no1 }}">Print</a>
-                        <a href="{{ url('admin/viewsingleteacher/'.$view_singteachers->ref_no1) }}" class="btn btn-default"><i class="fas fa-eye"></i>View</a>
-                        <a href="{{ url('admin/editteacher/'.$view_singteachers->ref_no1) }}" class="btn btn-info"><i class="fas fa-edit"></i>Edit</a>
-                        <a href="{{ url('admin/teacherapprove/'.$view_singteachers->ref_no1) }}" class="btn btn-success"><i class="fas fa-user"></i>Approved</a>
-                        <a href="{{ url('admin/teachersuspend/'.$view_singteachers->ref_no1) }}" class="btn btn-secondary"><i class="fas fa-user"></i>Suspend</a>
-                        <a href="{{ url('admin/teachersacked/'.$view_singteachers->ref_no1) }}" class="btn btn-danger"><i class="fas fa-user"></i>Sacked</a>
-                        <a href="{{ url('admin/teacherquery/'.$view_singteachers->ref_no1) }}" class="btn btn-warning"><i class="fas fa-user"></i>Query</a>
+                        <a class="btn btn-primary" href="{{ url('admin/lecturersprint/'.$view_singteachers->ref_no) }}">Print</a>
+                        <a href="{{ url('admin/viewsingleteacher/'.$view_singteachers->ref_no) }}" class="btn btn-default"><i class="fas fa-eye"></i>View</a>
+                        <a href="{{ url('admin/editteacher/'.$view_singteachers->ref_no) }}" class="btn btn-info"><i class="fas fa-edit"></i>Edit</a>
+                        <a href="{{ url('admin/teacherapprove/'.$view_singteachers->ref_no) }}" class="btn btn-success"><i class="fas fa-user"></i>Approved</a>
+                        <a href="{{ url('admin/teachersuspend/'.$view_singteachers->ref_no) }}" class="btn btn-secondary"><i class="fas fa-user"></i>Suspend</a>
+                        <a href="{{ url('admin/teachersacked/'.$view_singteachers->ref_no) }}" class="btn btn-danger"><i class="fas fa-user"></i>Sacked</a>
+                        {{-- <a href="{{ url('admin/teacherquery/'.$view_singteachers->ref_no) }}" class="btn btn-warning"><i class="fas fa-user"></i>Query</a> --}}
                        
-                        <th><a href="{{ url('admin/teachersprint/'.$view_singteachers->ref_no1) }}" class="btn btn-primary"><i class="fas fa-print"></i></a></th>
-                         <td><a href="{{ url('admin/teacherdelete/'.$view_singteachers->ref_no1) }}"
+                        {{-- <th><a href="{{ url('admin/teachersprint/'.$view_singteachers->ref_no) }}" class="btn btn-primary"><i class="fas fa-print"></i></a></th> --}}
+                         <td><a href="{{ url('admin/teacherdelete/'.$view_singteachers->ref_no) }}"
                           class='btn btn-danger'>
                            <i class="far fa-trash-alt"></i>
                        </a></td>

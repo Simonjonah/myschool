@@ -69,14 +69,14 @@
                         </select>
                       </div>
 
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <h5>Section </h5>
                         <select required class="form-control" type="text" name="section">
                           <option value="{{ $assigned_subject->section }}">{{ $assigned_subject->section }}</option>
                           <option value="Primary">Primary</option>
                           <option value="Secondary">Secondary</option>
                         </select>
-                      </div>
+                      </div> --}}
 
                       {{-- <div class="form-group">
                         <h5>Term</h5>

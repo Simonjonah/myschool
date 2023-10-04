@@ -166,6 +166,18 @@ class ClassnameController extends Controller
         return view('dashboard.viewclassesbysc', compact('view_student_secondaries', 'view_classnametudents'));
     }
 
+    public function viewclasses(){
+        $view_clesses = Classname::orderBy('created_at', 'DESC')->get();
+        
+        return view('dashboard.admin.viewclasses', compact('view_clesses'));
+    }
+
+    public function viewsingleclassschool($user_id){
+        $view_clesses1 = Classname::where('user_id', $user_id)->first();
+        $view_clesses = Classname::where('user_id', $user_id)->get();
+        $view_clessecounts = Student::where('user_id', $user_id)->count();
+        return view('dashboard.admin.viewsingleclassschool', compact('view_clesses1', 'view_clessecounts', 'view_clesses'));
+    }
     
 
 

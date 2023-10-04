@@ -85,7 +85,14 @@
               <li class="nav-item">
                 <a href="{{ url('teacher/tecacherviewresultbysub') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Your Results</p>
+                  <p>Your Unapproved Result</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('teacher/tecacherviewresultbysubapproved') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Your Approved Results</p>
                 </a>
               </li>
              
@@ -106,6 +113,14 @@
                 <a href="{{ url('teacher/tecacherdomainadd/'.Auth::guard('teacher')->user()->ref_no1) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Domain</p>
+                </a>
+              </li>
+
+
+              <li class="nav-item">
+                <a href="{{ url('teacher/teacherviewdomaiin') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Domain</p>
                 </a>
               </li>
              
@@ -132,53 +147,8 @@
             </ul>
           </li>
           
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Class Activities
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('teacher/viewclassactivitypare') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Activities</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{ url('teacher/viewclassactivityparespecial') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Special Activity</p>
-                </a>
-              </li>
-            
-            </ul>
-          </li>
-
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Check Result
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-              
-              <li class="nav-item">
-                <a href="{{ url('teacher/checkresult') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Your Results</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
+         
+          
           
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">

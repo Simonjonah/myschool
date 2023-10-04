@@ -38,6 +38,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Schoolname</th>
                     <th>Subjects</th>
                     <th>Section</th>
                     <th>Delete</th>
@@ -60,6 +61,7 @@
                     @foreach ($viewnursery_subjects as $viewnursery_subject)
                         {{-- @if ($viewnursery_subject->section = 'Primary' || $viewnursery_subject->section = 'Nursery' || $viewnursery_subject->section = 'Pre-School' || $viewnursery_subject->section = 'Preparatory') --}}
                         <tr>
+                            <td>{{ $viewnursery_subject->user['schoolname'] }}</td>
                             <td>{{ $viewnursery_subject->subjectname }}</td>
                             <td>{{ $viewnursery_subject->section }}</td>
                          
@@ -80,12 +82,12 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Section</th>
+                      <th>Schoolname</th>
+                      <th>Subjects</th>
                       <th>Section</th>
                       <th>Delete</th>
-                        
-                        <th>Date</th>
-                      </tr>
+                    
+                      <th>Date</th>
                     </tr>
                   </tfoot>
                 </table>

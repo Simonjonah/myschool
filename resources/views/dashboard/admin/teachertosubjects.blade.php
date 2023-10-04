@@ -35,6 +35,8 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th>School Name</th>
+
                   <th>First Name</th>
                   <th>Lastname</th>
                  
@@ -48,14 +50,15 @@
                 <tbody>
                
                     @foreach ($view_teachersubjects as $view_teachersubject)
-                      @if ($view_teachersubject->user['section'] === 'Primary')
+                      @if ($view_teachersubject->teacher['section'] === 'Primary' || $view_teachersubject->teacher['section'] === 'Nursery' || $view_teachersubject->teacher['section'] === 'Pre-School' || $view_teachersubject->teacher['section'] === 'Elementary' || $view_teachersubject->teacher['section'] === 'Creche')
                         <tr>
-                          <td>{{ $view_teachersubject->user['fname'] }}</td>
-                          <td>{{ $view_teachersubject->user['surname'] }}</td>
-                          <td style="color: red">{{ $view_teachersubject->user['section'] }}</td>
-                          <td>{{ $view_teachersubject->user['section'] }}</td>
+                          <td>{{ $view_teachersubject->user['schoolname'] }}</td>
+                          <td>{{ $view_teachersubject->teacher['fname'] }}</td>
+                          <td>{{ $view_teachersubject->teacher['surname'] }}</td>
+                          <td style="color: red">{{ $view_teachersubject->teacher['section'] }}</td>
+                          <td>{{ $view_teachersubject->teacher['section'] }}</td>
                           <td>{{ $view_teachersubject->subject['subjectname'] }}</td> 
-                        <td><a href="{{ url('admin/viewteachersubjects/'.$view_teachersubject->user_id) }}"
+                        <td><a href="{{ url('admin/viewteachersubjects/'.$view_teachersubject->teacher_id) }}"
                               class='btn btn-info'>
                               <i class="far fa-eye"></i>
                           </a></td>
@@ -69,6 +72,8 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                    <th>School Name</th>
+
                         <th>First Name</th>
                         <th>Lastname</th>
                        
@@ -93,6 +98,7 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
+                    <th>School Name</th>
                     <th>First Name</th>
                     <th>Lastname</th>
                     
@@ -105,14 +111,16 @@
                 <tbody>
                
                   @foreach ($view_teachersubjects as $view_teachersubject)
-                    @if ($view_teachersubject->user['section'] === 'Secondary')
+                  @if ($view_teachersubject->teacher['section'] === 'High School' || $view_teachersubject->teacher['section'] === 'Secondary' || $view_teachersubject->teacher['section'] === 'High Schools' || $view_teachersubject->teacher['section'] === 'Secondary Schools')
                       <tr>
-                        <td>{{ $view_teachersubject->user['fname'] }}</td>
-                        <td>{{ $view_teachersubject->user['surname'] }}</td>
-                        <td style="color: red">{{ $view_teachersubject->user['section'] }}</td>
-                        <td>{{ $view_teachersubject->user['section'] }}</td>
+                        <td>{{ $view_teachersubject->user['schoolname'] }}</td>
+
+                        <td>{{ $view_teachersubject->teacher['fname'] }}</td>
+                        <td>{{ $view_teachersubject->teacher['surname'] }}</td>
+                        <td style="color: red">{{ $view_teachersubject->teacher['section'] }}</td>
+                        <td>{{ $view_teachersubject->teacher['section'] }}</td>
                         <td>{{ $view_teachersubject->subject['subjectname'] }}</td> 
-                      <td><a href="{{ url('admin/viewteachersubjects/'.$view_teachersubject->user_id) }}"
+                      <td><a href="{{ url('admin/viewteachersubjects/'.$view_teachersubject->teacher_id) }}"
                             class='btn btn-info'>
                             <i class="far fa-eye"></i>
                         </a></td>
@@ -126,6 +134,8 @@
               </tbody>
                 <tfoot>
                   <tr>
+                    <th>School Name</th>
+
                     <th>First Name</th>
                     <th>Lastname</th>
                     

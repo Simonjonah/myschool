@@ -19,7 +19,9 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    @foreach ($view_myresult_results as $view_myresult_result)
 
+    @endforeach
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -38,24 +40,23 @@
               </div>
               <!-- info row -->
               <div class="row invoice-info">
-                <div class="col-sm-4 invoice-col">
-                    <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="webLTE Logo" class="brand-image ">
+                <div class="col-sm-2 invoice-col">
+                    <img style="width: 50px; height: 50px;" src="{{ URL::asset("/public/../$view_myresult_result->logo")}}" alt="webLTE Logo" class="brand-image ">
 
                  
                 </div> 
                 <!-- /.col -->
                <div class="col-sm-8 invoice-col">
-                   <h1>GOLDEN DESTINY ACADEMY</h1>
-                   <address>
-                    Golden Destiny Academy Road.
-                    Off Senator Akon Eyakenyi Street,
-                    Off General Edet Akpan Ave, 520101, Uyo
+                   <h2 style="text-align: center; text-transform: uppercase;">{{ $view_myresult_result->schoolname }}</h2>
+                   <address style="text-align: center">
+                    {{$view_myresult_result->address}} <br>
+                    {{$view_myresult_result->motor}}
                   </address>
                 </div>
                 <!-- /.col -->
-                {{-- <div class="col-sm-4 invoice-col">
-                    <img style="width: 70%; height: 150px;" src="{{ URL::asset("/public/../$view_results->user['images']")}}" alt="">
-                </div> --}}
+                <div class="col-sm-2 invoice-col">
+                    <img style="width: 70%; height: 150px;" src="{{ URL::asset("/public/../$view_results->images")}}" alt="">
+                </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
@@ -93,9 +94,9 @@
                           // $totalsubject_score +=$view_myresult_result->test_1  + $view_myresult_result->test_2  + $view_myresult_result->test_3  + $view_myresult_result->exams                            
                           @endphp
                           <tr>
-                              <td>{{ $view_myresult_result->user['fname'] }}</td>
-                              <td>{{ $view_myresult_result->user['middlename'] }}</td>
-                              <td>{{ $view_myresult_result->user['surname'] }}</td>
+                              <td>{{ $view_myresult_result->student['fname'] }}</td>
+                              <td>{{ $view_myresult_result->student['middlename'] }}</td>
+                              <td>{{ $view_myresult_result->student['surname'] }}</td>
                               <td>{{ $view_myresult_result->subjectname }}</td>
                               <td>{{ $view_myresult_result->test_1 }}</td>
                               <td>{{ $view_myresult_result->test_2 }}</td>

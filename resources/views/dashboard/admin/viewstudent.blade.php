@@ -204,20 +204,20 @@
                   <!-- /.tab-pane -->
                   <div class="form-group">
                     <label for="">Take Action</label>
-                    <a href="{{ url('admin/studentpdf/'.$view_students->ref_no1)  }}" class="btn btn-primary">Print form</a>
-                    {{-- <a href="{{ url('admin/medicalspdf/'.$view_students->ref_no1)  }}" class="btn btn-warning">Print Medical reports</a> --}}
+                    <a href="{{ url('admin/studentpdf/'.$view_students->ref_no)  }}" class="btn btn-primary">Print form</a>
+                    {{-- <a href="{{ url('admin/medicalspdf/'.$view_students->ref_no)  }}" class="btn btn-warning">Print Medical reports</a> --}}
                     
-                    <th><a href="{{ url('admin/rejectstudent/'.$view_students->ref_no1) }}" class="btn btn-sm bg-danger">
+                    <th><a href="{{ url('admin/rejectstudent/'.$view_students->ref_no) }}" class="btn btn-sm bg-danger">
                       <i class="fas fa-user"></i>Reject
                     </a></th>
-                   <th><a href="{{ url('admin/suspendstudent/'.$view_students->ref_no1) }}" class="btn btn-sm bg-warning">
+                   <th><a href="{{ url('admin/suspendstudent/'.$view_students->ref_no) }}" class="btn btn-sm bg-warning">
                       <i class="fas fa-comments"></i>Suspend
                     </a></th>
 
-                    <th> <a href="{{ url('admin/studentsaddmit/'.$view_students->ref_no1) }}" class="btn btn-sm btn-primary">
+                    <th> <a href="{{ url('admin/studentsaddmit/'.$view_students->ref_no) }}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Admit
                     </a></th>
-                    {{-- <th><a href="{{ url('admin/medicalspdf/'.$view_students->ref_no1) }}" class="btn btn-info"><i class="fas fa-print">Print Medicals</i></a></th> --}}
+                    {{-- <th><a href="{{ url('admin/medicalspdf/'.$view_students->ref_no) }}" class="btn btn-info"><i class="fas fa-print">Print Medicals</i></a></th> --}}
                   </div>
                   
 

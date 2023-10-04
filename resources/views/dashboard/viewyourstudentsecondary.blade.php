@@ -74,7 +74,7 @@
                             class='btn btn-default'>
                              <i class="far fa-edit"></i>
                       
-                        </tr>
+                        
 
                         <td><a href="{{ url('web/addresults/'.$view_secondarystudent->ref_no1) }}"
                           class='btn btn-info'>
@@ -85,6 +85,7 @@
                         class='btn btn-danger'>
                          Delete
                      </a></td>
+                    </tr>
                     {{-- @else
                     @endif --}}
                   @endforeach

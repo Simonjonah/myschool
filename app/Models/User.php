@@ -91,10 +91,24 @@ class User extends Authenticatable
         return $this->hasMany(Teacher::class);
     }
 
-    public function guardian(): BelongsTo
+    public function classnames(): HasMany 
     {
-        return $this->belongsTo(Guardian::class);
+        return $this->hasMany(Classname::class);
+    }
+    public function subjects(): HasMany 
+    {
+        return $this->hasMany(Classname::class);
     }
 
+    public function domains(): HasMany 
+    {
+        return $this->hasMany(Domain::class);
+    }
+
+    public function blogs(): HasMany 
+    {
+        return $this->hasMany(Blog::class);
+    }
+    
     
 }

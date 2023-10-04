@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Parents </h1>
+            <h1 class="m-0 text-dark">Schools </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
 l            <ol class="breadcrumb float-sm-right">

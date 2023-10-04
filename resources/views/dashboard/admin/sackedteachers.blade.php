@@ -39,7 +39,7 @@
                   <thead>
                   <tr>
                     <th>Lastname</th>
-                    <th>Middlename</th>
+                    {{-- <th>Middlename</th> --}}
                     <th>First Name</th>
                     <th>Images</th>
 
@@ -76,22 +76,21 @@
                       @if ($sacked_teacher->status = 'teacher' && $sacked_teacher->role = 'sacked')
                       <tr>
                         <td>{{ $sacked_teacher->surname }}</td>
-                        <td>{{ $sacked_teacher->middlename }}</td>
                         <td>{{ $sacked_teacher->fname }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$sacked_teacher->images")}}" alt=""></td>
                         <td>{{ $sacked_teacher->phone }}</td>
-                        <td>{{ $sacked_teacher->centername }}</td>
+                        <td>{{ $sacked_teacher->schoolname }}</td>
                         <td>{{ $sacked_teacher->classname }}</td>
                         <td>{{ $sacked_teacher->section }}</td>
-                        <td>{{ $sacked_teacher->entrylevel }}</td>
+                        <td>{{ $sacked_teacher->term }}</td>
                         <td>{{ $sacked_teacher->email }}</td>
 
                        
-                        <td>@if ($sacked_teacher->role == 'teacher')
+                        <td>@if ($sacked_teacher->status == 'teacher')
                           <span class="badge badge-secondary">In Progress</span>
-                          @elseif ($sacked_teacher->role == 'sacked')
+                          @elseif ($sacked_teacher->status == 'sacked')
                           <span class="badge badge-danger">Sacked</span>
-                          @elseif ($sacked_teacher->role == 'suspend')
+                          @elseif ($sacked_teacher->status == 'suspend')
                           <span class="badge badge-warning">Suspended</span>
                             @else
                             <span class="badge badge-success">Employed</span>
@@ -132,7 +131,7 @@
                   <tfoot>
                     <tr>
                       <th>Lastname</th>
-                      <th>Middlename</th>
+                      {{-- <th>Middlename</th> --}}
                       <th>First Name</th>
                       <th>Images</th>
   
@@ -173,7 +172,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://BRIXTONNSCHOOLS.COM.NG">BRIXTONN SCHOOLS</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
     reserved.
   </footer>
 

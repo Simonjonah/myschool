@@ -38,6 +38,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>School Name</th>
                     <th>Subjects</th>
                     <th>Section</th>
                     <th>Actions</th>
@@ -60,8 +61,10 @@
                   @endif
                 
                     @foreach ($view_subjects as $view_subject)
-       
+                      @if ($view_subject->section == 'Secondary' || $view_subject->section == 'High School' || $view_subject->section == 'High Schools' || $view_subject->section == 'Secondary Schools' || $view_subject->section == 'Secondary School' )
+
                       <tr>
+                        <td><a href="{{ url('admin/viewsinglesubjectschool/'.$view_subject->user_id) }} ">{{ $view_subject->user['schoolname'] }}</a></td>
                         <td>{{ $view_subject->subjectname }}</td>
                         <td>{{ $view_subject->section }}</td>
                        
@@ -87,7 +90,8 @@
                      <td>{{ $view_subject->created_at->format('D d, M Y, H:i')}}</td>
 
                       </tr>
-                     
+                     @else
+                     @endif
                     @endforeach
                  
                  

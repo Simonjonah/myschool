@@ -109,4 +109,15 @@ public function viewterm($term){
     return view('dashboard.viewterm', compact('view_student_secondaries', 'view_termtudents'));
 }
 
+public function viewpsycomotor(){
+    $view_domains = Domain::latest()->get();
+    return view('dashboard.admin.viewpsycomotor', compact('view_domains'));
+}
+
+public function schoolspsyco($user_id){
+    $viewsingle_domains = Domain::where('user_id', $user_id)->get();
+    return view('dashboard.admin.schoolspsyco', compact('viewsingle_domains'));
+}
+
+
 }

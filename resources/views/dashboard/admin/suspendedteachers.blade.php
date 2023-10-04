@@ -47,7 +47,7 @@
                     <th>Centername</th>
                     <th>Classname</th>
                     <th>Section</th>
-                    <th>Entry Level</th>
+                    <th>Term</th>
 
                     <th>Email</th>
 
@@ -83,14 +83,14 @@
                         <td>{{ $suspend_teacher->centername }}</td>
                         <td>{{ $suspend_teacher->classname }}</td>
                         <td>{{ $suspend_teacher->section }}</td>
-                        <td>{{ $suspend_teacher->entrylevel }}</td>
+                        <td>{{ $suspend_teacher->term }}</td>
                         <td>{{ $suspend_teacher->email }}</td>
 
-                        <td>@if ($suspend_teacher->role == 'teacher')
+                        <td>@if ($suspend_teacher->status == 'teacher')
                           <span class="badge badge-secondary">In Progress</span>
-                          @elseif ($suspend_teacher->role == 'sacked')
+                          @elseif ($suspend_teacher->status == 'sacked')
                           <span class="badge badge-danger">Sacked</span>
-                          @elseif ($suspend_teacher->role == 'suspend')
+                          @elseif ($suspend_teacher->status == 'suspend')
                           <span class="badge badge-warning">Suspended</span>
                             @else
                             <span class="badge badge-success">Employed</span>
@@ -139,7 +139,7 @@
                       <th>Centername</th>
                       <th>Classname</th>
                       <th>Section</th>
-                      <th>Entry Level</th>
+                      <th>Term</th>
   
                       <th>Email</th>
   
@@ -172,7 +172,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://BRIXTONNSCHOOLS.COM.NG">BRIXTONN SCHOOLS</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
     reserved.
   </footer>
 

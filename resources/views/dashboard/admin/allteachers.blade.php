@@ -38,16 +38,16 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Lastname</th>
-                    <th>Middlename</th>
                     <th>First Name</th>
+
+                    <th>Lastname</th>
                     <th>Images</th>
 
                     <th>Phone</th>
-                    <th>Centername</th>
+                    <th>School Name</th>
                     <th>Classname</th>
                     <th>Section</th>
-                    <th>Entry Level</th>
+                    <th>Term</th>
 
                     <th>Email</th>
 
@@ -75,24 +75,23 @@
                     @foreach ($all_teachers as $all_teacher)
                       @if ($all_teacher->status = 'teacher')
                       <tr>
-                        <td>{{ $all_teacher->surname }}</td>
-                        <td>{{ $all_teacher->middlename }}</td>
                         <td>{{ $all_teacher->fname }}</td>
+                        <td>{{ $all_teacher->surname }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$all_teacher->images")}}" alt=""></td>
                         <td>{{ $all_teacher->phone }}</td>
-                        <td>{{ $all_teacher->centername }}</td>
+                        <td>{{ $all_teacher->schoolname }}</td>
                         <td>{{ $all_teacher->classname }}</td>
                         <td>{{ $all_teacher->section }}</td>
-                        <td>{{ $all_teacher->entrylevel }}</td>
+                        <td>{{ $all_teacher->term }}</td>
                         <td>{{ $all_teacher->email }}</td>
 
                        
                        
-                        <td>@if ($all_teacher->role == 'teacher')
+                        <td>@if ($all_teacher->status == null)
                           <span class="badge badge-secondary">In Progress</span>
-                          @elseif ($all_teacher->role == 'sacked')
+                          @elseif ($all_teacher->status == 'sacked')
                           <span class="badge badge-danger">Sacked</span>
-                          @elseif ($all_teacher->role == 'suspend')
+                          @elseif ($all_teacher->status == 'suspend')
                           <span class="badge badge-warning">Suspended</span>
                             @else
                             <span class="badge badge-success">Employed</span>
@@ -133,16 +132,16 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Lastname</th>
-                      <th>Middlename</th>
                       <th>First Name</th>
+  
+                      <th>Lastname</th>
                       <th>Images</th>
   
                       <th>Phone</th>
-                      <th>Centername</th>
+                      <th>School Name</th>
                       <th>Classname</th>
                       <th>Section</th>
-                      <th>Entry Level</th>
+                      <th>Term</th>
   
                       <th>Email</th>
   
@@ -153,7 +152,6 @@
                       <th>Print</th>
                       <th>Delete</th>
                       <th>Date</th>
-                    </tr>
                     </tr>
                   </tfoot>
                 </table>
@@ -175,7 +173,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://BRIXTONNSCHOOLS.COM.NG">BRIXTONN SCHOOLS</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
     reserved.
   </footer>
 

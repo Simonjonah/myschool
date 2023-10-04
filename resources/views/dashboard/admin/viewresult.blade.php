@@ -38,24 +38,23 @@
               </div>
               <!-- info row -->
               <div class="row invoice-info">
-                <div class="col-sm-4 invoice-col">
-                    <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="webLTE Logo" class="brand-image ">
+                <div class="col-sm-2 invoice-col">
+                    <img style="width: 50; height: 50px" src="{{ URL::asset("/public/../$viewsingle_results->logo")}}" alt="webLTE Logo" class="brand-image ">
 
                  
                 </div> 
                 <!-- /.col -->
                <div class="col-sm-8 invoice-col">
-                   <h1>GOLDEN DESTINY ACADEMY</h1>
+                   <h2 style="text-transform: uppercase">{{ $viewsingle_results->schoolname }}</h2>
                    <address>
-                    Golden Destiny Academy Road.
-                    Off Senator Akon Eyakenyi Street,
-                    Off General Edet Akpan Ave, 520101, Uyo
+                   {{ $viewsingle_results->address}} <br>
+                   {{ $viewsingle_results->motor}} <br>
                   </address>
                 </div>
                 <!-- /.col -->
-                {{-- <div class="col-sm-4 invoice-col">
-                    <img style="width: 70%; height: 150px;" src="{{ URL::asset("/public/../$view_results->user['images']")}}" alt="">
-                </div> --}}
+                <div class="col-sm-2 invoice-col">
+                    <img style="width: 70%; height: 150px;" src="{{ URL::asset("/public/../$viewsingle_results->images")}}" alt="">
+                </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
@@ -93,9 +92,9 @@
                           // $totalsubject_score +=$viewsingle_results->test_1  + $viewsingle_results->test_2  + $viewsingle_results->test_3  + $viewsingle_results->exams                            
                           @endphp
                           <tr>
-                              <td>{{ $viewsingle_results->user['fname'] }}</td>
-                              <td>{{ $viewsingle_results->user['middlename'] }}</td>
-                              <td>{{ $viewsingle_results->user['surname'] }}</td>
+                              <td>{{ $viewsingle_results->student['fname'] }}</td>
+                              <td>{{ $viewsingle_results->student['middlename'] }}</td>
+                              <td>{{ $viewsingle_results->student['surname'] }}</td>
                               <td>{{ $viewsingle_results->subjectname }}</td>
                               <td>{{ $viewsingle_results->test_1 }}</td>
                               <td>{{ $viewsingle_results->test_2 }}</td>

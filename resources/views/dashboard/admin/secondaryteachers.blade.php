@@ -73,7 +73,8 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($view_abujateachers as $view_abujateacher)
-                      @if ($view_abujateacher->status = 'teacher')
+                      
+                    @if ($view_abujateacher->section == 'Secondary' || $view_abujateacher->section == 'High School' || $view_abujateacher->section == 'High Schools' )
                       <tr>
                         <td>{{ $view_abujateacher->surname }}</td>
                         <td>{{ $view_abujateacher->middlename }}</td>
@@ -174,7 +175,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://goldenschools.com">GOLDEN SCHOOLS</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
     reserved.
   </footer>
 

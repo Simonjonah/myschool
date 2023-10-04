@@ -37,20 +37,18 @@
       <div class="col-sm-2 invoice-col">
         <div class="col-sm-2 invoice-col">
        
-          <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="guardianLTE Logo">
+          <img style="width: 150px; height: 150px;" src="{{ URL::asset("/public/../$print_students->logo")}}" alt="guardianLTE Logo">
       </div>
       <!-- /.col -->
 
       </div>
       <!-- /.col -->
       <div class="col-sm-8 invoice-col">
-       <h1 style="text-align: center">GOLDEN DESTINY ACADEMY</h1>
+       <h1 style="text-align: center">{{ $print_students->schoolname }}</h1>
         <address style="text-align: center">
-          Golden Destiny Academy Road.
-          Off Senator Akon Eyakenyi Street,
-          Off General Edet Akpan Ave, 520101, Uyo
+          {{ $print_students->address }}
           <br>
-          (+234) 0916 684 3045, (+234) 07026191619
+          {{ $print_students->motor }}
    
         </address>
       </div>
@@ -86,7 +84,7 @@
                 <td>{{ $print_students->dob }}</td>
               </tr>
 
-                              <th>Genotype:</th>
+                <th>Genotype:</th>
                 <td>{{ $print_students->genotype }}</td>
               </tr>
               <tr>

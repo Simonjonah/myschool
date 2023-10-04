@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Academicsession;
 use App\Models\Alm;
+use App\Models\Blog;
 use App\Models\Classactivity;
 use App\Models\User;
 use App\Models\Classname;
+use App\Models\Domain;
 use App\Models\Query;
 use App\Models\Subject;
 use App\Models\Teacherassign;
@@ -188,41 +190,45 @@ class UserController extends Controller
         $school_reviews = User::where('status', null)->latest()->get();
     return view('dashboard.admin.viewschreview', compact('school_reviews'));
     }
-   
-
-   public function viewstudent($ref_no1){
-    $view_students = User::where('ref_no1', $ref_no1)->first();
-    return view('dashboard.admin.viewstudent', compact('view_students'));
+    public function viewschapproved(){
+        $school_approves = User::where('status', 'admitted')->latest()->get();
+    return view('dashboard.admin.viewschapproved', compact('school_approves'));
     }
-    public function editstudent($ref_no1){
-        $edit_students = User::where('ref_no1', $ref_no1)->first();
-        $add_class = Classname::all();
-        return view('dashboard.admin.editstudent', compact('add_class', 'edit_students'));
+
+    public function schoolstudent($schoolname){
+        $schools_students = User::where('schoolname', $schoolname)->first();
+        $schools_studentddss = Student::where('schoolname', $schoolname)->latest()->get();
+    return view('dashboard.admin.schoolstudent', compact('schools_studentddss', 'schools_students'));
     }
 
     
-    public function rejectstudent($ref_no1){
+
+    public function viewschrejected(){
+        $school_approves = User::where('status', 'reject')->latest()->get();
+    return view('dashboard.admin.viewschrejected', compact('school_approves'));
+    }
+    
+
+    public function rejectschool($ref_no1){
         $reject_student = User::where('ref_no1', $ref_no1)->first();
         $reject_student->status = 'reject';
         $reject_student->save();
         return redirect()->back()->with('success', 'you have approved successfully');
     }
+
+    public function suspendschool($ref_no1){
+        $reject_student = User::where('ref_no1', $ref_no1)->first();
+        $reject_student->status = 'suspend';
+        $reject_student->save();
+        return redirect()->back()->with('success', 'you have approved successfully');
+    }
+    
     public function rejectedstudent(){
         $reject_students = User::where('status', 'reject')->get();
         return view('dashboard.admin.rejectedstudent', compact('reject_students'));
     }
-    public function suspendstudent($ref_no1){
-        $suspend_student = User::where('ref_no1', $ref_no1)->first();
-        $suspend_student->status = 'suspend';
-        $suspend_student->save();
-        return redirect()->back()->with('success', 'you have approved successfully');
-    }
-    public function suspendstudents(){
-        $suspend_students = User::where('status', 'suspend')->get();
-        return view('dashboard.admin.suspendstudents', compact('suspend_students'));
-    }
-
-    public function studentsaddmit($ref_no1){
+    
+    public function schoolsaddmit($ref_no1){
         $admit_student = User::where('ref_no1', $ref_no1)->first();
         $admit_student->status = 'admitted';
         $admit_student->save();
@@ -254,9 +260,10 @@ class UserController extends Controller
                 return redirect()->back()->with('error', 'you have fail to registered');
         }
     }
-    public function studentpdf($ref_no1){
+    
+    public function schoolpdf($ref_no1){
         $print_students = User::where('ref_no1', $ref_no1)->first();
-        return view('dashboard.admin.studentpdf', compact('print_students'));
+        return view('dashboard.admin.schoolpdf', compact('print_students'));
     }
 
     public function medicalspdf($ref_no1){
@@ -313,15 +320,14 @@ class UserController extends Controller
     public function home(){
 
         $countyourresults = Result::where('user_id', auth::guard('web')->id())->count();
-        // $countqueries = Query::where('user_id', auth::guard('web')->id())
-        // ->where('status', null)
-        // ->count();
-        // $countreplyqueries = Query::where('user_id', auth::guard('web')->id())
-        // ->where('status', 'reply')
-        // ->count();
+        $countteachers = Teacher::where('user_id', auth::guard('web')->id())->count();
+        $countclasses = Classname::where('user_id', auth::guard('web')->id())->count();
         $countmysubjects = Subject::where('user_id', auth::guard('web')->id())->count();
-    //    $countmyactivity = Classactivity::where('user_id', auth::guard('web')->id())->count();
-        return view('dashboard/home', compact('countmysubjects', 'countyourresults'));
+        $countstudents = Student::where('user_id', auth::guard('web')->id())->count();
+        $countpsyco = Domain::where('user_id', auth::guard('web')->id())->count();
+        $countnews = Blog::where('user_id', auth::guard('web')->id())->count();
+
+        return view('dashboard/home', compact('countnews', 'countpsyco', 'countstudents', 'countclasses','countteachers', 'countmysubjects', 'countyourresults'));
     }
 
     public function profile($ref_no1){
@@ -479,161 +485,9 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'you have added successfully');
     }
 
-    public function viewteachers(){
-        $view_teachers = User::where('status', 'teacher')->get();
-        return view('dashboard.admin.viewteachers', compact('view_teachers'));
-    }
-
-    public function viewsingleteacher($ref_no1){
-        $view_singteachers = User::where('ref_no1', $ref_no1)->first();
-        return view('dashboard.admin.viewsingleteacher', compact('view_singteachers'));
-    }
-
-    public function editteacher($ref_no1){
-        $edit_singteachers = User::where('ref_no1', $ref_no1)->first();
-        $view_classnames = Classname::all();
-        
-        return view('dashboard.admin.editteacher', compact('view_classnames', 'edit_singteachers'));
-    }
     
 
-    public function teacherupdated(Request $request, $ref_no1){
-        $edit_singteachers = User::where('ref_no1', $ref_no1)->first();
-       
-        $request->validate([
-            'fname' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string'],
-            'middlename' => ['required', 'string'],
-            'classname' => ['required', 'string'],
-            'gender' => ['required', 'string'],
-      
-            'section' => ['required', 'string'],
-            'term' => ['required', 'string'],
-            
-            'images' => 'required|mimes:jpg,png,jpeg'
-        ]);
-
-        if ($request->hasFile('images')){
-
-            $file = $request['images'];
-            $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
-            $path = $request->file('images')->storeAs('resourceimages', $filename);
-
-        }
-
-        $edit_singteachers['images'] = $path;
-        $edit_singteachers->surname = $request->surname;
-        $edit_singteachers->fname = $request->fname;
-        $edit_singteachers->middlename = $request->middlename;
-        $edit_singteachers->phone = $request->phone;
-        $edit_singteachers->section = $request->section;
-        $edit_singteachers->gender = $request->gender;
-       
-        $edit_singteachers->term = $request->term;
-        $edit_singteachers->classname = $request->classname;
-       
-        $edit_singteachers->update();
-        if ($edit_singteachers) {
-            return redirect()->back()->with('success', 'you have successfully updated');
-                
-            }else{
-                return redirect()->back()->with('error', 'you have fail to registered');
-        }
-    }
-
-    public function teacherapprove($ref_no1){
-        $approved_teacher = User::where('ref_no1', $ref_no1)->first();
-        $approved_teacher->role = 'approved';
-        $approved_teacher->save();
-        return redirect()->back()->with('success', 'you have approved successfully');
-    }
-
-    public function teachersuspend($ref_no1){
-        $approved_teacher = User::where('ref_no1', $ref_no1)->first();
-        $approved_teacher->role = 'suspend';
-        $approved_teacher->save();
-        return redirect()->back()->with('success', 'you have suspend successfully');
-    }
-
-    public function teachersacked($ref_no1){
-        $approved_teacher = User::where('ref_no1', $ref_no1)->first();
-        $approved_teacher->role = 'sacked';
-        $approved_teacher->save();
-        return redirect()->back()->with('success', 'you have sacked successfully');
-    }
     
-    public function teacherquery($ref_no1){
-        $query_singteachers = User::where('ref_no1', $ref_no1)->first();
-
-        return view('dashboard.admin.teacherquery', compact('query_singteachers'));
-    }
-    public function teachersprint(){
-        $print_teachers = User::where('status', 'teacher')->get();
-
-        return view('dashboard.admin.teachersprint', compact('print_teachers'));
-    }
-
-    public function approveteachers(){
-        $approves_teachers = User::where('role', 'approved')->get();
-        return view('dashboard.admin.approveteachers', compact('approves_teachers'));
-    }
-    public function suspendedteachers(){
-        $suspend_teachers = User::where('role', 'suspend')->get();
-        return view('dashboard.admin.suspendedteachers', compact('suspend_teachers'));
-    }
-    public function sackedteachers(){
-        $sacked_teachers = User::where('role', 'sacked')->get();
-        return view('dashboard.admin.sackedteachers', compact('sacked_teachers'));
-    }
-
-    public function queriedteachers(){
-        $queried_teachers = User::where('role', 'sacked')->get();
-        return view('dashboard.admin.queriedteachers', compact('queried_teachers'));
-    }
-
-    public function allteachers(){
-        $all_teachers = User::where('status', 'teacher')->get();
-        return view('dashboard.admin.allteachers', compact('all_teachers'));
-    }
-    
-    public function primaryteachers(){
-        $view_uyoteachers = User::where('status', 'teacher')
-        ->where('section', 'Primary')->get();
-        return view('dashboard.admin.primaryteachers', compact('view_uyoteachers'));
-    }
-    public function secondaryteachers(){
-        $view_abujateachers = User::where('status', 'teacher')
-        ->where('section', 'Secondary')->get();
-        return view('dashboard.admin.secondaryteachers', compact('view_abujateachers'));
-    }
-    public function studentsubjects($ref_no1){
-        $view_studentsubjects = User::where('ref_no1', $ref_no1)->first();
-        $view_subjects = Subject::where('section', 'Primary')->get();
-        return view('dashboard.admin.studentsubjects', compact('view_studentsubjects', 'view_subjects'));
-    }
-
-
-    public function studentsubjectbyhead($ref_no1){
-        $view_studentsubjects = User::where('ref_no1', $ref_no1)->first();
-        $view_subjects = Subject::where('section', 'Primary')->get();
-        return view('dashboard.studentsubjectbyhead', compact('view_studentsubjects', 'view_subjects'));
-    }
-
-    public function studentsubjectsbyheads($ref_no1){
-        $view_studentsubjects = User::where('ref_no1', $ref_no1)->first();
-        $view_subjects = Subject::where('section', 'Secondary')->get();
-        return view('dashboard.studentsubjectsbyheads', compact('view_studentsubjects', 'view_subjects'));
-    }
-    
-    public function studentsubjectsall($ref_no1){
-        $view_studentsubjects = User::where('ref_no1', $ref_no1)->first();
-        $view_subjects = Subject::all();
-        return view('dashboard.studentsubjectsall', compact('view_studentsubjects', 'view_subjects'));
-    }
-    
-
     
 
     public function changeclasses ($ref_no){
@@ -1042,7 +896,7 @@ class UserController extends Controller
     }
 
 
-
+   
     
     public function logout(){
         Auth::guard('web')->logout();

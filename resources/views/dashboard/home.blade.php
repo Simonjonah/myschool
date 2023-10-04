@@ -53,7 +53,7 @@
           <div class="icon">
             <i class="ion ion-bag"></i>
           </div>
-          <a href="{{ url('web/pioneertermresults') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ url('web/allresults') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -76,14 +76,14 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>54</h3>
+            <h3>{{ $countteachers }}</h3>
 
-            <p>Your Query</p>
+            <p>My Teachers</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          {{-- <a href="{{ url('web/checkyourquery') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+          <a href="{{ url('web/myteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -91,14 +91,14 @@
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3>56</h3>
+            <h3>{{ $countclasses }}</h3>
 
-            <p>Replied Query</p>
+            <p>My Classes</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
-          {{-- <a href="{{ route('web.queryrepliedview') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+          <a href="{{ route('web.viewallclasses') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -107,15 +107,49 @@
         <!-- small box -->
         <div class="small-box bg-secondary">
           <div class="inner">
-            <h3>4</h3>
+            <h3>{{ $countstudents }}</h3>
 
-            <p>Class Activity</p>
+            <p>My Students</p>
           </div>
           <div class="icon">
             <i class="ion ion-person"></i>
 
           </div>
-          {{-- <a href="{{ route('web.viewclassactivities') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+          <a href="{{ route('web.viewyourstudentsecondary') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+          <div class="inner">
+            <h3>{{ $countpsyco }}</h3>
+
+            <p>My Psycomotor</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+
+          </div>
+          <a href="{{ route('web.viewallpschomotors') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-dark">
+          <div class="inner">
+            <h3>{{ $countnews }}</h3>
+
+            <p>My School News</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person"></i>
+
+          </div>
+          <a href="{{ route('web.viewyouradverts') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

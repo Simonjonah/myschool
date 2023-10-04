@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Domain;
 use App\Models\Teacherdomain;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class TeacherdomainController extends Controller
 {
@@ -35,7 +37,19 @@ class TeacherdomainController extends Controller
 
 
         return redirect()->back()->with('success', 'you have added successfully');
-
-
     }
+
+    public function teacherviewdomaiin(){
+        $view_domains = Teacherdomain::where('teacher_id', auth::guard('teacher')->id())->get();
+    
+        return view('dashboard.teacher.teacherviewdomaiin', compact('view_domains'));
+    }
+
+
+    public function teacherpsycomotor(){
+        $view_domains = Teacherdomain::latest()->get();
+    
+        return view('dashboard.admin.teacherpsycomotor', compact('view_domains'));
+    }
+    
 }

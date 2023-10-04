@@ -107,13 +107,13 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>66</h3>
+                <h3>{{ $countteacher }}</h3>
                 <p>Teachers</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              {{-- <a href="{{ route('admin.viewteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+              <a href="{{ route('admin.viewteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -122,13 +122,13 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>57</h3>
-                <p>Primary Teachers</p>
+                <h3>{{ $countsunapprveteacher }}</h3>
+                <p>Unapproved Teachers</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              {{-- <a href="{{ route('admin.primaryteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+              <a href="{{ route('admin.primaryteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -137,13 +137,13 @@
             <!-- small box -->
             <div class="small-box bg-default">
               <div class="inner">
-                <h3>68</h3>
-                <p>Secondary Teachers</p>
+                <h3>{{ $countschool }}</h3>
+                <p>Schools</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              {{-- <a href="{{ route('admin.secondaryteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+              <a href="{{ route('admin.secondaryteachers') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -168,7 +168,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Suspended Students</span>
                 <span class="info-box-number">
-                  46
+                  {{ $countstudenttsuspend }}
                   {{-- <small>%</small> --}}
                 </span>
               </div>
@@ -184,7 +184,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Approved Students</span>
-                <span class="info-box-number">78</span>
+                <span class="info-box-number">{{ $countstudentapprove }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -202,7 +202,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Rejected Students</span>
-                <span class="info-box-number">42</span>
+                <span class="info-box-number">{{ $countstudentreject }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -214,8 +214,8 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Queries</span>
-                <span class="info-box-number">59</span>
+                <span class="info-box-text">Approved School </span>
+                <span class="info-box-number">{{ $countschoolunpproved }}</span>
               </div>
             </div>
           </div>
@@ -226,8 +226,8 @@
               <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Replied Queries</span>
-                <span class="info-box-number">42</span>
+                <span class="info-box-text">Unapproved Schools</span>
+                <span class="info-box-number">{{ $countschoolunpproved }}</span>
               </div>
             </div>
           </div>
@@ -238,8 +238,8 @@
               <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Class Activities</span>
-                <span class="info-box-number">32</span>
+                <span class="info-box-text">Suspend Schools</span>
+                <span class="info-box-number">{{ $countschoolsuspend }}</span>
               </div>
             </div>
           </div>
@@ -259,8 +259,8 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Schools</span>
-                <span class="info-box-number">575</span>
+                <span class="info-box-text"> Rejected Schools</span>
+                <span class="info-box-number">{{ $countschoolrejected }}</span>
               </div>
             </div>
           </div>
@@ -270,8 +270,8 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Secondary Parents</span>
-                <span class="info-box-number">43</span>
+                <span class="info-box-text">Rejected Teacher</span>
+                <span class="info-box-number">{{ $countteacherrejected }}</span>
               </div>
             </div>
           </div>
@@ -281,8 +281,8 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Primary Parents</span>
-                <span class="info-box-number">34</span>
+                <span class="info-box-text">Unapproved Teachers</span>
+                <span class="info-box-number">{{ $countteacherunpproved }}</span>
               </div>
             </div>
           </div>
@@ -292,8 +292,8 @@
               <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Notifications</span>
-                <span class="info-box-number">34</span>
+                <span class="info-box-text">Teacher Approved</span>
+                <span class="info-box-number">{{ $countteacherapproved }}</span>
               </div>
             </div>
           </div>
@@ -304,8 +304,8 @@
               <span class="info-box-icon bg-secondary elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Replied Queries</span>
-                <span class="info-box-number">43</span>
+                <span class="info-box-text">Teacher Suspend</span>
+                <span class="info-box-number">{{ $countteachersuspend }}</span>
               </div>
             </div>
           </div>
@@ -337,7 +337,7 @@
                       @foreach ($view_lecturers as $view_lecturer)
                         @if ($view_lecturer->status = 'approved')
                           <li>
-                           <a href="viewsingleteacher/{{ $view_lecturer->ref_no1 }}"> <img style="width: 128px; height: 128px;" src="{{ URL::asset("/public/../$view_lecturer->images")}}" alt="User Image"></a>
+                           <a href="viewsingleteacher/{{ $view_lecturer->ref_no1 }}">{{ $view_lecturer->schoolname }}</a>
                             <a class="users-list-name" href="viewsingleteacher/{{ $view_lecturer->ref_no1 }}">{{ $view_lecturer->fname }} {{ $view_lecturer->surname }}</a>
                             <span class="users-list-date">{{ $view_lecturer->created_at->format('D d, M Y, H:i')}}</span>
                           </li>
@@ -358,9 +358,11 @@
               </div>
               <!-- /.col -->
             </div>
+
+
+            
+
             <!-- /.row -->
-
-
 
 
 
@@ -418,23 +420,17 @@
                   </div>
                   <!-- /.table-responsive -->
                 </div>
-                <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                  {{-- <a href="{{ route('admin.allstudents') }}" class="btn btn-sm btn-info float-left">View All Student</a> --}}
-                  {{-- <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a> --}}
                 </div>
                 <!-- /.card-footer -->
               </div>
               <!-- /.card -->
 
 
-
-
-
             <!-- TABLE: LATEST ORDERS -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Latest Payments</h3>
+                <h3 class="card-title">Latest Schools</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -451,41 +447,49 @@
                   <table class="table m-0">
                     <thead>
                     <tr>
-                      <th>Surname</th>
                       <th>First Name</th>
+                      <th>Surname</th>
+                      <th>School name</th>
+                      <th>Address</th>
                       <th>ReF ID</th>
                       <th>Status</th>
-                      <th>Section</th>
+                      <th>Logo</th>
                     </tr>
                     </thead>
                     <tbody>
-                      {{-- @foreach ($view_payments as $view_payment)
-                      <tr>
-                        <td><a href="{{ url('admin/viewsinglepayment/'.$view_payment->ref_no) }}">View Payment of {{ $view_payment->middlename }}</a></td>
-                        <td><a href="{{ url('admin/viewstudents/'.$view_payment->ref_no1) }}">{{ $view_payment->fname }}</a></td>
-                        
-                        <td>{{ $view_payment->ref_no }}</td>
 
-                        <td>@if ($view_payment->processor_response = null)
+                      @foreach ($view_schools as $view_school)
+                      <tr>
+                        <td><a href="{{ url('admin/viewschool/'.$view_school->ref_no1) }}"> {{ $view_school->fname }}</a></td>
+                        <td><a href="{{ url('admin/viewschool/'.$view_school->ref_no1) }}">{{ $view_school->surname }}</a></td>
+                        
+                        <td>{{ $view_school->schoolname }}</td>
+                        <td>{{ $view_school->address }}</td>
+                        <td>{{ $view_school->ref_no1 }}</td>
+
+                        <td>@if ($view_school->status == null)
                           <span class="badge badge-secondary">In Progress</span>
-                        @elseif($view_payment->processor_response = 'successful')
+                        @elseif($view_school->status == 'successful')
                         <span class="badge badge-success">Success</span>
-                        @elseif($view_payment->processor_response = 'approved')
+                        @elseif($view_school->status == 'approved')
                         <span class="badge badge-danger">Approved</span>
-                        @elseif($view_payment->processor_response == 'confirm')
+                        @elseif($view_school->status == 'confirm')
                         <span class="badge badge-info">Confirmed</span>
                         @endif
                       </td>
-                      <td>{{ $view_payment->section }}</td>
+                      <td><img style="width: 70%; height: 70%;" class="profile-user-img img-fluid"
+                        src="{{ URL::asset("/public/../$view_school->logo")}}"
+                        alt="User profile picture"></td>
 
                       </tr>
-                      @endforeach --}}
+                      @endforeach
+                      
                     </tbody>
                   </table>
                 </div>
                 <!-- /.table-responsive -->
               </div>
-              <!-- /.card-body -->
+
               <div class="card-footer clearfix">
                 {{-- <a href="{{ route('admin.viewallpayment') }}" class="btn btn-sm btn-info float-left">View All Payment</a> --}}
                 {{-- <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a> --}}
@@ -493,9 +497,77 @@
               <!-- /.card-footer -->
             </div>
             <!-- /.card -->
+
+
+
+             <!-- TABLE: LATEST ORDERS -->
+             <div class="card">
+              <div class="card-header border-transparent">
+                <h3 class="card-title">Latest News</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>Schoolname</th>
+                      <th>Title</th>
+                      <th>Phone</th>
+                      <th>Status</th>
+                      <th>Images</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                      @foreach ($view_blogs as $view_blog)
+                      <tr>
+                       
+                        <td>{{ $view_blog->user['schoolname'] }}</td>
+                        <td> <a href="{{ url('admin/blogview/'.$view_blog->ref_no) }}">{{ $view_blog->title }}</a></td>
+                        <td>{{ $view_blog->phone }}</td>
+
+                        <td>@if ($view_blog->status == null)
+                          <span class="badge badge-secondary">In Progress</span>
+                        @elseif($view_blog->status == 'successful')
+                        <span class="badge badge-success">Success</span>
+                        @elseif($view_blog->status == 'approved')
+                        <span class="badge badge-success">Approved</span>
+                        @elseif($view_blog->status == 'confirm')
+                        <span class="badge badge-info">Confirmed</span>
+                        @endif
+                      </td>
+                      <td><img style="width: 70%; height: 70%;" class="profile-user-img img-fluid"
+                        src="{{ URL::asset("/public/../$view_blog->logo")}}"
+                        alt="User profile picture"></td>
+
+                      </tr>
+                      @endforeach
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="card-footer clearfix">
+                
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
           </div>
           <!-- /.col -->
 
+          
 
           
           <div class="col-md-4">
@@ -515,7 +587,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Results</span>
-                <span class="info-box-number">78</span>
+                <span class="info-box-number">{{ $count_results }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -524,8 +596,8 @@
               <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Downloads</span>
-                <span class="info-box-number">114,381</span>
+                <span class="info-box-text">Psycomotor</span>
+                <span class="info-box-number">{{ $countcount }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -534,8 +606,8 @@
               <span class="info-box-icon"><i class="far fa-comment"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Direct Messages</span>
-                <span class="info-box-number">163,921</span>
+                <span class="info-box-text">Notification</span>
+                <span class="info-box-number">{{ $countsnotification }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -560,19 +632,19 @@
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <ul class="products-list product-list-in-card pl-2 pr-2">
-                  {{-- @foreach ($view_results as $view_result)
+                  @foreach ($view_results as $view_result)
                   <li class="item">
-                    <a href="viewresults/{{ $view_result->user_id }}" class="btn btn-info">View
+                    <a href="viewresult/{{ $view_result->id }}" class="btn btn-info">View
                      </a>
                     <div class="product-info">
-                      <a href="viewresult/{{ $view_result->id }}" class="product-title">{{ $view_result->subjectname }}
-                        <span class="badge badge-warning float-right">{{ $view_result->user['section']}}</span></a>
+                      <a href="viewresult/{{ $view_result->id }}" class="product-title">{{ $view_result->subjectname }} {{ $view_result->classname }}
+                        <span class="badge badge-warning float-right">{{ $view_result->section}}</span></a>
                       <span class="product-description">
-                       By {{ $view_result->user['fname'] }} {{ $view_result->user['surname'] }}
+                       By {{ $view_result->user['schoolname'] }} Tname {{ $view_result->teacher['surname'] }}
                       </span>
                     </div>
                   </li>
-                  @endforeach --}}
+                  @endforeach
                 </ul>
               </div>
             </div>
@@ -583,7 +655,7 @@
             <!-- PRODUCT LIST -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">First Lesson Notes</h3>
+                <h3 class="card-title">Latest Payments</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -597,23 +669,28 @@
               <!-- /.card-header -->
               <div class="card-body p-0">
                 <ul class="products-list product-list-in-card pl-2 pr-2">
-                  {{-- @foreach ($student_sums as $student_sum)
-                  <li class="item">
-                    <a href="viewstudents/{{ $student_sum->ref_no }}" class="btn btn-info">View 
-                     </a>
-                     <small><a href="viewsfees/{{ $student_sum->ref_no }}" class="btn btn-info">₦ {{ $student_sum->amount }}
-                     </a></small>
-                     
-                    <div class="product-info">
-                      <a href="viewstudents/{{ $student_sum->ref_no }}" class="product-title">{{ $student_sum->Sectionname }}
-                        <span class="badge badge-warning float-right">{{ $student_sum->registercourse['Sectionname']}}</span></a>
-                      <span class="product-description">
-                       By {{ $student_sum->fname }} {{ $student_sum->surname }}
-                      </span>
-                    </div>
-                  </li>
-                  @endforeach
-                </ul> --}}
+                  {{-- @foreach ($view_payments as $view_payment)
+                      <tr>
+                        <td><a href="{{ url('admin/viewsinglepayment/'.$view_payment->ref_no) }}">View Payment of {{ $view_payment->middlename }}</a></td>
+                        <td><a href="{{ url('admin/viewstudents/'.$view_payment->ref_no1) }}">{{ $view_payment->fname }}</a></td>
+                        
+                        <td>{{ $view_payment->ref_no }}</td>
+
+                        <td>@if ($view_payment->processor_response = null)
+                          <span class="badge badge-secondary">In Progress</span>
+                        @elseif($view_payment->processor_response = 'successful')
+                        <span class="badge badge-success">Success</span>
+                        @elseif($view_payment->processor_response = 'approved')
+                        <span class="badge badge-danger">Approved</span>
+                        @elseif($view_payment->processor_response == 'confirm')
+                        <span class="badge badge-info">Confirmed</span>
+                        @endif
+                      </td>
+                      <td>{{ $view_payment->section }}</td>
+
+                      </tr>
+                      @endforeach --}}
+                </ul>
               </div>
             </div>
             <!-- /.card -->

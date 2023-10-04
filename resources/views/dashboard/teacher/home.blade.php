@@ -32,14 +32,14 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>34</h3>
+                <h3>{{ $resultscounts }}</h3>
 
-                <p>Your Children</p>
+                <p>Your Results</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('teacher/tecacherviewresultbysub') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -47,16 +47,16 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>34</h3>
+                <h3>{{ $countcognitive }}</h3>
 
                 {{-- <h3><sup style="font-size: 20px"></sup></h3> --}}
 
-                <p>School  Fees</p>
+                <p>Cognitive Domain</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="{{ url('teacher/paymenthistory') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('teacher/teacherviewdomaiin') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -64,14 +64,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>5e</h3>
+                <h3>{{ $countpsycomo }}</h3>
 
-                <p>Class Activities</p>
+                <p>Psycomotor Domain</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="{{ url('teacher/viewclassactivitypare') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ url('teacher/teacherviewdomaiin') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -79,9 +79,9 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>34</h3>
+                <h3>{{ $countsubject }}</h3>
 
-                <p>Your Class Activity Replied</p>
+                <p>My Subjects</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -95,9 +95,25 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>5</h3>
+                <h3>{{ $countapproveresult }}</h3>
 
-                <p>Results</p>
+                <p>Approve Results</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person"></i>
+
+              </div>
+              {{-- <a href="{{ route('teacher.viewpersonnel') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> --}}
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-dark">
+              <div class="inner">
+                <h3>{{ $countunapproveresult }}</h3>
+
+                <p>Unapproved Results</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>

@@ -39,15 +39,14 @@
                   <thead>
                   <tr>
                     <th>Lastname</th>
-                    <th>Middlename</th>
                     <th>First Name</th>
                     <th>Images</th>
 
                     <th>Phone</th>
-                    <th>Centername</th>
+                    <th>Schoolname</th>
                     <th>Classname</th>
                     <th>Section</th>
-                    <th>Entry Level</th>
+                    <th>Term</th>
 
                     <th>Email</th>
 
@@ -73,24 +72,23 @@
                     {{ Session::get('fail') }}
                     @endif
                     @foreach ($approves_teachers as $approves_teacher)
-                      @if ($approves_teacher->status = 'teacher' && $approves_teacher->role = 'approved')
+                      @if ($approves_teacher->status = 'teacher' && $approves_teacher->status = 'approved')
                       <tr>
                         <td>{{ $approves_teacher->surname }}</td>
-                        <td>{{ $approves_teacher->middlename }}</td>
                         <td>{{ $approves_teacher->fname }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$approves_teacher->images")}}" alt=""></td>
                         <td>{{ $approves_teacher->phone }}</td>
-                        <td>{{ $approves_teacher->centername }}</td>
+                        <td>{{ $approves_teacher->schoolname }}</td>
                         <td>{{ $approves_teacher->classname }}</td>
                         <td>{{ $approves_teacher->section }}</td>
-                        <td>{{ $approves_teacher->entrylevel }}</td>
+                        <td>{{ $approves_teacher->term }}</td>
                         <td>{{ $approves_teacher->email }}</td>
 
-                        <td>@if ($approves_teacher->role == 'teacher')
+                        <td>@if ($approves_teacher->status == 'teacher')
                           <span class="badge badge-secondary">In Progress</span>
-                          @elseif ($approves_teacher->role == 'sacked')
+                          @elseif ($approves_teacher->status == 'sacked')
                           <span class="badge badge-danger">Sacked</span>
-                          @elseif ($approves_teacher->role == 'suspend')
+                          @elseif ($approves_teacher->status == 'suspend')
                           <span class="badge badge-warning">Suspended</span>
                             @else
                             <span class="badge badge-success">Employed</span>
@@ -131,15 +129,14 @@
                   <tfoot>
                     <tr>
                       <th>Lastname</th>
-                      <th>Middlename</th>
                       <th>First Name</th>
                       <th>Images</th>
   
                       <th>Phone</th>
-                      <th>Centername</th>
+                      <th>Schoolname</th>
                       <th>Classname</th>
                       <th>Section</th>
-                      <th>Entry Level</th>
+                      <th>Term</th>
   
                       <th>Email</th>
   
@@ -150,7 +147,6 @@
                       <th>Print</th>
                       <th>Delete</th>
                       <th>Date</th>
-                    </tr>
                     </tr>
                   </tfoot>
                 </table>
@@ -172,7 +168,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://BRIXTONNSCHOOLS.COM.NG">BRIXTONN SCHOOLS</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
     reserved.
   </footer>
 

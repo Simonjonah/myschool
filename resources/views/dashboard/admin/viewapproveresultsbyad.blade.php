@@ -38,11 +38,13 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>Schoolname</th>
+                    <th>Teacher</th>
                     <th>Surname</th>
                     <th>Firstname</th>
                     <th>Middlename</th>
                     <th>Admission No</th>
-                    <th>Psycomotor</th>
+                    <th>Search Sch.</th>
                     {{-- <th>Ref. No</th> --}}
                     <th>CA 1</th>
                     <th>CA 2</th>
@@ -79,7 +81,7 @@
                       //  $total_score = 0;
                     @endphp
                     @foreach ($approve_results as $approve_result)
-                        {{-- @if ($approve_result->status == 'approve') --}}
+                        @if ($approve_result->status == 'approved')
                             
                     {{-- @if ($approve_result->status = null) --}}
                     @php
@@ -87,14 +89,21 @@
                      
                  @endphp
                  <tr>
-                   <td>{{ $approve_result->user['surname'] }}</td>
-                   <td>{{ $approve_result->user['fname'] }}</td>
-                   <td>{{ $approve_result->user['middlename'] }}</td>
-                   <td>{{ $approve_result->user['regnumber'] }}</td>
-                   <td><a href="{{ url('admin/addpsychomotorad/'.$approve_result->id) }}"
+                   <td>{{ $approve_result->user['schoolname'] }}</td>
+                   <td>Teacher: {{ $approve_result->teacher['fname'] }} <br>
+                    {{ $approve_result->teacher['classname'] }} 
+                  </td>
+                   <td>{{ $approve_result->student['surname'] }}</td>
+                   <td>{{ $approve_result->student['fname'] }}</td>
+                   <td>{{ $approve_result->student['middlename'] }}</td>
+                   <td>{{ $approve_result->student['regnumber'] }} <small>{{ $approve_result->classname }} </small></td>
+                   {{-- <td><a href="{{ url('admin/addpsychomotorad/'.$approve_result->id) }}"
                      class='btn btn-default'>
-                     Add Psycomotor
-                      <i class="far fa-eye"></i>
+                     Add Search Sch.
+                      <i class="far fa-eye"></i> --}}
+                      <td> <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                        Search Results of Sch.
+                      </button></td>
 
                   
 
@@ -154,7 +163,7 @@
 
 
 
-                 <td><a href="{{ url('admin/teacherviewresults/'.$approve_result->id)}}"
+                 <td><a href="{{ url('admin/editviewresultsad/'.$approve_result->id)}}"
                     class='btn btn-primary'>
                      <i class="far fa-edit"></i>
                  </a></td>
@@ -162,10 +171,10 @@
                
 
 
-{{-- 
+
                         @else
                             
-                        @endif --}}
+                        @endif
                     @endforeach
             
                     
@@ -175,11 +184,13 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                        <th>School Name</th>
+                        <th>Teacher</th>
                         <th>Surname</th>
                         <th>Firstname</th>
                         <th>Middlename</th>
                         <th>Admission No</th>
-                        <th>Psycomotor</th>
+                        <th>Search Sch.</th>
                         {{-- <th>Ref. No</th> --}}
                         <th>CA 1</th>
                         <th>CA 2</th>
@@ -216,7 +227,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="https://goldendestinyacademyschools.com">Goldendestinyschools</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#">School</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -269,3 +280,57 @@
 </script>
 </body>
 </html>
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Search Sch. Results</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form action="{{ url('admin/searchresults') }}" method="post">
+        @csrf
+          <div class="form-group">
+            <label for="">Sch. Name</label>
+              <select name="schoolname" class="form-control" id="">
+                @foreach ($view_schoolsnames as $view_schoolsname)
+                  <option value="{{ $view_schoolsname->schoolname }}">{{ $view_schoolsname->schoolname }}</option>
+                @endforeach
+              </select>
+          </div>
+
+          <div class="form-group">
+            <label for="">Academic Session</label>
+              <select name="academic_session" class="form-control" id="">
+                @foreach ($view_academcsessions as $view_academcsession)
+                  <option value="{{ $view_academcsession->academic_session }}">{{ $view_academcsession->academic_session }}</option>
+                @endforeach
+              </select>
+          </div>
+
+
+          
+          <div class="form-group">
+            <label for="">Term</label>
+              <select name="term" class="form-control" id="">
+                @foreach ($view_terms as $view_term)
+                  <option value="{{ $view_term->term }}">{{ $view_term->term }}</option>
+                @endforeach
+              </select>
+          </div>
+    
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">View</button>
+      </div>
+
+    </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

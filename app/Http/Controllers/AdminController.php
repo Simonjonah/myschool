@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Blog;
 use App\Models\Classactivity;
 use App\Models\Classname;
+use App\Models\Domain;
 use App\Models\Result;
 use App\Models\Guardian;
 use App\Models\Notification;
 use App\Models\Payment;
+use App\Models\Student;
 // use App\Models\Query;
 use App\Models\User;
 use App\Models\Subject;
+use App\Models\Teacher;
 use App\Models\Transaction;
 
 
@@ -68,37 +72,42 @@ class AdminController extends Controller
     }
 
     public function home(){
-        $countstudent = User::where('role', null)->count();
+        $countstudent = Student::count();
         $countsubjects = Subject::count();
         $countsubjecthigh = Subject::where('section', 'Secondary')->count();
         $countsubjectprim = Subject::where('section', 'Primary')->count();
-      //  $countteacher = User::where('status', 'teacher')->count();
-       //= User::where('section', 'Primary')
-       // ->where('status', 'teacher')->count();
-        // $countteachersecondary = User::where('section', 'Secondary')
-        // ->where('status', 'teacher')->count();
-        $countstudenttsuspend = User::where('status', 'suspend')->count();
-        $countstudentapprove = User::where('status', 'suspend')->count();
-        $countstudentreject = User::where('status', 'reject')->count();
-        // $countsqueries = Query::count();
-      //  Query::where('status', 'reply')->count();
-      //  $countstransactions = Transaction::count();
-        //$countspayments = Payment::count();
-        //$countsnoti = Notification::count();
-      //  $countsactivity = Classactivity::count();
-        $countsclasses = Classname::count();
-        // $countsparent = Guardian::count();
-        // $countsecparent = Guardian::where('section', 'Primary')->count();
-        // $countprimparent = Guardian::where('section', 'Secondary')->count();
+        $countteacher = Teacher::count();
+        $countsunapprveteacher = Teacher::where('section', 'Primary')
+       ->where('status', null)->count();
 
+        $countschool = User::count();
+        $countstudenttsuspend = Student::where('status', 'suspend')->count();
+        $countstudentapprove = Student::where('status', 'suspend')->count();
+        $countstudentreject = Student::where('status', 'reject')->count();
+        $countschoolunpproved = User::where('status', null)->count();
+        $countschoolapproved = User::where('status', 'approved')->count();
+        $countschoolsuspend = User::where('status', 'suspend')->count();
+        $countschoolrejected = User::where('status', 'reject')->count();
+      
+
+        $countteacherunpproved = Teacher::where('status', null)->count();
+        $countteacherapproved = Teacher::where('status', 'approved')->count();
+        $countteachersuspend = Teacher::where('status', 'suspend')->count();
+        $countteacherrejected = Teacher::where('status', 'reject')->count();
+      
+        $countsclasses = Classname::count();
+        $countcount = Domain::count();
+        $countsnotification = Notification::count();
         
-        $view_lecturers = User::orderby('created_at', 'DESC')->where('status', 'teacher')->take(4)->get();
-        $view_students = User::orderby('created_at', 'DESC')->where('status', null)->take(5)->get();
+        $view_lecturers = Teacher::orderby('created_at', 'DESC')->where('status', null)->take(4)->get();
+        $view_students = Student::orderby('created_at', 'DESC')->where('status', null)->take(5)->get();
+        $view_schools = User::orderby('created_at', 'DESC')->where('status', null)->take(5)->get();
+        $view_blogs = Blog::orderby('created_at', 'DESC')->take(5)->get();
         // $view_payments = Transaction::orderby('created_at', 'DESC')->take(5)->get();
-        // $view_results = Result::orderBy('created_at', 'DESC')->take(5)->get();
-        // $count_results = Result::count();
+        $view_results = Result::orderBy('created_at', 'DESC')->take(5)->get();
+        $count_results = Result::count();
         
-        return view('dashboard.admin.home', compact('view_lecturers', 'countsclasses', 'view_students', 'countstudentreject', 'countstudentapprove', 'countstudenttsuspend', 'countsubjectprim', 'countsubjecthigh', 'countsubjects', 'countstudent'));
+        return view('dashboard.admin.home', compact('view_blogs', 'countsnotification', 'view_schools', 'countcount', 'count_results', 'view_results',  'countteacherrejected', 'countteachersuspend', 'countteacherapproved', 'countteacherunpproved', 'countschoolunpproved', 'countschoolapproved', 'countschoolsuspend', 'countschoolrejected', 'countschool', 'countsunapprveteacher', 'countteacher', 'view_lecturers', 'countsclasses', 'view_students', 'countstudentreject', 'countstudentapprove', 'countstudenttsuspend', 'countsubjectprim', 'countsubjecthigh', 'countsubjects', 'countstudent'));
     }
 
     public function profile() {

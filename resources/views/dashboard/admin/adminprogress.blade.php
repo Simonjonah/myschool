@@ -41,7 +41,7 @@
                     <th>Surname</th>
                     <th>First Name</th>
                     <th>Ref NO</th>
-                    <th>Plan</th>
+                    <th>Gender</th>
                     <th>Logo</th>
                     <th>View</th>
                     <th>Edit</th>
@@ -51,28 +51,28 @@
                   </thead>
                   <tbody>
 
-                    @foreach ($admin_progress as $admin_progres)
-                      {{-- @if ($admin_progres->status == null) --}}
+                    @foreach ($view_primarypupls as $view_primarypupl)
+                      {{-- @if ($view_primarypupl->status == null) --}}
                       <tr>
-                        <td>{{ $admin_progres->phone }}</td>
+                        <td><a href="{{ url('admin/schoolstudents/'.$view_primarypupl->user_id) }}" target="_blank" rel="noopener noreferrer">{{ $view_primarypupl->schoolname }}</a></td>
 
-                        <td>{{ $admin_progres->surname }}</td>
-                        <td>{{ $admin_progres->fname }}</td>
-                        <td>{{ $admin_progres->ref_no1 }}</td>
-                        <td>{{ $admin_progres->plans }}</td>
-                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$admin_progres->logo")}}" alt=""></td>
-                        <td><a href="{{ url('admin/viewstudent/'.$admin_progres->ref_no1) }}"
+                        <td>{{ $view_primarypupl->surname }}</td>
+                        <td>{{ $view_primarypupl->fname }}</td>
+                        <td>{{ $view_primarypupl->ref_no }}</td>
+                        <td>{{ $view_primarypupl->gender }}</td>
+                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_primarypupl->images")}}" alt=""></td>
+                        <td><a href="{{ url('admin/viewstudent/'.$view_primarypupl->ref_no) }}"
                             class='btn btn-default'>
                              <i class="far fa-eye"></i>
                          </a></td>
-                         <td><a href="{{ url('admin/editstudent/'.$admin_progres->ref_no1) }}"
+                         <td><a href="{{ url('admin/editstudent/'.$view_primarypupl->ref_no) }}"
                           class='btn btn-info'>
                            <i class="far fa-edit"></i>
                        </a></td>
                    
                        
                         
-                     <td>{{ $admin_progres->created_at->format('D d, M Y, H:i')}}</td>
+                     <td>{{ $view_primarypupl->created_at->format('D d, M Y, H:i')}}</td>
 
                       </tr>
                       {{-- @else
@@ -89,7 +89,7 @@
                       <th>Surname</th>
                       <th>First Name</th>
                       <th>Ref NO</th>
-                      <th>Plans</th>
+                      <th>Gender</th>
                       <th>Logo</th>
                       <th>View</th>
                       <th>Edit</th>
@@ -113,22 +113,61 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-@include('dashboard.admin.footer')
+ <!-- /.content-wrapper -->
+ <footer class="main-footer">
+  <div class="float-right d-none d-sm-block">
+    <b>Version</b> 3.0.5
+  </div>
+  <strong>Copyright &copy; 2023 <a href="#"> SCHOOLS</a>.</strong> All rights
+  reserved.
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+
+<script src="../../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../assets/plugins/jszip/jszip.min.js"></script>
+<script src="../../assets/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../assets/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script src="../../assets/dist/js/adminlte.min.js?v=3.2.0"></script>
+
+<script src="../../assets/dist/js/demo.js"></script>
+
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
+$(function () {
+  $("#example1").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+  }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  $('#example2').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": false,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "responsive": true,
   });
+});
 </script>
+</body>
+</html>

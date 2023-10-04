@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Goldern Days Schools</title>
+  <title>MyschoolAfrica Schools</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 4 -->
@@ -27,7 +27,7 @@
     <div class="row">
       <div class="col-12">
         <h2 class="page-header">
-          <img style="width: 100px; height: 100px;" src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt=""> <br>
+          {{-- <img style="width: 100px; height: 100px;" src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt=""> <br> --}}
           {{-- <small class="float-right">{{ $print_students->created_at->format('D d, M Y, H:i')}}</small> --}}
         </h2>
       </div>
@@ -38,7 +38,7 @@
       <div class="col-sm-4 invoice-col">
        
         <address>
-          <strong>GOLDERN DAYS SCHOOLS</strong><br>
+          <strong>MySchool Africa</strong><br>
           30 Ewet Housing, Uyo <br>
           Akwa Ibom State, Nigeria
           
@@ -71,7 +71,6 @@
               {{-- <th>Center Name</th> --}}
               <th>Section</th>
               <th>ID No</th>
-              <th>Phone No</th>
               <th>Date</th>
             </tr>
             </thead>
@@ -81,13 +80,12 @@
             <tr>
                 <td>{{ $print_teacher->surname }}</td>
                 <td>{{ $print_teacher->fname }}</td>
-                <td>{{ $print_teacher->middlename }}</td>
+                <td>{{ $print_teacher->schoolname }}</td>
                 <td>{{ $print_teacher->classname }}</td>
                 {{-- <td>{{ $print_teacher->gender }}</td> --}}
                 {{-- <td>{{ $print_teacher->centername }}</td> --}}
                 <td>{{ $print_teacher->section }}</td>
                 <td>{{ $print_teacher->ref_no1 }}</td>
-                <td>{{ $print_teacher->phone }}</td>
                 <td>{{ $print_teacher->created_at->format('D d, M Y, H:i')}}</td>
               </tr>
 

@@ -76,7 +76,7 @@ class SubjectController extends Controller
 
 
     public function viewsubject(){
-        $view_subjects = Subject::where('section', 'Secondary')->get();
+        $view_subjects = Subject::latest()->get();
         return view('dashboard.admin.viewsubject', compact('view_subjects'));
     }
     public function viewallsubjects(){
@@ -148,17 +148,15 @@ class SubjectController extends Controller
     public function assignsubject($id){
         $assigned_subject = Subject::find($id);
 
-        $assigned_teacherto_subjects = User::where('status', 'teacher')
-        ->whereNotIn('section', ['Secondary'])->get();
-        $assigned_highschool_subjects = User::where('status', 'teacher')
-        ->where('section', 'Secondary')->get();
+        $assigned_teacherto_subjects = Teacher::where('status', 'approved')->get();
+        $assigned_highschool_subjects = Teacher::where('status', 'approved')->get();
         $classnames = Classname::all();
         
         return view('dashboard.admin.assignsubject', compact('classnames', 'assigned_highschool_subjects', 'assigned_teacherto_subjects', 'assigned_subject'));
     }
 
     public function nurserysubjects(){
-        $viewnursery_subjects = Subject::where('section', 'Primary')->get();
+        $viewnursery_subjects = Subject::latest()->get();
         return view('dashboard.admin.nurserysubjects', compact('viewnursery_subjects'));
     }
      
@@ -192,7 +190,12 @@ class SubjectController extends Controller
         return view('dashboard.assignedsubjects', compact('classnames', 'sections', 'assigned_teacherto_subjects', 'assigned_subject'));
     }
 
-   
+    public function viewsinglesubjectschool($user_id){
+        $view_subjects1 = Subject::where('user_id', $user_id)->first();
+        $view_subjects = Subject::where('user_id', $user_id)->get();
+        $view_subjectcounts = Subject::where('user_id', $user_id)->count();
+        return view('dashboard.admin.viewsinglesubjectschool', compact('view_subjects1', 'view_subjectcounts', 'view_subjects'));
+    }
 
     
 }

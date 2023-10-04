@@ -40,17 +40,15 @@
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Section</b> <a href="" style="text-transform: uppercase" class="float-right">{{ $viewsingleschool->section }}</a>
+                    <b>Phone</b> <a href="" style="text-transform: uppercase" class="float-right">{{ $viewsingleschool->phone }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>Class Name</b> <a class="float-right">{{ $viewsingleschool->classname }}</a>
+                    <b>School Name</b> <a class="float-right">{{ $viewsingleschool->schoolname }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>DOB</b> <a class="float-right">{{ $viewsingleschool->dob }}</a>
+                    <b>Email</b> <a class="float-right">{{ $viewsingleschool->email }}</a>
                   </li>
-                  <li class="list-group-item">
-                    <b>Section</b> <a class="float-right">{{ $viewsingleschool->section }}</a>
-                  </li>
+                 
 
                   
                   <li class="list-group-item">
@@ -81,7 +79,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                {{-- <strong><i class="fas fa-book mr-1"></i> Student Education Level </strong> --}}
+                {{-- <strong><i class="fas fa-book mr-1"></i> school Education Level </strong> --}}
 
               
 
@@ -134,12 +132,13 @@
 
                         <div class="timeline-item">
                           <span class="time"><i class="far fa-clock"></i> {{ $viewsingleschool->created_at->diffForHumans() }}</span>
+                          <h3 class="timeline-header"><a href="mailTo:{{ $viewsingleschool->schoolname }}">School Name </a> {{ $viewsingleschool->schoolname }}</h3>
 
-                          <h3 class="timeline-header"><a href="mailTo:{{ $viewsingleschool->bloodgroup }}">Blood Group </a> {{ $viewsingleschool->bloodgroup }}</h3>
-                          <h3 class="timeline-header"><a href="mailTo:{{ $viewsingleschool->genotype }}">Genotype </a> {{ $viewsingleschool->genotype }}</h3>
+                          <h3 class="timeline-header"><a href="mailTo:{{ $viewsingleschool->address }}">Address  </a> {{ $viewsingleschool->address }}</h3>
+                          <h3 class="timeline-header"><a href="mailTo:{{ $viewsingleschool->motor }}">Mottor  </a> {{ $viewsingleschool->motor }}</h3>
 
                           {{-- <div class="timeline-body">
-                            {{ $viewsingleschool->contactaddress }}
+                            {{ $viewsingleschool->motor }}
                           </div> --}}
                           
                         </div>
@@ -152,11 +151,11 @@
                         <div class="timeline-item">
                           <span class="time"><i class="far fa-clock"></i> {{ $viewsingleschool->created_at->diffForHumans()}}</span>
 
-                          <h3 class="timeline-header border-0"><a href="#">{{ $viewsingleschool->age }}</a>
+                          {{-- <h3 class="timeline-header border-0"><a href="#">{{ $viewsingleschool->age }}</a>
                           </h3>
 
                           <h3 class="timeline-header border-0"><a href="#">{{ $viewsingleschool->disability }}</a>
-                          </h3>
+                          </h3> --}}
                         </div>
                       </div>
                       <!-- END timeline item -->
@@ -204,17 +203,17 @@
                   <!-- /.tab-pane -->
                   <div class="form-group">
                     <label for="">Take Action</label>
-                    <a href="{{ url('admin/studentpdf/'.$viewsingleschool->ref_no1)  }}" class="btn btn-primary">Print form</a>
+                    <a href="{{ url('admin/schoolpdf/'.$viewsingleschool->ref_no1)  }}" class="btn btn-primary">Print form</a>
                     {{-- <a href="{{ url('admin/medicalspdf/'.$viewsingleschool->ref_no1)  }}" class="btn btn-warning">Print Medical reports</a> --}}
                     
-                    <th><a href="{{ url('admin/rejectstudent/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm bg-danger">
+                    <th><a href="{{ url('admin/rejectschool/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm bg-danger">
                       <i class="fas fa-user"></i>Reject
                     </a></th>
-                   <th><a href="{{ url('admin/suspendstudent/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm bg-warning">
+                   <th><a href="{{ url('admin/suspendschool/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm bg-warning">
                       <i class="fas fa-comments"></i>Suspend
                     </a></th>
 
-                    <th> <a href="{{ url('admin/studentsaddmit/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm btn-primary">
+                    <th> <a href="{{ url('admin/schoolsaddmit/'.$viewsingleschool->ref_no1) }}" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Admit
                     </a></th>
                     {{-- <th><a href="{{ url('admin/medicalspdf/'.$viewsingleschool->ref_no1) }}" class="btn btn-info"><i class="fas fa-print">Print Medicals</i></a></th> --}}

@@ -39,8 +39,9 @@
                   <thead>
                   <tr>
                     <th>Lastname</th>
-                    <th>Middlename</th>
                     <th>First Name</th>
+
+                    <th>Schhol </th>
                     <th>Images</th>
 
                     <th>Phone</th>
@@ -76,9 +77,10 @@
                       @if ($view_teacher->status = 'teacher' OR $view_teacher->status = 'approved' OR $view_teacher->status = 'suspend' OR $view_teacher->status = 'sacked' OR $view_teacher->status = 'queried')
                       <tr>
                         <td>{{ $view_teacher->surname }}</td>
-                        <td>{{ $view_teacher->middlename }}</td>
                         <td>{{ $view_teacher->fname }}</td>
-                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_teacher->images")}}" alt=""></td>
+                        <td><a href="{{ url('admin/viewschoolstudent/'.$view_teacher->schoolname) }}">{{ $view_teacher->schoolname }}</a></td>
+
+                        <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_teacher->logo")}}" alt=""></td>
                         <td>{{ $view_teacher->phone }}</td>
                         {{-- <td>{{ $view_teacher->centername }}</td> --}}
                         <td>{{ $view_teacher->classname }}</td>
@@ -102,18 +104,20 @@
                           Action
                         </button>
                         <ul class="dropdown-menu">
-                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$view_teacher->ref_no1) }}">View</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$view_teacher->ref_no1) }}">Edit</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$view_teacher->ref_no1) }}">Approved</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$view_teacher->ref_no1) }}">Suspend</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$view_teacher->ref_no1) }}">Sacked</a></li>
-                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$view_teacher->ref_no1) }}">Query</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/viewsingleteacher/'.$view_teacher->ref_no) }}">View</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/editteacher/'.$view_teacher->ref_no) }}">Edit</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teacherapprove/'.$view_teacher->ref_no) }}">Approved</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teachersuspend/'.$view_teacher->ref_no) }}">Suspend</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teachersacked/'.$view_teacher->ref_no) }}">Sacked</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teacherquery/'.$view_teacher->ref_no) }}">Query</a></li>
+                          <li class="dropdown-item"><a href="{{ url('admin/teacherresults/'.$view_teacher->classname) }}">Results</a></li>
+                          {{-- <li class="dropdown-item"><a href="{{ url('admin/teacherstudents/'.$view_teacher->classname) }}">Students</a></li> --}}
                         </ul>
                       </div></td>
                        
                      
                       <th><a href="{{ url('admin/teachersprint') }}" class="btn btn-success"><i class="fas fa-print"></i></a></th>
-                       <td><a href="{{ url('admin/teacherdelete/'.$view_teacher->ref_no1) }}"
+                       <td><a href="{{ url('admin/teacherdelete/'.$view_teacher->ref_no) }}"
                         class='btn btn-danger'>
                          <i class="far fa-trash-alt"></i>
                      </a></td>

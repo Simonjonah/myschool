@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string('punt3')->nullable();
             $table->string('punt4')->nullable();
             $table->string('punt5')->nullable();
+            $table->string('term')->nullable();
+            $table->string('ref_no')->nullable();
+            $table->string('connect')->nullable();
             $table->string('teacher_comment')->nullable();
             $table->timestamps();
         });

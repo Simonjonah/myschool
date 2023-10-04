@@ -226,6 +226,42 @@
             </ul>
           </li>
 
+          
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Sections
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('/web/addsection') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Sections</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                @foreach ($view_sections as $view_section)
+                <a href="{{ url('/web/viewsection/'.$view_section->section) }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ $view_section->section }}</p>
+                </a>
+                @endforeach
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/web/viewallsection/') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Section</p>
+                </a>
+              </li>
+              
+
+            </ul>
+          </li>
+
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -293,9 +329,6 @@
                 
               @endforeach
               
-             
-            
-
             </ul>
           </li>
 
@@ -335,40 +368,6 @@
           </li>
 
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Section 
-                <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url('/web/addsection') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Sections</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                @foreach ($view_sections as $view_section)
-                <a href="{{ url('/web/viewsection/'.$view_section->section) }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_section->section }}</p>
-                </a>
-                @endforeach
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('/web/viewallsection/') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Section</p>
-                </a>
-              </li>
-              
-
-            </ul>
-          </li>
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -389,6 +388,15 @@
                 @endforeach
               </li>
 
+              <li class="nav-item">
+              
+                <a href="{{ url('/web/allresults') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Results</p>
+                </a>
+                
+              </li>
+              
             </ul>
           </li>
           
@@ -424,7 +432,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Advertise
+                School Info
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -432,14 +440,14 @@
               <li class="nav-item">
                 <a href="{{ url('web/addaverts') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Adverts</p>
+                  <p>Add Info</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="{{ url('web/viewyouradverts') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> View Your Adverts</p>
+                  <p> View Your Info</p>
                 </a>
               </li>
               
@@ -453,7 +461,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Students
+               Pupils/Students
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -475,13 +483,13 @@
 
                 
               </li>
-{{-- 
+
               <li class="nav-item">
                 <a href="{{ url('web/viewyourstudentsecondary') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> View Secondary Students</p>
+                  <p> View All Students</p>
                 </a>
-              </li> --}}
+              </li>
               
             </ul>
           </li>
@@ -491,7 +499,7 @@
                     
           
 
-          <li class="nav-item has-treeview">
+          {{-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -518,7 +526,7 @@
 
             </ul>
           </li>
-
+ --}}
 
           
           <li class="nav-item has-treeview">
@@ -537,6 +545,13 @@
                   <p>{{ $view_section->section }}</p>
                 </a>
                 @endforeach
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('/web/myteachers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>My Teachers</p>
+                </a>
               </li>
 
               

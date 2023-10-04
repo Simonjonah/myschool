@@ -15,7 +15,7 @@
               <small class="btn btn-warning" style="color: #000">Dear {{ Auth::guard('web')->user()->surname }}, {{ Auth::guard('web')->user()->fname }} {{ Auth::guard('web')->user()->middlename }} You have been suspended in the myschoolafrica School you can do well to contact us through info@myschoolafricaschools.com.ng</small>
               @elseif (Auth::guard('web')->user()->status == 'admitted')
               <p>Congrate!</p>
-            <h1 class="m-0 text-dark"><a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no1) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->slug) }}</a></h1>
+            <h1 class="m-0 text-dark"><a href="{{ url('/registerteachers/'.Auth::guard('web')->user()->ref_no1) }}" target="_blank">{{ url('/registerteachers/'.Auth::user()->ref_no1) }}</a></h1>
               
               @else
                 

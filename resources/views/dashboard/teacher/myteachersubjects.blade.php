@@ -50,8 +50,8 @@
                 @foreach ($my_subjects as $my_subject)
    
                   <tr>
-                    <td>{{ Auth::guard('web')->user()->fname }}</td>
-                    <td>{{ Auth::guard('web')->user()->surname }}</td>
+                    <td>{{ Auth::guard('teacher')->user()->fname }}</td>
+                    <td>{{ Auth::guard('teacher')->user()->surname }}</td>
                     <td>{{ $my_subject->classname }}</td>
                     <td>{{ $my_subject->subject['subjectname'] }}</td>
                     <td>{{ $my_subject->section }}</td>

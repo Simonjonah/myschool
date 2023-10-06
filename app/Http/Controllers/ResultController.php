@@ -97,6 +97,7 @@ class ResultController extends Controller
         $genders = $request->input('gender');
         $images_ds = $request->input('images');
         $logo_ds = $request->input('logo');
+        $schoolnames = $request->input('schoolname');
         
         
         
@@ -416,7 +417,13 @@ class ResultController extends Controller
         return redirect()->back()->with('success', 'you have approved successfully');
     }
 
-    
+    public function viewpins(){
+        $view_pins = Result::latest()->get();
+        $view_schoolsnames = User::where('status', 'admitted')->latest()->get();
+        $view_academcsessions = Academicsession::all();
+        $view_terms = Term::all();
+        return view('dashboard.admin.viewpins', compact('view_terms', 'view_academcsessions', 'view_schoolsnames', 'view_pins'));
+    }
 
     public function viewapproveresultsbyad(){
         $approve_results = Result::where('status', 'approved')->get();
@@ -472,8 +479,8 @@ class ResultController extends Controller
     {
         $request->validate([
             'pins' => ['required', 'string'],
-            'regnumber' => ['required', 'string',],
-            'academic_session' => ['required', 'string',],
+            'regnumber' => ['required', 'string'],
+            'academic_session' => ['required', 'string'],
             'term' => ['required', 'string',],
             
             'regnumber.exist'=>'This email does not exist in the admins table'
@@ -621,7 +628,65 @@ class ResultController extends Controller
          
         }
 
+
+
+
+
+        public function searchpins(Request $request){
+            $request->validate([
+                'schoolname' => ['required', 'string'],
+                'academic_session' => ['required', 'string'],
+                'term' => ['required', 'string'],
     
+            ], [
+                'schoolname.exist'=>'This email does not exist in the admins table'
+            ]);
+        if($getyour_pins = Result::where('schoolname', $request->schoolname)->where('term', $request->term)
+        ->exists()) {
+        $getyour_pins = Result::where('academic_session', $request->academic_session)->get();
+        }else{
+            return redirect()->back()->with('fail', 'There is no results for you!');
+        }
+
+         
+        $pdf = PDF::loadView('dashboard.admin.pdfpins', compact('getyour_pins'));
+    
+        return $pdf->download('school_pins.pdf');
+         
+        }
+
+        public function viewschoolpins($user_id){
+            $view_schoolpins = Result::where('user_id', $user_id)->latest()->get();
+            $view_academcsessions = Academicsession::all();
+            return view('dashboard.admin.viewschoolpins', compact('view_academcsessions', 'view_schoolpins'));
+        }
+
+
+
+        public function searchpinsforclass(Request $request){
+            $request->validate([
+                'schoolname' => ['required', 'string'],
+                'academic_session' => ['required', 'string'],
+                'term' => ['required', 'string'],
+                'classname' => ['required', 'string'],
+    
+            ], [
+                'schoolname.exist'=>'This email does not exist in the admins table'
+            ]);
+        if($getyour_pins = Result::where('schoolname', $request->schoolname)->where('term', $request->term)
+        ->where('classname', $request->classname)
+        ->exists()) {
+        $getyour_pins = Result::where('academic_session', $request->academic_session)->get();
+        }else{
+            return redirect()->back()->with('fail', 'There is no results for you!');
+        }
+
+         
+        $pdf = PDF::loadView('dashboard.admin.pdfpinsforclass', compact('getyour_pins'));
+    
+        return $pdf->download('school_classpins.pdf');
+         
+        }
 }
 
     

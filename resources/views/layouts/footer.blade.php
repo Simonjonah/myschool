@@ -17,7 +17,7 @@
                                 </div>
                                 
                                 <ul class="list-style-two">
-                                    <li><span class="icon fa fa-phone"></span> +234 805 114 2724</li>
+                                    <li><span class="icon fa fa-phone"></span> +234 805 114 2724, +234 816 7930 965</li>
                                     <li><span class="icon fa fa-envelope"></span> myschool.africanworld@gmail.com</li>
                                     <li><span class="icon fa fa-home"></span>University of Uyo, NASU Secretariat,<br> Akwa Ibom State, Nigeria  </li>
                                 </ul>
@@ -29,10 +29,10 @@
                             <div class="footer-widget links-widget">
                                 <h4>Links</h4>
                                 <ul class="list-link">
-                                    <li><a href="home">Home</a></li>
-                                    <li><a href="blog">Services</a></li>
-                                    <li><a href="about">About us</a></li>
-                                    <li><a href="contact">Contact</a></li>
+                                    <li><a href="{{ url('home') }}">Home</a></li>
+                                    <li><a href="{{ url('blog') }}">Services</a></li>
+                                    <li><a href="{{ url('about') }}">About us</a></li>
+                                    <li><a href="{{ url('contact') }}">Contact</a></li>
 
                                     
                                 </ul>
@@ -51,11 +51,11 @@
                             <div class="footer-widget links-widget">
                                 <h4>Support</h4>
                                 <ul class="list-link">
-                                    <li><a href="career">Career Counselling</a></li>
-                                    <li><a href="scholaship">Scholarship</a></li>
+                                    <li><a href="{{ url('career') }}">Career Counselling</a></li>
+                                    <li><a href="{{  url('scholaship')  }}">Scholarship</a></li>
                                     
-                                    <li><a href="blog">Visit Knowledge Base</a></li>
-                                    <li><a href="contact">Support System</a></li>
+                                    <li><a href="{{  url('blog')  }}">Visit Knowledge Base</a></li>
+                                    <li><a href="{{  url('contact')  }}">Support System</a></li>
                                     
                                 </ul>
                             </div>
@@ -67,8 +67,7 @@
                                 <h4>Work with us</h4>
                                 <ul class="list-link">
                                     <li><a href="#">Become a Teacher</a></li>
-                                    <li><a href="teacher/login">Teacher's login</a></li>
-                                    <li><a href="schoolaccount/login">School Login</a></li>
+                                    <li><a href="{{ url('login') }}">School Login</a></li>
                                     <li><a href="#">Refund Policy</a></li>
                                     <li><a href="#">Professional Services</a></li>
                                 </ul>

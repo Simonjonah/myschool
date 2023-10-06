@@ -19,30 +19,49 @@ class BlogController extends Controller
         return view('dashboard.admin.addblog');
     }
 
+
+
     public function createblog (Request $request){
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'messages' => ['required', 'string'],
-            'images' => 'nullable|mimes:jpg,png,jpeg'
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'user_id' => ['required', 'string'],
+            'schoolname' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            //'logo' => ['required', 'string'],
+            'logo' => 'nullable|mimes:jpg,png,jpeg'
         ]);
-        $add_blog = new Blog;
-        if ($request->hasFile('images')){
-
-            $file = $request['images'];
+        //  dd($request->all());
+        $add_adverts = new Blog;
+        if ($request->hasFile('logo')){
+    
+            $file = $request['logo'];
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
-            $path = $request->file('images')->storeAs('resourceimages', $filename);
-
+            $path = $request->file('logo')->storeAs('resourceimages', $filename);
+    
         }
-        $add_blog['images'] = $path;
-        $add_blog->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
-        $add_blog->title = $request->title;
-        $add_blog->messages = $request->messages;
-        $add_blog->ref_no = substr(rand(0,time()),0, 9);
-        $add_blog->save();
-
-        return redirect()->back()->with('success', 'you have added successfully');
-
+        $add_adverts['logo'] = $path;
+        $add_adverts->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
+        $add_adverts->user_id = 15;
+        $add_adverts->email = $request->email;
+        $add_adverts->phone = $request->phone;
+        $add_adverts->address = $request->address;
+        // $add_adverts->logo = $request->logo;
+        $add_adverts->schoolname = $request->schoolname;
+        $add_adverts->title = $request->title;
+        $add_adverts->messages = $request->messages;
+        $add_adverts->ref_no = substr(rand(0,time()),0, 9);
+        $add_adverts->save();
+    
+        // $add_adimission->save();
+            return redirect()->route('add2ndimage1', ['ref_no' =>$add_adverts->ref_no]); 
+    
+        // return redirect()->route('add2ndimage', ['ref_no' =>$add_adverts->ref_no]); 
     }
+    
+    
 
     public function viewblog(){
         $view_blogs = Blog::latest()->paginate(10);
@@ -164,10 +183,18 @@ public function createadverts (Request $request){
     $add_adverts->ref_no = substr(rand(0,time()),0, 9);
     $add_adverts->save();
 
-    return redirect()->route('add2ndimage', ['ref_no' =>$add_adverts->ref_no]); 
+    // $add_adimission->save();
+        return redirect()->route('add2ndimage', ['ref_no' =>$add_adverts->ref_no]); 
 
-
+    // return redirect()->route('add2ndimage', ['ref_no' =>$add_adverts->ref_no]); 
 }
+
+public function add2ndimage1($ref_no){
+    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
+    return view('dashboard.admin.add2ndimage1', compact('edit_myblogs'));
+}
+
+
 public function updateeadverts (Request $request, $ref_no){
     $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
 
@@ -225,6 +252,133 @@ public function add2ndimage($ref_no){
     $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
     return view('dashboard.add2ndimage', compact('edit_myblogs'));
 }
+
+public function add3images($ref_no){
+    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
+    return view('dashboard.add3images', compact('edit_myblogs'));
+}
+
+public function add4images($ref_no){
+    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
+    return view('dashboard.add4images', compact('edit_myblogs'));
+}
+
+public function add3images1($ref_no){
+    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
+    return view('dashboard.admin.add3images1', compact('edit_myblogs'));
+}
+
+
+
+public function update2ndeadverts1(Request $request, $ref_no){
+    $addthiedimages = Blog::where('ref_no', $ref_no)->first();
+
+    $request->validate([
+        'images2' => 'nullable|mimes:jpg,png,jpeg',
+    ]);
+    if ($request->hasFile('images2')){
+
+        $file = $request['images2'];
+        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $request->file('images2')->storeAs('resourceimages', $filename);
+    }else{
+
+        $path = 'noimage.jpg';
+    }
+    $addthiedimages['images2'] = $path;
+    $addthiedimages->update();
+
+    return redirect()->route('add3images1', ['ref_no' =>$addthiedimages->ref_no]); 
+}
+
+
+
+public function update2ndeadverts(Request $request, $ref_no){
+    $addthiedimages = Blog::where('ref_no', $ref_no)->first();
+    $request->validate([
+        'images2' => 'nullable|mimes:jpg,png,jpeg',
+    ]);
+    if ($request->hasFile('images2')){
+
+        $file = $request['images2'];
+        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $request->file('images2')->storeAs('resourceimages', $filename);
+    }else{
+
+        $path = 'noimage.jpg';
+    }
+    $addthiedimages['images2'] = $path;
+    $addthiedimages->update();
+
+    return redirect()->route('add3images', ['ref_no' =>$addthiedimages->ref_no]); 
+}
+
+public function update3rddeadverts1(Request $request, $ref_no){
+    $addthiedimages = Blog::where('ref_no', $ref_no)->first();
+    $request->validate([
+        'images1' => 'nullable|mimes:jpg,png,jpeg',
+    ]);
+    if ($request->hasFile('images1')){
+
+        $file = $request['images1'];
+        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $request->file('images1')->storeAs('resourceimages', $filename);
+    }else{
+
+        $path = 'noimage.jpg';
+    }
+    $addthiedimages['images1'] = $path;
+    $addthiedimages->update();
+    return redirect()->back()->with('success', 'you have added successfully');
+
+    //return redirect()->route('add4images', ['ref_no' =>$addthiedimages->ref_no]); 
+}
+
+
+
+public function update3rddeadverts(Request $request, $ref_no){
+    $addthiedimages = Blog::where('ref_no', $ref_no)->first();
+    $request->validate([
+        'images1' => 'nullable|mimes:jpg,png,jpeg',
+    ]);
+    if ($request->hasFile('images1')){
+
+        $file = $request['images1'];
+        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $request->file('images1')->storeAs('resourceimages', $filename);
+    }else{
+
+        $path = 'noimage.jpg';
+    }
+    $addthiedimages['images1'] = $path;
+    $addthiedimages->update();
+
+    return redirect()->route('add4images', ['ref_no' =>$addthiedimages->ref_no]); 
+}
+
+public function update4rddeadverts(Request $request, $ref_no){
+    $addthiedimages = Blog::where('ref_no', $ref_no)->first();
+    $request->validate([
+        'images5' => 'nullable|mimes:jpg,png,jpeg',
+    ]);
+    if ($request->hasFile('images5')){
+
+        $file = $request['images5'];
+        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+        $path = $request->file('images5')->storeAs('resourceimages', $filename);
+    }else{
+
+        $path = 'noimage.jpg';
+    }
+    $addthiedimages['images5'] = $path;
+    $addthiedimages->update();
+
+    return redirect()->back()->with('success', 'you have added successfully');
+
+}
+
+
+
 
 public function approveadvert($slug){
     $approved_teacher = Blog::where('slug', $slug)->first();

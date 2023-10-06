@@ -47,6 +47,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label> Title</label>
+                        <input type="hidden" name="user_id" value="1" id="">
                         <input type="text" class="form-control" @error('title')
                         @enderror value="{{ old('title') }}" name="title" placeholder="Title">
                       </div>
@@ -54,16 +55,71 @@
                     @error('title')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror 
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label> School Name</label>
+                        <input type="text" class="form-control" @error('schoolname')
+                        @enderror value="{{ old('schoolname') }}" name="schoolname" placeholder="Schoolname">
+                      </div>
+                    </div>
+                    @error('schoolname')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                     
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>  Image</label>
-                        <input type="file" @error('images')
-                        @enderror value="{{ old('images') }}" class="form-control" name="images">
+                        <label> Address </label>
+                        <input type="text" class="form-control" @error('address')
+                        @enderror value="{{ old('address') }}" name="address" placeholder="Address">
+                      </div>
+                    </div>
+                    @error('address')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label> Phone </label>
+                        <input type="text" class="form-control" @error('phone')
+                        @enderror value="{{ old('phone') }}" name="phone" placeholder="phone">
+                      </div>
+                    </div>
+                    @error('phone')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label> Email </label>
+                        <input type="email" class="form-control" @error('email')
+                        @enderror value="{{ old('email') }}" name="email" placeholder="email">
+                      </div>
+                    </div>
+                    @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    {{-- <div class="col-sm-6">
+                      <div class="form-group">
+                        <label> Facebook </label>
+                        <input type="text" class="form-control" @error('facebook')
+                        @enderror value="{{ old('facebook') }}" name="facebook" placeholder="facebook">
+                      </div>
+                    </div>
+                    @error('facebook')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror --}}
+                    
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>  Logo</label>
+                        <input type="file" @error('logo')
+                        @enderror value="{{ old('logo') }}" class="form-control" name="logo">
                       </div>
                   
                     </div>
-                    @error('images')
+                    @error('logo')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror 
                      

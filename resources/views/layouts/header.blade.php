@@ -46,7 +46,7 @@
                         <div class="upper-column info-box">
                         	<div class="icon-box"><span class="flaticon-e-mail-envelope"></span></div>
                             <ul>
-                            	<li>info@myschool.africa</li>
+                            	<li>info@myschoolafrica.com</li>
                             </ul>
                         </div>
                         
@@ -55,6 +55,13 @@
                         	<div class="icon-box"><span class="flaticon-phone-receiver"></span></div>
                             <ul>
 								<li>+234 816 7930 965</li>
+                            </ul>
+                        </div>
+
+                        <div class="upper-column info-box">
+                        	<div class="icon-box"><span class="flaticon-phone-receiver"></span></div>
+                            <ul>
+								<li>+234 805 1142 724</li>
                             </ul>
                         </div>
 						
@@ -69,16 +76,16 @@
                         <div class="upper-column info-box">
                             <div class="icon-box"><span class="fa fa-user"></span></div>
                             <ul>
-                                <li><a style="color: #000;" href="{{ url('checkresults') }}">Check Result</a></li>
+                                <li><a style="color: #000;" href="{{ url('register') }}">Register</a></li>
                             </ul>
                         </div>
 
-                         <div class="upper-column info-box">
+                         {{-- <div class="upper-column info-box">
                             <div class="icon-box"><span class="fa fa-user"></span></div>
                             <ul>
                                 <li><a style="color: #000;" href="{{ url('login') }}">Login</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -116,14 +123,8 @@
 								</li>
 
                                 
-                                {{-- <li class="dropdown"><a href="#">Contact Teacher</a>
-                                    <ul>
-                                        <li><a href="{{ url('view_teachers') }}">View Teacher</a></li>
-                                        <li><a href="{{ url('registerteacher') }}">Become Teacher</a>
-                                        
-                                        
-                                    </ul>
-                                </li> --}}
+                                
+                                
 
                                 <li class="dropdown"><a href="#">Advertise School</a>
                                     <ul>
@@ -139,7 +140,7 @@
                                 <li><a href="{{ url('scholarship') }}">Schollarship</a></li>
 								
 								<li><a href="{{ url('contact') }}">Contact us</a></li>
-								<li><a href="{{ url('checkresults') }}">Check Results</a></li>
+								<li><a href="#">JAMB</a></li>
 
                                 
                             </ul>
@@ -206,8 +207,7 @@
                                 <li><a href="{{ url('scholarship') }}">Schollarship</a></li>
 								
 								<li><a href="{{ url('contact') }}">Contact us</a></li>
-								<li><a href="{{ url('checkresults') }}">Check Results</a></li>
-
+								<li><a href="#">JAMB</a></li>
 
                             </ul>
                         </div>

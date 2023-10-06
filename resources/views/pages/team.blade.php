@@ -15,46 +15,48 @@
     </section>
     <!--End Page Title-->
 
-	<!-- Team Page Section -->
-	<section class="team-page-section">
+	<section class="team-section-two" >
 		<div class="auto-container">
 			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<div class="title">About us</div>
-					<h2>Our Best  <br>team with <span>experience</span></h2>
+			<div class="sec-title-three centered">
+				<div class="title">Our Team</div>
+				<h2>We have an  <br> experience team Members</h2>
 			</div>
 
 			<div class="row clearfix">
 
-				<!--Team Block-->
-                    {{-- @foreach ($team_members as $team_member) --}}
-					{{-- @if ($team_member->status == 'approved') --}}
-					<div class="team-block-two style-two col-lg-3 col-md-6 col-sm-12">
-						<div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<div class="image">
-								<a href="#"><img style="width: 100%; height: 300px;" src="" alt="" title=""></a>
-								<ul class="social-box">
-									<li><a href="face" class="fa fa-facebook"></a></li>
-									<li><a href="" class="fa fa-twitter"></a></li>
-									<li><a href="#" class="fa fa-linkedin"></a></li>
-									<li><a href="" class="fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-							<div class="lower-content">
-								<h5><a href="#">Udo simon</a></h5>
-								<div class="designation">develop</div>
-							</div>
-						</div>
-					</div>
+<!--Team Block-->
+@foreach ($member_teams as $member_team )
+@if ($member_team->status == 'approved')
+<div class="team-block-two col-lg-4 col-md-6 col-sm-12">
+	<div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+		<div class="image">
+			<a href="team"><img style="height: 300px; width: 100%;" src="{{ URL::asset("/public/../$member_team->images")}}" alt="" title=""></a>
+			<ul class="social-box">
+				<li><a href="{{ $member_team->facebook }}" class="fa fa-facebook"></a></li>
+				<li><a href="{{ $member_team->twitter }}" class="fa fa-twitter"></a></li>
+				<li><a href="{{ $member_team->email }}" class="fa fa-whatsapp"></a></li>
+				<li><a href="{{ $member_team->likedin }}" class="fa fa-linkedin"></a></li>
+			</ul>
+		</div>
+		<div class="lower-content">
+			<h5><a href="team">{{ $member_team->lname }}, {{ $member_team->fname }}</a></h5>
+			<div class="designation">{{ $member_team->designation }}</div>
+		</div>
+	</div>
+</div>
+@else
 	
-					{{-- @else
-						
-					@endif
-
-				@endforeach --}}
+@endif
+	
+@endforeach 
+			</div>
+			<div class="text-center" style="margin-bottom: 60px;">
+				<a href="{{ url('team') }}" class="theme-btn btn-style-fourteen">View All Teams</a>
 			</div>
 		</div>
 	</section>
+	<!-- End Team Section Two -->
 	<!-- End Team Page Section -->
 
 @include('layouts.footer')

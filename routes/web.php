@@ -107,7 +107,8 @@ Route::get('/blog', function () {
 
 
 Route::get('/team', function () {
-    return view('pages.team');
+    $member_teams = Team::orderby('created_at', 'ASC')->get();
+    return view('pages.team', compact('member_teams'));
 });
 
 Route::get('/checkresults/{slug}', function ($slug) {
@@ -176,6 +177,10 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::middleware(['auth:admin'])->group(function() {
         
         
+        Route::get('viewschoolpins/{user_id}', [ResultController::class, 'viewschoolpins'])->name('viewschoolpins');
+        Route::post('searchpins', [ResultController::class, 'searchpins'])->name('searchpins');
+        Route::post('searchpinsforclass', [ResultController::class, 'searchpinsforclass'])->name('searchpinsforclass');
+        Route::get('viewpins', [ResultController::class, 'viewpins'])->name('viewpins');
         Route::get('lecturersprint/{ref_no}', [TeacherController::class, 'lecturersprint'])->name('lecturersprint');
         Route::get('adminprogress', [StudentController::class, 'adminprogress'])->name('adminprogress');
         Route::get('viewsuspended', [UserController::class, 'viewsuspended'])->name('viewsuspended');
@@ -465,7 +470,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
 });
 
 
+Route::put('/update3rddeadverts1/{ref_no}', [BlogController::class, 'update3rddeadverts1'])->name('update3rddeadverts1');
+Route::get('/add3images1/{ref_no}', [BlogController::class, 'add3images1'])->name('add3images1');
+Route::put('/update2ndeadverts1/{ref_no}', [BlogController::class, 'update2ndeadverts1'])->name('update2ndeadverts1');
+Route::get('/add2ndimage1/{ref_no}', [BlogController::class, 'add2ndimage1'])->name('add2ndimage1');
+Route::get('/add3images/{ref_no}', [BlogController::class, 'add3images'])->name('add3images');
+Route::get('/add4images/{ref_no}', [BlogController::class, 'add4images'])->name('add4images');
+Route::get('/add2ndimage/{ref_no}', [BlogController::class, 'add2ndimage'])->name('add2ndimage');
 
+Route::put('/update4rddeadverts/{ref_no}', [BlogController::class, 'update4rddeadverts'])->name('update4rddeadverts');
+Route::put('/update2ndeadverts/{ref_no}', [BlogController::class, 'update2ndeadverts'])->name('update2ndeadverts');
+Route::put('/update3rddeadverts/{ref_no}', [BlogController::class, 'update3rddeadverts'])->name('update3rddeadverts');
 
 Route::prefix('web')->name('web.')->group(function() {
 
@@ -475,6 +490,9 @@ Route::prefix('web')->name('web.')->group(function() {
     });
     
     Route::middleware(['auth:web'])->group(function() {
+
+
+
 
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::get('/approvedresultsc/{id}', [ResultController::class, 'approvedresultsc'])->name('approvedresultsc');
@@ -521,7 +539,6 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/rejectadvert/{slug}', [BlogController::class, 'rejectadvert'])->name('rejectadvert');
         Route::get('/suspendadvert/{slug}', [BlogController::class, 'suspendadvert'])->name('suspendadvert');
         Route::get('/approveadvert/{slug}', [BlogController::class, 'approveadvert'])->name('approveadvert');
-        Route::get('/add2ndimage/{ref_no}', [BlogController::class, 'add2ndimage'])->name('add2ndimage');
         Route::put('/updateeadverts/{ref_no}', [BlogController::class, 'updateeadverts'])->name('updateeadverts');
         Route::get('/editadvert/{ref_no}', [BlogController::class, 'editadvert'])->name('editadvert');
         Route::get('/viewadverts/{slug}', [BlogController::class, 'viewadverts'])->name('viewadverts');

@@ -60,6 +60,11 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
+        Register 
+        
+        <a href="{{ url('register') }}">Sign In</a>
+      </p>
+      <p class="mb-1">
         <a href="{{ url('password/reset') }}">I forgot my password</a>
       </p>
       

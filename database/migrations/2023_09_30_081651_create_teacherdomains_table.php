@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('teacher_id')->nullable();
             $table->string('psycomoto')->nullable();
             $table->string('cogname');
-            $table->string('psycomoto')->nullable();
 
             $table->string('ref_no1');
             $table->string('ref_no');

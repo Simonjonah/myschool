@@ -109,6 +109,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class);
     }
+
+    public function schoolnews(): HasMany 
+    {
+        return $this->hasMany(Schoolnew::class);
+    }
     
     
 }

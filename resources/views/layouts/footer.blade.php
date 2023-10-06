@@ -17,9 +17,9 @@
                                 </div>
                                 
                                 <ul class="list-style-two">
-                                    <li><span class="icon fa fa-phone"></span> +234 805 114 2724, +234 816 7930 965</li>
-                                    <li><span class="icon fa fa-envelope"></span> myschool.africanworld@gmail.com</li>
-                                    <li><span class="icon fa fa-home"></span>University of Uyo, NASU Secretariat,<br> Akwa Ibom State, Nigeria  </li>
+                                    <li><span class="icon fa fa-phone"></span> +234 814 065 8029, +234 816 7930 965</li>
+                                    <li><span class="icon fa fa-envelope"></span> info@schoolsupdate.ng</li>
+                                    <li><span class="icon fa fa-home"></span>No. 4 Attiku Abubbakka Avenue, Uyo<br> Akwa Ibom State, Nigeria  </li>
                                 </ul>
                             </div>
                         </div>
@@ -51,8 +51,6 @@
                             <div class="footer-widget links-widget">
                                 <h4>Support</h4>
                                 <ul class="list-link">
-                                    <li><a href="{{ url('career') }}">Career Counselling</a></li>
-                                    <li><a href="{{  url('scholaship')  }}">Scholarship</a></li>
                                     
                                     <li><a href="{{  url('blog')  }}">Visit Knowledge Base</a></li>
                                     <li><a href="{{  url('contact')  }}">Support System</a></li>
@@ -88,19 +86,19 @@
                 
                 <!-- Copyright Column -->
                 <div class="copyright-column col-lg-6 col-md-6 col-sm-12">
-                    <div class="copyright">2019 &copy; All rights reserved by <a href="#">Knowledge Guide Foundation</a></div>
+                    <div class="copyright">2023 &copy; All rights reserved by <a href="#">Schoolsupdate.ng</a></div>
                 </div>
                 
                 <!-- Social Column -->
                 <div class="social-column col-lg-6 col-md-6 col-sm-12">
                     <ul>
                         <li class="follow">Follow us: </li>
-                        <li><a href="https://www.facebook.com/search/top?q=myschool.africa"><span class="fa fa-facebook-square"></span></a></li>
-                        <li><a href="https://twitter.com/MyschoolA"><span class="fa fa-twitter-square"></span></a></li>
-                        <li><a href="https://www.linkedin.com/in/joseph-assima-3a199a200"><span class="fa fa-linkedin-square"></span></a></li>
-                        <li><a href="https://www.instagram.com/myschool.africa/"><span class="fa fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fa fa-twitter-square"></span></a></li>
+                        <li><a href="#"><span class="fa fa-linkedin-square"></span></a></li>
+                        <li><a href="#"><span class="fa fa-instagram"></span></a></li>
                         <li><a href="#"><span class="fa fa-google-plus-square"></span></a></li>
-                        <li><a href="https://chat.whatsapp.com/KF0lylkxxByK9Fi9YQSaZ9"><span class="fa fa-whatsapp"></span></a></li>
+                        <li><a href="#"><span class="fa fa-whatsapp"></span></a></li>
                         <li><a href="#"><span class="fa fa-rss-square"></span></a></li>
                     </ul>
                 </div>

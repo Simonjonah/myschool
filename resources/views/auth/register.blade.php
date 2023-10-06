@@ -100,6 +100,17 @@
           <span class="text-danger">{{ $message }}</span>
           @enderror
 
+          <div class="input-group mb-3">
+            <select name="schooltype" class="form-control" id="">
+                <option value="Primary">Primary</option>
+                <option value="Secondary">Secondary</option>
+            </select>
+            
+          </div>
+          @error('schooltype')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+
         <label for="">Phone</label>
         <div class="input-group mb-3">
           <input type="text" name="phone" class="form-control" placeholder="Phone">

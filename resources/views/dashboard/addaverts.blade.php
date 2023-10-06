@@ -32,11 +32,11 @@ l            <ol class="breadcrumb float-sm-right">
             
             <div class="card card-secondary">
               <div class="card-header">
-                <h3 class="card-title">Register Adverts</h3>
+                <h3 class="card-title">Register Activities</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form action="{{ url('web/createadverts') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('web/createschoolnews') }}" method="post" enctype="multipart/form-data">
                   @csrf
                   {{-- @method('PUT') --}}
                   @if (Session::get('success'))
@@ -61,6 +61,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <input type="hidden" name="email" value="{{ Auth::guard('web')->user()->email }}" id="">
                         <input type="hidden" name="phone" value="{{ Auth::guard('web')->user()->phone }}" id="">
                         <input type="hidden" name="logo" value="{{ Auth::guard('web')->user()->logo }}" id="">
+                        <input type="text" name="slug" value="{{ Auth::guard('web')->user()->slug }}" id="">
                        
                         <input type="text" class="form-control" name="title" placeholder="title">
 

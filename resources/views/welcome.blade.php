@@ -62,161 +62,21 @@
 
 	
 	<!-- Services Section Four -->
-	<section class="services-section-five">
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title centered">
-				<!-- <div class="title">Press Release</div> -->
-				<h2>ICT TRAINING/<span>CERTIFICATION</span></h2>
-			</div>
-			<div class="row clearfix">
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-statistics-1"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="infotech">Data Processing/(Infotech)</a></h6>
-						<div class="text" style="margin-bottom: 10px;">This course trains students on digital office skills such as data management/automation, designs, software calculations models, electronic communication, and ICT presentation/ teaching software</div>
-					        
-					         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                            Apply
-                          </button>
-
-					</div>
-
-				</div>
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-research"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">Network Engineering Technology</a></h6>
-						<div class="text" style="margin-bottom: 10px;">This course equips learners with the technical skills to analyse, design; configure troubleshoot, implement and secure computer networks.</div>
-					        
-					        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-primary">
-                            Apply
-                          </button>
-
-					</div>
-				</div>
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-target-1"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">Computer Hardware Enginnering </a></h6>
-						<div class="text" style="margin-bottom: 10px;">This equips students with complete skills in System Architecture, System Assembly, Software Installation, Software Configuration, Troubleshooting, Repairs, Maintenance, and Laptops Repairs/Maintenance.</div>
-					        
-					         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-secondary">
-                              Apply
-                            </button>
-
-					</div>
-				</div>
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-business-and-finance-1"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">System Security</a></h6>
-						<div class="text" style="margin-bottom: 10px">This training builds enterprising, innovative, and leadership skills in students which revitalise their mindset to nurture, manage, launch, and grow a start-up or organisation that impacts their immediate society and the world at large.</div>
-					        
-					        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-warning">
-                           Apply
-                          </button>
-                         
-					</div>
-				</div>
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-line-chart-1"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">Software Engineering Technology</a></h6>
-						<div class="text" style="margin-bottom: 10px;">The course trains student to master the skill of web design/development, SQL, Javascript, PHP, python, bootstrap Postgresql, and mobile APP.</div>
-					       
-					        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-success">
-                          Apply
-                        </button>
-
-					</div>
-				</div>
-				
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-comment-1"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">Mobile Technology</a></h6>
-						<div class="text" style="margin-bottom: 10px;">The argument in favor of using filler text goes some labore et dolore magna aliqua consectetur.</div>
-					       
-					        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
-                            Apply
-                          </button>
-
-					</div>
-				</div>
-
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-multimedia-option"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">E-commerce/Digital Marketing</a></h6>
-						<div class="text" style="margin-bottom: 10px;">We groom students to understand fundamental marketing concepts, like PPC, SEO, Social Media, Web Analytics Strategy, 3D printing, and more. Students make strategic marketing concepts and tools to address new brand communication in the digital world.</div>
-					       
-					        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-dark">
-                              Apply
-                            </button>
-
-					</div>
-				</div>
-
-				<!-- Services Block Six -->
-				<div class="services-block-six col-lg-6 col-md-12 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="icon-box">
-							<!-- <span class="icon flaticon-help"></span> -->
-						</div>
-						<h6 style="margin-top: -80px;"><a href="#">Enterprenurship</a></h6>
-						<div class="text" style="margin-bottom: 10px;">This training builds enterprising, innovative, and leadership skills in students which revitalise their mindset to nurture, manage, launch, and grow a start-up or organisation that impacts their immediate society and the world at large.</div>
-					        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-defaults">
-                              Apply
-                            </button>
-						
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Services Section Four -->
+	
 
 		<!-- RECSNTE SCHOOL UPDATE -->
     <section class="blog-Press-section">
 		<div class="auto-container">
 			<!-- Sec Title -->
-			<div class="sec-title centered">
+			<div class="sec-title centered" style="margin-top: 40px;">
 				<!-- <div class="title">Press Release</div> -->
-				<h2>Our Rescent added  <span>Schools</span></h2>
+				<h2>Our Recent added  <span>Schools</span></h2>
 			</div>
 					
 			<div class="row clearfix">
 
-    		@foreach ($press_release as $press_releases)
-                @if ($press_releases->status == 'approved')
+    		@foreach ($schools as $school)
+          @if ($school->status == 'admitted')
                     <!-- News Block Three -->
 				<div class="news-block-three col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -227,17 +87,17 @@
 						</div>
 						<div class="lower-content">
 							<ul class="post-meta">
-								<li><span class="fa fa-calendar"></span>{{ $press_releases->created_at->format('D d, M Y, H:i')}}</li>
-								<li><b>Location:</b> {{ $press_releases->address }} <span class="fa fa-user"></span></li>
+								<li><span class="fa fa-calendar"></span>{{ $school->created_at->format('D d, M Y, H:i')}}</li>
+								<li><b>Location:</b> {{ $school->address }} <span class="fa fa-user"></span></li>
 							</ul>
-							 <a href="{{ url('press_single/'.$press_releases->slug) }}">
+							 <a href="{{ url('viewschoolsingle/'.$school->slug) }}">
 
                     		<img style="height: 60px; border-radius: 50%;" src="logo" alt=""></a></h2></span>
-							<!-- <h4><?php //echo $press_releases['topic']; ?></h4> -->
-							<h4><a href="{{ url('press_single/'.$press_releases->slug) }}">{{ $press_releases->schoolname }}</a></h4>
-							{{-- <span><a href="{{ url('press_single/'.$press_releases->slug) }}">messages</a></span> --}}
+							<!-- <h4><?php //echo $school['topic']; ?></h4> -->
+							<h4><a href="{{ url('viewschoolsingle/'.$school->slug) }}">{{ $school->schoolname }}</a></h4>
+							{{-- <span><a href="{{ url('viewschoolsingle/'.$school->slug) }}">messages</a></span> --}}
 
-							<a class="btn btn-success" href="{{ url('press_single/'.$press_releases->slug) }}">Continue Reading <span class="fa fa-angle-double-right"></span></a>
+							<a class="btn btn-success" href="{{ url('viewschoolsingle/'.$school->slug) }}">Continue Reading <span class="fa fa-angle-double-right"></span></a>
 						</div>
 					</div>
 				</div>
@@ -249,7 +109,7 @@
 			
 			</div>
 			<div class="text-center">
-				<a href="blog" class="theme-btn btn-style-fourteen">View All Advert</a>
+				<a href="{{ url('primaryschools') }}" class="theme-btn btn-style-fourteen">View  Schools</a>
 			</div>
 		</div>
 	</section>
@@ -258,49 +118,7 @@
 	<!-- End Testimonial Section Two -->
 
 
-	<!-- Team Section Two -->
-	<section class="team-section-two" >
-		<div class="auto-container">
-			<!-- Sec Title -->
-			<div class="sec-title-three centered">
-				<div class="title">Our Team</div>
-				<h2>We have an  <br> experience team Members</h2>
-			</div>
-
-			<div class="row clearfix">
-
-				<!--Team Block-->
-          @foreach ($member_teams as $member_team )
-            @if ($member_team->status == 'approved')
-            <div class="team-block-two col-lg-4 col-md-6 col-sm-12">
-                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image">
-                        <a href="team"><img style="height: 300px; width: 100%;" src="{{ URL::asset("/public/../$member_team->images")}}" alt="" title=""></a>
-                        <ul class="social-box">
-                            <li><a href="{{ $member_team->facebook }}" class="fa fa-facebook"></a></li>
-                            <li><a href="{{ $member_team->twitter }}" class="fa fa-twitter"></a></li>
-                            <li><a href="{{ $member_team->email }}" class="fa fa-whatsapp"></a></li>
-                            <li><a href="{{ $member_team->likedin }}" class="fa fa-linkedin"></a></li>
-                        </ul>
-                    </div>
-                    <div class="lower-content">
-                        <h5><a href="team">{{ $member_team->lname }}, {{ $member_team->fname }}</a></h5>
-                        <div class="designation">{{ $member_team->designation }}</div>
-                    </div>
-                </div>
-            </div>
-            @else
-                
-            @endif
-				
-			@endforeach 
-			</div>
-			<div class="text-center">
-				<a href="team" class="theme-btn btn-style-fourteen">View All Teams</a>
-			</div>
-		</div>
-	</section>
-	<!-- End Team Section Two -->
+	
 
 	<section class="testimonial-section-two" style="margin-bottom: 80px; margin-top: 80px;">
 		<div class="image-layer" style="background-image:url(images/background/bri2.jpg)"></div>

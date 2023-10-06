@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Academicsession;
 use App\Models\Alm;
 use App\Models\Blog;
-use App\Models\Classactivity;
+use App\Models\Schoolnew;
 use App\Models\User;
 use App\Models\Classname;
 use App\Models\Domain;
@@ -356,6 +356,7 @@ class UserController extends Controller
             'password' => ['required', 'string'],
             'address' => ['required', 'string'],
             'schoolname' => ['required', 'string'],
+            'schooltype' => ['required', 'string'],
             'motor' => ['required', 'string'],
             'logo' => 'required|mimes:jpg,png,jpeg'
 
@@ -378,6 +379,7 @@ class UserController extends Controller
         $add_school->email = $request->email;
         $add_school->phone = $request->phone;
         $add_school->motor = $request->motor;
+        $add_school->schooltype = $request->schooltype;
         $add_school->role = 'school';
         $add_school->plans = $request->plans;
         $add_school->slug = SlugService::createSlug(User::class, 'slug', $request->schoolname);
@@ -895,9 +897,21 @@ class UserController extends Controller
       
     }
 
+    public function viewschoolsingle($slug){
+        $view_allnews = User::where('slug', $slug)->first();
+        $view_allschoolnews = Schoolnew::where('slug', $slug)->get();
+        return view('pages.viewschoolsingle', compact('view_allschoolnews', 'view_allnews'));
+    }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = User::where('schoolname', 'LIKE', '%' . $query . '%')->get();
     
-   
-    
+        return view('pages.searchresults', ['results' => $results]);
+    }
+
+
+
     public function logout(){
         Auth::guard('web')->logout();
         return redirect('login');

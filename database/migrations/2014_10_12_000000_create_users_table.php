@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('academic_session')->nullable();
             $table->string('plans')->nullable();
             $table->string('fname')->nullable();
+            $table->string('schooltype')->nullable();
             
             $table->string('surname')->nullable();
             $table->string('ref_no1')->nullable();

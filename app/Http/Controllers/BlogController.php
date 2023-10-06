@@ -44,7 +44,7 @@ class BlogController extends Controller
         }
         $add_adverts['logo'] = $path;
         $add_adverts->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);
-        $add_adverts->user_id = 15;
+        $add_adverts->user_id = Auth::guard('admin')->user()->id;
         $add_adverts->email = $request->email;
         $add_adverts->phone = $request->phone;
         $add_adverts->address = $request->address;
@@ -142,11 +142,7 @@ public function search(Request $request){
     return view('pages.results', ['posts' => $posts]);
 }
 //SCHOOL SECTION
-public function addaverts(){
 
-    $view_sesions = Academicsession::latest()->get();
-    return view('dashboard.addaverts', compact('view_sesions'));
-}
 
 
 public function createadverts (Request $request){
@@ -195,58 +191,10 @@ public function add2ndimage1($ref_no){
 }
 
 
-public function updateeadverts (Request $request, $ref_no){
-    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
-
-    $request->validate([
-        'title' => ['required', 'string', 'max:255'],
-        'messages' => ['required', 'string'],
-        'email' => ['required', 'string'],
-        'phone' => ['required', 'string'],
-        'user_id' => ['required', 'string'],
-        'schoolname' => ['required', 'string'],
-        'address' => ['required', 'string'],
-        'logo' => ['required', 'string'],
-        'images' => 'nullable|mimes:jpg,png,jpeg'
-    ]);
-    // dd($request->all());
-    
-    if ($request->hasFile('images')){
-
-        $file = $request['images'];
-        $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
-        $path = $request->file('images')->storeAs('resourceimages', $filename);
-
-    }
-    $edit_myblogs['images'] = $path;
-    $edit_myblogs->user_id = $request->user_id;
-    $edit_myblogs->email = $request->email;
-    $edit_myblogs->phone = $request->phone;
-    $edit_myblogs->address = $request->address;
-    $edit_myblogs->logo = $request->logo;
-    $edit_myblogs->schoolname = $request->schoolname;
-    $edit_myblogs->title = $request->title;
-    $edit_myblogs->messages = $request->messages;
-    // $edit_myblogs->ref_no = substr(rand(0,time()),0, 9);
-    $edit_myblogs->update();
-
-    return redirect()->route('add2ndimage', ['ref_no' =>$edit_myblogs->ref_no]); 
-
-}
-public function viewyouradverts(){
-    $view_myblogs = Blog::where('user_id', auth::guard('web')->id())->get();
-    return view('dashboard.viewyouradverts', compact('view_myblogs'));
-}
-
-public function viewadverts($slug){
-    $viewsingle_myblogs = Blog::where('slug', $slug)->first();
-    return view('dashboard.viewadverts', compact('viewsingle_myblogs'));
-}
-
-public function editadvert($ref_no){
-    $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
-    return view('dashboard.editadvert', compact('edit_myblogs'));
-}
+// public function editadvert($ref_no){
+//     $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
+//     return view('dashboard.editadvert', compact('edit_myblogs'));
+// }
 
 public function add2ndimage($ref_no){
     $edit_myblogs = Blog::where('ref_no', $ref_no)->first();
@@ -380,26 +328,26 @@ public function update4rddeadverts(Request $request, $ref_no){
 
 
 
-public function approveadvert($slug){
-    $approved_teacher = Blog::where('slug', $slug)->first();
-    $approved_teacher->status = 'approved';
-    $approved_teacher->save();
-    return redirect()->back()->with('success', 'you have approved successfully');
-}
+// public function approveadvert($slug){
+//     $approved_teacher = Blog::where('slug', $slug)->first();
+//     $approved_teacher->status = 'approved';
+//     $approved_teacher->save();
+//     return redirect()->back()->with('success', 'you have approved successfully');
+// }
 
-public function suspendadvert($slug){
-    $approved_teacher = Blog::where('slug', $slug)->first();
-    $approved_teacher->status = 'suspend';
-    $approved_teacher->save();
-    return redirect()->back()->with('success', 'you have approved successfully');
-}
+// public function suspendadvert($slug){
+//     $approved_teacher = Blog::where('slug', $slug)->first();
+//     $approved_teacher->status = 'suspend';
+//     $approved_teacher->save();
+//     return redirect()->back()->with('success', 'you have approved successfully');
+// }
 
-public function rejectadvert($slug){
-    $approved_teacher = Blog::where('slug', $slug)->first();
-    $approved_teacher->status = 'reject';
-    $approved_teacher->save();
-    return redirect()->back()->with('success', 'you have approved successfully');
-}
+// public function rejectadvert($slug){
+//     $approved_teacher = Blog::where('slug', $slug)->first();
+//     $approved_teacher->status = 'reject';
+//     $approved_teacher->save();
+//     return redirect()->back()->with('success', 'you have approved successfully');
+// }
 
 
 

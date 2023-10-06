@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\PaymentController;
-
 use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AlmController;
@@ -32,6 +31,8 @@ use App\Http\Controllers\PsycomotorController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\SchoolfeeController;
+use App\Models\Schoolnew;
+use App\Http\Controllers\SchoolnewsController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentdomainController;
@@ -50,6 +51,7 @@ use App\Models\Classname;
 use App\Models\Team;
 use App\Models\Event;
 use App\Models\Result;
+use App\Models\Schoolnew as ModelsSchoolnew;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Studentdomain;
@@ -74,12 +76,13 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
 
     $press_release = Blog::latest()->take(50)->get();
-    $schooladverts = Blog::latest()->take(50)->get();
+    $schooladverts = Schoolnew::latest()->take(50)->get();
+    $schools = User::latest()->take(8)->get();
     $member_teams = Team::orderby('created_at', 'ASC')->get();
     $events = Event::latest()->take(10)->get();
     
 
-    return view('welcome', compact('schooladverts', 'events', 'member_teams', 'press_release'));
+    return view('welcome', compact('schools', 'schooladverts', 'events', 'member_teams', 'press_release'));
 });
 
 Route::get('/press_single/{slug}', function ($slug) {
@@ -88,6 +91,15 @@ Route::get('/press_single/{slug}', function ($slug) {
 
     return view('pages.press_single', compact('view_titles', 'view_pressreleases'));
 });
+
+Route::get('/view_singleschool/{slug}', function ($slug) {
+    $view_pressreleases = Schoolnew::where('slug', $slug)->first();
+    $view_titles = Schoolnew::where('slug', $slug)->latest()->get();
+
+    return view('pages.view_singleschool', compact('view_titles', 'view_pressreleases'));
+});
+
+
 Route::get('/about', function () {
 
     $member_teams = Team::orderby('created_at', 'ASC')->get();
@@ -100,10 +112,8 @@ Route::post('/checkyourresults', [ResultController::class, 'checkyourresults'])-
 Route::get('/checkresults', [ResultController::class, 'checkresults'])->name('checkresults');
 Route::post('/createcontact', [ContactController::class, 'createcontact'])->name('createcontact');
 Route::post('/createvisit', [VisitController::class, 'createvisit'])->name('createvisit');
-Route::get('/blog', function () {
-    $press_release = Blog::where('status', 'approved')->latest()->get();
-    return view('pages.blog', compact('press_release'));
-});
+
+
 
 
 Route::get('/team', function () {
@@ -134,7 +144,27 @@ Route::get('/checkresults/{slug}', function ($slug) {
 Route::get('registerteachers/{ref_no1}', [UserController::class, 'registerteachers'])->name('registerteachers');
 
 Route::post('createteacher', [TeacherController::class, 'createteacher'])->name('createteacher');
-
+Route::get('/add2ndimage13/{ref_no}', [SchoolnewsController::class, 'add2ndimage13'])->name('add2ndimage13');
+Route::get('/add3images23/{ref_no}', [SchoolnewsController::class, 'add3images23'])->name('add3images23');
+Route::put('/update2ndeschools1/{ref_no}', [SchoolnewsController::class, 'update2ndeschools1'])->name('update2ndeschools1');
+Route::put('/update2ndeschools2rd/{ref_no}', [SchoolnewsController::class, 'update2ndeschools2rd'])->name('update2ndeschools2rd');
+Route::put('/update2ndeschools3rd1/{ref_no}', [SchoolnewsController::class, 'update2ndeschools3rd1'])->name('update2ndeschools3rd1');
+Route::get('/add3images24/{ref_no}', [SchoolnewsController::class, 'add3images24'])->name('add3images24');
+Route::get('/add4images25/{ref_no}', [SchoolnewsController::class, 'add4images25'])->name('add4images25');
+Route::put('/update2ndeschools5the/{ref_no}', [SchoolnewsController::class, 'update2ndeschools5the'])->name('update2ndeschools5the');
+Route::get('/viewschoolsingle/{slug}', [UserController::class, 'viewschoolsingle'])->name('viewschoolsingle');
+Route::get('/search', [UserController::class, 'search'])->name('search');
+Route::get('/search1', [SchoolnewsController::class, 'search1'])->name('search1');
+Route::get('/add1stimage/{ref_no}', [EventController::class, 'add1stimage'])->name('add1stimage');
+Route::put('/updateaddevent1mag/{ref_no}', [EventController::class, 'updateaddevent1mag'])->name('updateaddevent1mag');
+Route::get('/add2imagesw/{ref_no}', [EventController::class, 'add2imagesw'])->name('add2imagesw');
+Route::put('/updateaddevent1mag454/{ref_no}', [EventController::class, 'updateaddevent1mag454'])->name('updateaddevent1mag454');
+Route::get('/add3imagesw12/{ref_no}', [EventController::class, 'add3imagesw12'])->name('add3imagesw12');
+Route::put('/updateaddevent51magjk/{ref_no}', [EventController::class, 'updateaddevent51magjk'])->name('updateaddevent51magjk');
+Route::get('/add2images4543/{ref_no}', [EventController::class, 'add2images4543'])->name('add2images4543');
+Route::get('/add2images4543tr/{ref_no}', [EventController::class, 'add2images4543tr'])->name('add2images4543tr');
+Route::put('/updateaddeventjfhf/{ref_no}', [EventController::class, 'updateaddeventjfhf'])->name('updateaddeventjfhf');
+Route::put('/updateaddeventsrew/{ref_no}', [EventController::class, 'updateaddeventsrew'])->name('updateaddeventsrew');
 
 
 
@@ -149,6 +179,20 @@ Route::get('/youresult', function () {
 Route::get('/services2', function () {
     return view('pages.services2');
 });
+
+Route::get('/primaryschools', function () {
+    $press_release = User::where('status', 'admitted')->where('schooltype', 'Primary')
+    ->latest()->get();
+    return view('pages.primaryschools', compact('press_release'));
+});
+
+Route::get('/secondaryschools', function () {
+    $press_release = User::where('status', 'admitted')->where('schooltype', 'Secondary')
+    ->latest()->get();
+    return view('pages.secondaryschools', compact('press_release'));
+});
+
+
 Route::get('/careers', function () {
     return view('pages.careers');
 });
@@ -491,10 +535,9 @@ Route::prefix('web')->name('web.')->group(function() {
     
     Route::middleware(['auth:web'])->group(function() {
 
-
-
-
         Route::get('/home', [UserController::class, 'home'])->name('home');
+        Route::post('/createschoolnews', [SchoolnewsController::class, 'createschoolnews'])->name('createschoolnews');
+        
         Route::get('/approvedresultsc/{id}', [ResultController::class, 'approvedresultsc'])->name('approvedresultsc');
         Route::get('/addpsychomotors', [DomainController::class, 'addpsychomotors'])->name('addpsychomotors');
         Route::post('/createsdomains', [DomainController::class, 'createsdomains'])->name('createsdomains');
@@ -536,15 +579,15 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/addalms', [AlmController::class, 'addalms'])->name('addalms');
 
         
-        Route::get('/rejectadvert/{slug}', [BlogController::class, 'rejectadvert'])->name('rejectadvert');
-        Route::get('/suspendadvert/{slug}', [BlogController::class, 'suspendadvert'])->name('suspendadvert');
-        Route::get('/approveadvert/{slug}', [BlogController::class, 'approveadvert'])->name('approveadvert');
-        Route::put('/updateeadverts/{ref_no}', [BlogController::class, 'updateeadverts'])->name('updateeadverts');
-        Route::get('/editadvert/{ref_no}', [BlogController::class, 'editadvert'])->name('editadvert');
-        Route::get('/viewadverts/{slug}', [BlogController::class, 'viewadverts'])->name('viewadverts');
-        Route::get('/viewyouradverts', [BlogController::class, 'viewyouradverts'])->name('viewyouradverts');
+        Route::get('/rejectadvert/{slug1}', [SchoolnewsController::class, 'rejectadvert'])->name('rejectadvert');
+        Route::get('/suspendadvert/{slug1}', [SchoolnewsController::class, 'suspendadvert'])->name('suspendadvert');
+        Route::get('/approveadvert/{slug1}', [SchoolnewsController::class, 'approveadvert'])->name('approveadvert');
+        Route::put('/updateeadverts/{ref_no}', [SchoolnewsController::class, 'updateeadverts'])->name('updateeadverts');
+        Route::get('/editadvert/{ref_no}', [SchoolnewsController::class, 'editadvert'])->name('editadvert');
+        Route::get('/viewadverts/{slug}', [SchoolnewsController::class, 'viewadverts'])->name('viewadverts');
+        Route::get('/viewyouradverts', [SchoolnewsController::class, 'viewyouradverts'])->name('viewyouradverts');
         Route::post('/createadverts', [BlogController::class, 'createadverts'])->name('createadverts');
-        Route::get('/addaverts', [BlogController::class, 'addaverts'])->name('addaverts');
+        Route::get('/addaverts', [SchoolnewsController::class, 'addaverts'])->name('addaverts');
         Route::get('/viewclassesbysc/{classname}', [ClassnameController::class, 'viewclassesbysc'])->name('viewclassesbysc');
         Route::get('/viewterm/{term}', [TermController::class, 'viewterm'])->name('viewterm');
         Route::get('/viewalms/{alms}', [AlmController::class, 'viewalms'])->name('viewalms');

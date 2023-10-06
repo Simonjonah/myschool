@@ -88,7 +88,7 @@
                             <span class="badge badge-success">Approved</span>
     
                             @endif</td>
-                          <td><a href="{{ url('web/viewadverts/'.$view_myblog->slug) }}"
+                          <td><a href="{{ url('web/viewadverts/'.$view_myblog->slug1) }}"
                             class='btn btn-default'>
                              <i class="far fa-eye"></i>
 
@@ -98,9 +98,9 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li class="dropdown-item"><a href="{{ url('web/editadvert/'.$view_myblog->ref_no) }}">Edit</a></li>
-                                    <li class="dropdown-item"><a href="{{ url('web/approveadvert/'.$view_myblog->slug) }}">Approved</a></li>
-                                  <li class="dropdown-item"><a href="{{ url('web/suspendadvert/'.$view_myblog->slug) }}">Suspend</a></li>
-                                  <li class="dropdown-item"><a href="{{ url('web/rejectadvert/'.$view_myblog->slug) }}">Reject</a></li>
+                                    <li class="dropdown-item"><a href="{{ url('web/approveadvert/'.$view_myblog->slug1) }}">Approved</a></li>
+                                  <li class="dropdown-item"><a href="{{ url('web/suspendadvert/'.$view_myblog->slug1) }}">Suspend</a></li>
+                                  <li class="dropdown-item"><a href="{{ url('web/rejectadvert/'.$view_myblog->slug1) }}">Reject</a></li>
                                  
                                 </ul>
                               </div></td>

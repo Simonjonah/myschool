@@ -37,7 +37,7 @@
             	<div class="upper-inner clearfix">
                 	
                 	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="home"><img style="width: 150px; height: 120px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a></div>
+                    	<div class="logo"><a href="{{ url('/') }}"><img style="width: 150px; height: 120px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a></div>
                     </div>
                     
 					<div class="upper-right clearfix">
@@ -46,7 +46,7 @@
                         <div class="upper-column info-box">
                         	<div class="icon-box"><span class="flaticon-e-mail-envelope"></span></div>
                             <ul>
-                            	<li>info@myschoolafrica.com</li>
+                            	<li>info@schoolsupdate.ng</li>
                             </ul>
                         </div>
                         
@@ -110,37 +110,23 @@
 
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								 <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
-									<ul>
-										<li><a href="{{ url('/') }}">Home</a></li>
-                                        <li><a href="{{ url('about') }}">About Us</a></li>
+                                    <li><a href="{{ url('/') }}">Home</a></li>
+                                    <li><a href="{{ url('about') }}">About Us</a></li>
 
-										<li><a href="{{ url('team') }}">Team</a></li>
-                                        <li><a href="{{ url('services2') }}">Services</a></li>
+                                    <li class="dropdown"><a href="#">Schools Update</a>
+                                        <ul>
+                                            <li><a href="{{ url('primaryschools') }}">Primary Schools</a></li>
 
-										
-									</ul>
-								</li>
+                                            <li><a href="{{ url('secondaryschools') }}">Secondary Schools</a>
+                                        </ul>
+                                    </li>
 
-                                
-                                
-                                
-
-                                <li class="dropdown"><a href="#">Advertise School</a>
-                                    <ul>
-                                        <li><a href="{{ url('blog') }}">View Schools</a></li>
-                                        <li><a href="{{ url('login') }}">Advertise School</a>
-                                    </ul>
-                                </li>
 								
-								
-								
-								
-                                <li><a href="{{ url('careers') }}">Counselling</a></li>
-                                <li><a href="{{ url('scholarship') }}">Schollarship</a></li>
+                                    <li><a href="{{ url('competitions') }}">Competitions</a></li>
 								
 								<li><a href="{{ url('contact') }}">Contact us</a></li>
-								<li><a href="#">JAMB</a></li>
+								<li><a href="{{ url('checkresults') }}">Check Results</a></li>
+								<li><a href="{{ url('register') }}">Register</a></li>
 
                                 
                             </ul>
@@ -156,7 +142,7 @@
         	<div class="auto-container clearfix">
             	<!--Logo-->
             	<div class="logo pull-left">
-                	<a href="home" class="img-responsive"><img style="width: 150px; height: 70px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a>
+                	<a href="{{ url('/') }}" class="img-responsive"><img style="width: 150px; height: 70px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a>
                 </div>
                 
                 <!--Right Col-->
@@ -171,45 +157,26 @@
                         
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="{{ url('about') }}">About Us</a></li>
+
+                                <li class="dropdown"><a href="#">Schools Update</a>
                                     <ul>
-										<li><a href="{{ url('/') }}">Home</a></li>
-                                        <li><a href="{{ url('about') }}">About Us</a></li>
+                                        <li><a href="{{ url('primaryschools') }}">Primary Schools</a></li>
 
-										<li><a href="{{ url('team') }}">Team</a></li>
-                                        <li><a href="{{ url('services2') }}">Services</a></li>
-
-										
-									</ul>
-								</li>
-
-                                
-                                {{-- <li class="dropdown"><a href="#">Contact Teacher</a>
-                                    <ul>
-                                        <li><a href="{{ url('view_teachers') }}">View Teacher</a></li>
-                                        <li><a href="{{ url('registerteacher') }}">Become Teacher</a>
-                                        
-                                        
-                                    </ul>
-                                </li> --}}
-
-                                <li class="dropdown"><a href="#">Advertise School</a>
-                                    <ul>
-                                        <li><a href="{{ url('blog') }}">View Schools</a></li>
-                                        <li><a href="{{ url('login') }}">Advertise School</a>
+                                        <li><a href="{{ url('secondaryschools') }}">Secondary Schools</a>
                                     </ul>
                                 </li>
-								
-								
-								
-								
-                                <li><a href="{{ url('careers') }}">Counselling</a></li>
-                                <li><a href="{{ url('scholarship') }}">Schollarship</a></li>
-								
-								<li><a href="{{ url('contact') }}">Contact us</a></li>
-								<li><a href="#">JAMB</a></li>
 
-                            </ul>
+                            
+                                <li><a href="{{ url('competitions') }}">Competitions</a></li>
+                            
+                            <li><a href="{{ url('contact') }}">Contact us</a></li>
+                            <li><a href="{{ url('checkresults') }}">Check Results</a></li>
+                            <li><a href="{{ url('register') }}">Register</a></li>
+
+                            
+                        </ul>
                         </div>
                     </nav><!-- Main Menu End-->
                 </div>

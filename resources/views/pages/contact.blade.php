@@ -20,17 +20,18 @@
 
 		<div class="auto-container">
 			<div class="inner-container">
-				<h2 style="color: red;">Contact  <br>MYSCHOOL.AFRICA</span></h2>
+				<h2 style="color: red;">Contact  <br>SCHOOLSUPDATES.NG</span></h2>
 				<div class="row clearfix">
 
 					<!-- Info Column -->
 					<div class="info-column col-lg-7 col-md-12 col-sm-12">
 						<div class="inner-column">
-							<div class="text">For additioan information on MYSCHOOL.AFRICA services. Please contact using the information below</div>
+							{{-- <div class="text">For additioan information on MYSCHOOL.AFRICA services. Please contact using the information below</div> --}}
 							<ul class="list-style-five">
-								<li><span class="icon fa fa-building"></span>Beside School of Continueing, <br> University of Uyo, Akwa Ibom State <br> Nigeria.</li>
-								<li><span class="icon fa fa-fax"></span> +234 8062 6268 53</li>
-								<li><span class="icon fa fa-envelope-o"></span>info@myschool.africa</li>
+								<li><span class="icon fa fa-building"></span>No. 4 Attiku Abubbakka Avenue, <br>  Uyo
+									Akwa Ibom State <br> Nigeria.</li>
+								<li><span class="icon fa fa-fax"></span> +234 814 065 8029, +234 816 7930 965</li>
+								<li><span class="icon fa fa-envelope-o"></span>info@schoolsupdate.ng</li>
 							</ul>
 						</div>
 					</div>

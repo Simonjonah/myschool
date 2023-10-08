@@ -69,35 +69,34 @@
                         <td>{{ $school_approve->ref_no1 }}</td>
                         <td>{{ $school_approve->plans }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$school_approve->logo")}}" alt=""></td>
-                        <td><a href="{{ url('admin/viewschool/'.$school_approve->ref_no1) }}"
-                            class='btn btn-default'>
-                             <i class="far fa-eye"></i>
-                         </a></td>
-                         <td><a href="{{ url('admin/editschool/'.$school_approve->ref_no1) }}"
-                          class='btn btn-info'>
-                           <i class="far fa-edit"></i>
+                        <td><a href="{{ url('admin/viewschool/'.$school_review->ref_no1) }}"
+                          class='btn btn-default'>
+                           <i class="far fa-eye"></i>
                        </a></td>
-
-                       <td><a href="{{ url('admin/schoolapprove/'.$school_approve->ref_no1) }}"
+                       <td><a href="{{ url('admin/editschool/'.$school_review->ref_no1) }}"
                         class='btn btn-info'>
-                        Approved
-                     </a></td>
-                     <td><a href="{{ url('admin/schoolreject/'.$school_approve->ref_no1) }}"
-                        class='btn btn-danger'>
-                        Reject                         
+                         <i class="far fa-edit"></i>
                      </a></td>
 
-                     <td><a href="{{ url('admin/schoolsuspend/'.$school_approve->ref_no1) }}"
-                        class='btn btn-warning'>
-                        Suspend                         
-                     </a></td>
+                     <td><a href="{{ url('admin/schoolsaddmit/'.$school_review->ref_no1) }}"
+                      class='btn btn-info'>
+                      Approved
+                   </a></td>
+                   <td><a href="{{ url('admin/rejectschool/'.$school_review->ref_no1) }}"
+                      class='btn btn-danger'>
+                      Reject                         
+                   </a></td>
 
-                     <td><a href="{{ url('admin/schooldelete/'.$school_approve->ref_no1) }}"
-                        class='btn btn-danger'>
-                        <i class="far fa-trash-alt"></i>
-                       
-                     </a></td>
-                   
+                   <td><a href="{{ url('admin/suspendschool/'.$school_review->ref_no1) }}"
+                      class='btn btn-warning'>
+                      Suspend                         
+                   </a></td>
+
+                   <td><a href="{{ url('admin/schooldelete/'.$school_review->ref_no1) }}"
+                      class='btn btn-danger'>
+                      <i class="far fa-trash-alt"></i>
+                     
+                   </a></td>
                        
                         
                      <td>{{ $school_approve->created_at->format('D d, M Y, H:i')}}</td>

@@ -75,16 +75,16 @@
                            <i class="far fa-edit"></i>
                        </a></td>
 
-                       <td><a href="{{ url('admin/schoolapprove/'.$school_review->ref_no1) }}"
+                       <td><a href="{{ url('admin/schoolsaddmit/'.$school_review->ref_no1) }}"
                         class='btn btn-info'>
                         Approved
                      </a></td>
-                     <td><a href="{{ url('admin/schoolreject/'.$school_review->ref_no1) }}"
+                     <td><a href="{{ url('admin/rejectschool/'.$school_review->ref_no1) }}"
                         class='btn btn-danger'>
                         Reject                         
                      </a></td>
 
-                     <td><a href="{{ url('admin/schoolsuspend/'.$school_review->ref_no1) }}"
+                     <td><a href="{{ url('admin/suspendschool/'.$school_review->ref_no1) }}"
                         class='btn btn-warning'>
                         Suspend                         
                      </a></td>

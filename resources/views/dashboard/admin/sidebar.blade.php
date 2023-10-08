@@ -277,6 +277,70 @@
             </ul>
           </li> --}}
 
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                School Info section
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <li class="nav-item">
+                  <a href="{{ url('admin/viewschoolinforeview') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Review Sch. info</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/approveschinfo') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Approved Sch info</p>
+                  </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/rejectschinfo') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Rejected sch Info</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ url('admin/suspendschinfo') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Suspend sch Info</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/viewschoolnews') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View All</p>
+                  </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/addmainslider') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Main Slider</p>
+                  </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a href="{{ url('admin/viewmainslider') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>View Main Slider</p>
+                  </a>
+                </li>
+              </li>
+            </ul>
+          </li>
+
            <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -326,6 +390,32 @@
                   <p>Secondary Students</p>
                 </a>
               </li> --}}
+             
+            </ul>
+          </li>
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Competitions
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+             
+
+              <li class="nav-item">
+                <a href="{{ url('admin/viewcompetitions') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Competitions</p>
+                </a>
+              </li>
+              
+              
+
              
             </ul>
           </li>

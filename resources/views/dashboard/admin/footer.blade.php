@@ -1,6 +1,6 @@
 <!-- /.content-wrapper -->
 <footer class="main-footer">
-  <strong>Copyright &copy; 2023 <a href="https://myschool.africa.com">MYSCHOOL.AFRICA</a>.</strong>
+  <strong>Copyright &copy; 2023 <a href="https://schoolsupdate.ng">SCHOOLSUPDATE.NG</a>.</strong>
   All rights reserved.
   <div class="float-right d-none d-sm-inline-block">
     <b>Version</b>1.1.1
@@ -13,7 +13,7 @@
 </aside>
 <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
+<!-- ./wrapper      -->
 
 <!-- jQuery -->
 <script src="../../assets/plugins/jquery/jquery.min.js"></script>

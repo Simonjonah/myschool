@@ -4,7 +4,7 @@
 <!-- Mirrored from themexriver.com/tfhtml/finano/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Jan 2019 01:59:48 GMT -->
 <head>
 <meta charset="utf-8">
-<title>MYSCHOOL.AFRICA | Homepage </title>
+<title>School Update - the best innovative school portal | Homepage </title>
 <!-- Stylesheets -->
 <link href="{{ asset('front/css/bootstrap.css') }}" rel="stylesheet">
 <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
@@ -61,7 +61,7 @@
                         <div class="upper-column info-box">
                         	<div class="icon-box"><span class="flaticon-phone-receiver"></span></div>
                             <ul>
-								<li>+234 805 1142 724</li>
+								<li>+234 814 065 8029</li>
                             </ul>
                         </div>
 						

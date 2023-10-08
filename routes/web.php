@@ -20,6 +20,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ClassactivityController;
 use App\Http\Controllers\ClassnameController;
+use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\GalleryController;
@@ -92,6 +93,14 @@ Route::get('/press_single/{slug}', function ($slug) {
     return view('pages.press_single', compact('view_titles', 'view_pressreleases'));
 });
 
+
+Route::get('/event_view/{slug}', function ($slug) {
+    $view_events = Event::where('slug', $slug)->first();
+    $view_titles = Event::latest()->get();
+
+    return view('pages.event_view', compact('view_titles', 'view_events'));
+});
+
 Route::get('/view_singleschool/{slug}', function ($slug) {
     $view_pressreleases = Schoolnew::where('slug', $slug)->first();
     $view_titles = Schoolnew::where('slug', $slug)->latest()->get();
@@ -101,12 +110,24 @@ Route::get('/view_singleschool/{slug}', function ($slug) {
 
 
 Route::get('/about', function () {
-
     $member_teams = Team::orderby('created_at', 'ASC')->get();
-
     return view('pages.about', compact('member_teams'));
 });
 
+Route::get('/competitions', function () {
+    $view_events = Event::orderby('created_at', 'DESC')->get();
+    return view('pages.competitions', compact('view_events'));
+});
+
+Route::get('/registerevents/{slug}', function ($slug) {
+    $event_register = Event::where('slug', $slug)->first();
+    return view('pages.registerevents', compact('event_register'));
+});
+
+
+
+
+Route::get('/thankyou/{ref_no}', [CompetitionController::class, 'thankyou'])->name('thankyou');
 Route::post('/yourresultfinale', [ResultController::class, 'yourresultfinale'])->name('yourresultfinale');
 Route::post('/checkyourresults', [ResultController::class, 'checkyourresults'])->name('checkyourresults');
 Route::get('/checkresults', [ResultController::class, 'checkresults'])->name('checkresults');
@@ -165,6 +186,7 @@ Route::get('/add2images4543/{ref_no}', [EventController::class, 'add2images4543'
 Route::get('/add2images4543tr/{ref_no}', [EventController::class, 'add2images4543tr'])->name('add2images4543tr');
 Route::put('/updateaddeventjfhf/{ref_no}', [EventController::class, 'updateaddeventjfhf'])->name('updateaddeventjfhf');
 Route::put('/updateaddeventsrew/{ref_no}', [EventController::class, 'updateaddeventsrew'])->name('updateaddeventsrew');
+Route::post('/eventregisters', [CompetitionController::class, 'eventregisters'])->name('eventregisters');
 
 
 
@@ -221,6 +243,19 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::middleware(['auth:admin'])->group(function() {
         
         
+        Route::get('deletecomstudent/{ref_no}', [CompetitionController::class, 'deletecomstudent'])->name('deletecomstudent');
+        Route::get('viewcompetitions', [CompetitionController::class, 'viewcompetitions'])->name('viewcompetitions');
+        Route::get('viewschoolnews', [SchoolnewsController::class, 'viewschoolnews'])->name('viewschoolnews');
+        Route::get('schoolsuspendinfo/{ref_no}', [SchoolnewsController::class, 'schoolsuspendinfo'])->name('schoolsuspendinfo');
+        Route::get('rejectschinfo', [SchoolnewsController::class, 'rejectschinfo'])->name('rejectschinfo');
+        Route::get('suspendschinfo', [SchoolnewsController::class, 'suspendschinfo'])->name('suspendschinfo');
+        Route::get('approveschinfo', [SchoolnewsController::class, 'approveschinfo'])->name('approveschinfo');
+        Route::get('schoolrejectinfo/{ref_no}', [SchoolnewsController::class, 'schoolrejectinfo'])->name('schoolrejectinfo');
+        Route::get('schoolapproveinfo/{ref_no}', [SchoolnewsController::class, 'schoolapproveinfo'])->name('schoolapproveinfo');
+        Route::put('editschoolnews/{ref_no}', [SchoolnewsController::class, 'editschoolnews'])->name('editschoolnews');
+        Route::get('editschoolinfo/{ref_no}', [SchoolnewsController::class, 'editschoolinfo'])->name('editschoolinfo');
+        Route::get('viewschoolinfo/{ref_no}', [SchoolnewsController::class, 'viewschoolinfo'])->name('viewschoolinfo');
+        Route::get('viewschoolinforeview', [SchoolnewsController::class, 'viewschoolinforeview'])->name('viewschoolinforeview');
         Route::get('viewschoolpins/{user_id}', [ResultController::class, 'viewschoolpins'])->name('viewschoolpins');
         Route::post('searchpins', [ResultController::class, 'searchpins'])->name('searchpins');
         Route::post('searchpinsforclass', [ResultController::class, 'searchpinsforclass'])->name('searchpinsforclass');

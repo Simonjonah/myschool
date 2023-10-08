@@ -137,7 +137,7 @@
                                         <div class="inner-column">
                                             <div class="image">
 
-                                                <a href="event_view/view?id=">
+                                                <a href="{{ url('event_view/'.$event->slug) }}">
                                                 <img style="width: 1000px; height: 200px;" src="{{ URL::asset("/public/../$event->images")}}" alt=""></a></h2></span>
                                             </div>
                                         </div>

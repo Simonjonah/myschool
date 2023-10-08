@@ -262,6 +262,47 @@ class SchoolnewsController extends Controller
         $approved_teacher->save();
         return redirect()->back()->with('success', 'you have approved successfully');
     }
+
+    public function schoolapproveinfo($ref_no){
+        $approved_teacher = Schoolnew::where('ref_no', $ref_no)->first();
+        $approved_teacher->status = 'approved';
+        $approved_teacher->save();
+        return redirect()->back()->with('success', 'you have approved successfully');
+    }
+
+    
+    public function schoolrejectinfo($ref_no){
+        $approved_teacher = Schoolnew::where('ref_no', $ref_no)->first();
+        $approved_teacher->status = 'reject';
+        $approved_teacher->save();
+        return redirect()->back()->with('success', 'you have reject successfully');
+    }
+    
+    
+    public function approveschinfo(){
+        $approved_schools = Schoolnew::where('status', 'approved')->get();
+        return view('dashboard.admin.approveschinfo', compact('approved_schools'));
+    }
+
+    public function rejectschinfo(){
+        $approved_schools = Schoolnew::where('status', 'reject')->get();
+        return view('dashboard.admin.rejectschinfo', compact('approved_schools'));
+    }
+
+    public function schoolsuspendinfo(){
+        $approved_schools = Schoolnew::where('status', 'suspend')->get();
+        return view('dashboard.admin.schoolsuspendinfo', compact('approved_schools'));
+    }
+    public function suspendschinfo(){
+        $approved_schools = Schoolnew::where('status', 'suspend')->get();
+        return view('dashboard.admin.suspendschinfo', compact('approved_schools'));
+    }
+
+    public function viewschoolnews(){
+        $approved_schools = Schoolnew::latest()->get();
+        return view('dashboard.admin.viewschoolnews', compact('approved_schools'));
+    }
+    
     
     public function suspendadvert($slug1){
         $approved_teacher = Schoolnew::where('slug1', $slug1)->first();
@@ -287,5 +328,60 @@ class SchoolnewsController extends Controller
         return view('pages.searchresultsnews', ['results' => $results]);
     }
     
+
+    public function viewschoolinforeview(){
+        $school_inforeviews = Schoolnew::where('status', null)->get();
+        return view('dashboard.admin.viewschoolinforeview', compact('school_inforeviews'));
+    }
+    public function viewschoolinfo($ref_no){
+        $school_info = Schoolnew::where('ref_no', $ref_no)->first();
+        return view('dashboard.admin.viewschoolinfo', compact('school_info'));
+    }
+
+    public function editschoolinfo($ref_no){
+        $edit_school = Schoolnew::where('ref_no', $ref_no)->first();
+        return view('dashboard.admin.editschoolinfo', compact('edit_school'));
+    }
+
+    public function editschoolnews (Request $request, $ref_no){
+        $edit_myblogs = Schoolnew::where('ref_no', $ref_no)->first();
+    
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'messages' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'user_id' => ['required', 'string'],
+            'schoolname' => ['required', 'string'],
+            'address' => ['required', 'string'],
+            'logo' => ['required', 'string'],
+            'images' => 'nullable|mimes:jpg,png,jpeg'
+        ]);
+        // dd($request->all());
+        
+        if ($request->hasFile('images')){
+    
+            $file = $request['images'];
+            $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+            $path = $request->file('images')->storeAs('resourceimages', $filename);
+    
+        }
+        $edit_myblogs['images'] = $path;
+        $edit_myblogs->user_id = $request->user_id;
+        $edit_myblogs->email = $request->email;
+        $edit_myblogs->phone = $request->phone;
+        $edit_myblogs->address = $request->address;
+        $edit_myblogs->logo = $request->logo;
+        $edit_myblogs->schoolname = $request->schoolname;
+        $edit_myblogs->title = $request->title;
+        $edit_myblogs->messages = $request->messages;
+        // $edit_myblogs->ref_no = substr(rand(0,time()),0, 9);
+        $edit_myblogs->update();
+    
+        return redirect()->back()->with('success', 'you have approved successfully');
+
+    
+    }
+     
     
 }

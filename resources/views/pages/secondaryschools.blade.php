@@ -3,10 +3,10 @@
     <section class="page-title" style="background-image:url({{ asset('images/background/bri2.jpg') }})">
     	<div class="auto-container">
 			<div class="content">
-				<h1>Primary <span>Schools</span></h1>
+				<h1>Secondary <span>Schools</span></h1>
 				<ul class="page-breadcrumb">
 					<li><a href="home">Home</a></li>
-					<li>Primary Schools</li>
+					<li>Secondary Schools</li>
 				</ul>
 			</div>
         </div>
@@ -48,9 +48,8 @@
 				<div class="news-block-three col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
-							<a href="/view?id=">
-                    		</a></h2></span>
-							{{-- press_single --}}
+							<a href="{{ url('viewschoolsingle/'.$press_releases->slug) }}">
+								<img style="width: 50px; height: 50px;" src="{{ URL::asset("/public/../$press_releases->logo")}}" alt=""></a></h2></span>
 						</div>
 						<div class="lower-content">
 							<ul class="post-meta">

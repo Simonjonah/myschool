@@ -37,7 +37,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Phone</th>
+                    <th>Schoolname</th>
                     <th>Surname</th>
                     <th>First Name</th>
                     <th>Ref NO</th>
@@ -59,7 +59,7 @@
                     @foreach ($school_reviews as $school_review)
                       {{-- @if ($school_review->status == null) --}}
                       <tr>
-                        <td>{{ $school_review->phone }}</td>
+                        <td>{{ $school_review->schoolname }}</td>
 
                         <td>{{ $school_review->surname }}</td>
                         <td>{{ $school_review->fname }}</td>
@@ -110,7 +110,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                        <th>Phone</th>
+                        <th>Schoolname</th>
                         <th>Surname</th>
                         <th>First Name</th>
                         <th>Ref NO</th>

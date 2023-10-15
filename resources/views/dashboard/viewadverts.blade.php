@@ -8,14 +8,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Advertisement </h1>
+            <h1 class="m-0 text-dark">School News </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
 l            <ol class="breadcrumb float-sm-right">
               {{-- <li cass="breadcrumb-item"><a href="{{ route('admin.addnidnetsem2leve200l') }}" class="btn btn-success">Add Semester Courses</a></li> --}}
               <li class="breadcrumb-item"><a href="#">Home</a></li>
 
-              <li class="breadcrumb-item active">Advertisement  </li>
+              <li class="breadcrumb-item active">School News  </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -62,7 +62,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <input type="hidden" name="phone" value="{{ Auth::guard('web')->user()->phone }}" id="">
                         <input type="hidden" name="logo" value="{{ Auth::guard('web')->user()->logo }}" id="">
                        
-                        <input type="text" value="{{ $viewsingle_myblogs->title }}" class="form-control" name="title" placeholder="title">
+                        {{-- <input type="text" value="{{ $viewsingle_myblogs->title }}" class="form-control" name="title" placeholder="title"> --}}
 
                       </div>
 

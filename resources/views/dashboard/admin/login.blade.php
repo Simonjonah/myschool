@@ -22,7 +22,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>Myschool.Africa Super</b>Admin</a>
+    <a href="/"><b>School Update </b>Admin</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

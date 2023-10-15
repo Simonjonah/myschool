@@ -9,6 +9,11 @@
         <div class="row mb-2">
           <div class="col-sm-12">
             <h1 class="m-0 text-dark"><a href="{{ url('/checkresults/'.Auth::user()->slug) }}" target="_blank">{{ url('/checkresults/'.Auth::user()->slug) }}</a></h1>
+           
+           @foreach ($view_notices as $view_notice)
+            <h1 class="m-0 text-dark"><marquee behavior="" direction="">{!! $view_notice->messages !!}</marquee></h1>
+             
+           @endforeach
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -24,7 +29,14 @@
     <!-- /.content-header -->
 
    @if (Auth::guard('web')->user()->status == null)
-     <h3>In Review</h3>
+     <h3>In Review
+      Please Pay the sum of N5,000 for six(6) Months and N10,000 for One Year(1).
+      through this Account details:  <br>
+      Account Name: Ime King Udoh <br>
+      Account Number: 240 101 6006 <br>
+      Bank Name: Zenith Bank <br>
+
+     </h3>
    @elseif (Auth::guard('web')->user()->status == 'suspend')
     <h1>{{ Auth::guard('web')->user()->fname }}, You have been suspended</h1>
     @elseif (Auth::guard('web')->user()->status == 'reject')

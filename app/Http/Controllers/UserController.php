@@ -9,6 +9,7 @@ use App\Models\Schoolnew;
 use App\Models\User;
 use App\Models\Classname;
 use App\Models\Domain;
+use App\Models\Notification;
 use App\Models\Query;
 use App\Models\Subject;
 use App\Models\Teacherassign;
@@ -102,13 +103,6 @@ class UserController extends Controller
         return view('pages.thirdregistration', compact('addthird_registration'));
     }
 
-    
-
-
-   
-
-
-   
 
   
     public function medicalreports($ref_no){
@@ -325,9 +319,10 @@ class UserController extends Controller
         $countmysubjects = Subject::where('user_id', auth::guard('web')->id())->count();
         $countstudents = Student::where('user_id', auth::guard('web')->id())->count();
         $countpsyco = Domain::where('user_id', auth::guard('web')->id())->count();
-        $countnews = Blog::where('user_id', auth::guard('web')->id())->count();
+        $countnews = Schoolnew::where('user_id', auth::guard('web')->id())->count();
+        $view_notices = Notification::latest()->take(1)->get();
 
-        return view('dashboard/home', compact('countnews', 'countpsyco', 'countstudents', 'countclasses','countteachers', 'countmysubjects', 'countyourresults'));
+        return view('dashboard/home', compact('view_notices', 'countnews', 'countpsyco', 'countstudents', 'countclasses','countteachers', 'countmysubjects', 'countyourresults'));
     }
 
     public function profile($ref_no1){

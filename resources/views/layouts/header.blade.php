@@ -11,8 +11,8 @@
 <link href="{{ asset('front/css/style.css')}}" rel="stylesheet">
 <link href="{{ asset('front/css/responsive.css')}}" rel="stylesheet">
 
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,47 +32,15 @@
     <!-- Main Header-->
     <header class="main-header header-style-five">
     	
-		<!--Header Top-->
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="inner-container clearfix">
-                    <div class="top-left">
-                        <ul class="contact-list clearfix">
-                            <li><i class="fa fa-envelope-o"></i> finan@mail.com</li>
-                            <li><i class="fa fa-phone"></i><a href="#">+1 401 572 4423</a></li>
-							<li><i class="fa fa-map-marker"></i><a href="#">121 King Street, USA, Newyork</a></li>
-                        </ul>
-                    </div>
-                    <div class="top-right">
-					
-                        <!--Cart Box-->
-						<div class="cart-box">
-							<div class="cart-box-btn dropdown-toggle"><span class="fa fa-shopping-cart"></span><span class="total-cart">0</span></div>
-						</div>
-						
-						<!--Language-->
-						<div class="language dropdown"><a class="btn btn-default dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#"><span class="flag-icon"><img src="images/icons/flag-icon.png" alt=""/></span>En</a>
-							<ul class="dropdown-menu style-one" aria-labelledby="dropdownMenu2">
-								<li><a href="#">English</a></li>
-								<li><a href="#">German</a></li>
-								<li><a href="#">Arabic</a></li>
-								<li><a href="#">Hindi</a></li>
-							</ul>
-						</div>
-						
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Header Top -->
+
 		
     	<!--Header-Upper-->
         <div class="header-upper">
         	<div class="auto-container">
             	<div class="clearfix">
                 	
-                	<div class="pull-left logo-box">
-                    	<div class="logo"><a href="index.html"><img src="images/logo-7.png" alt="" title=""></a></div>
+                	<div class="pull-left logo-box" style="margin-top: 20px">
+                    	<div class="logo"><a href="{{ url('/') }}"><img style="width: 100px; height: 70px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a></div>
                     </div>
                    	
                    	<div class="nav-outer clearfix">
@@ -89,48 +57,24 @@
 
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
-									<li class="current dropdown"><a href="#">Home</a>
+									<li><a href="{{ url('/') }}">Home</a></li>
+									<li><a href="{{ url('about') }}">About Us</a></li>
+	
+									<li class="dropdown"><a href="#">Schools Update</a>
 										<ul>
-											<li><a href="index.html">Home Page 01</a></li>
-											<li><a href="index-2.html">Home Page 02</a></li>
-											<li><a href="index-3.html">Home Page 03</a></li>
-											<li><a href="index-4.html">Home Page 04</a></li>
-											<li><a href="index-5.html">Home Page 05</a></li>
+											<li><a href="{{ url('primaryschools') }}">Primary Schools</a></li>
+	
+											<li><a href="{{ url('secondaryschools') }}">Secondary Schools</a>
 										</ul>
 									</li>
-									<li class="dropdown"><a href="#">About Us</a>
-										<ul>
-											<li><a href="about.html">About Us</a></li>
-											<li><a href="team.html">Our Team</a></li>
-											<li><a href="case-studies.html">Case Studies</a></li>
-											<li><a href="testimonial.html">Testimonial</a></li>
-											<li><a href="not-found.html">Error Page</a></li>
-										</ul>
-									</li>
-									<li class="dropdown"><a href="#">Services</a>
-										<ul>
-											<li><a href="services.html">Services</a></li>
-											<li><a href="services-2.html">Services Two</a></li>
-											<li><a href="services-single.html">Services Single</a></li>
-										</ul>
-									</li>
-									<li class="dropdown"><a href="#">Portfolio</a>
-										<ul>
-											<li><a href="portfolio-2-column.html">Portfolio Two Column</a></li>
-											<li><a href="portfolio-3-column.html">Portfolio Three Column</a></li>
-											<li><a href="portfolio-4-column.html">Portfolio Four Column</a></li>
-											<li><a href="portfolio-masonry.html">Portfolio Masonry</a></li>
-											<li><a href="portfolio-single.html">Portfolio Single</a></li>
-										</ul>
-									</li>
-									<li class="dropdown"><a href="#">Blog</a>
-										<ul>
-											<li><a href="blog.html">Our Blog</a></li>
-											<li><a href="blog-list.html">Blog List</a></li>
-											<li><a href="blog-single.html">Blog Single</a></li>
-										</ul>
-									</li>
-									<li><a href="contact.html">Contact us</a></li>
+	
+								
+									<li><a href="{{ url('competitions') }}">Competitions</a></li>
+								
+								<li><a href="{{ url('contact') }}">Contact us</a></li>
+								<li><a href="{{ url('checkresults') }}">Check Results</a></li>
+								<li><a href="{{ url('register') }}">Register</a></li>
+	
 								</ul>
 							</div>
 							
@@ -172,7 +116,7 @@
         	<div class="auto-container clearfix">
             	<!--Logo-->
             	<div class="logo pull-left">
-                	<a href="index.html" class="img-responsive"><img src="images/logo-small-2.png" alt="" title=""></a>
+                	<a href="{{ url('/') }}" class="img-responsive"><img style="width: 130px; height: 50px;" src="{{ asset('images/logo.jpg') }}" alt="" title=""></a>
                 </div>
                 
                 <!--Right Col-->
@@ -187,48 +131,25 @@
                         
                         <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="#">Home</a>
-									<ul>
-										<li><a href="index.html">Home Page 01</a></li>
-										<li><a href="index-2.html">Home Page 02</a></li>
-										<li><a href="index-3.html">Home Page 03</a></li>
-										<li><a href="index-4.html">Home Page 04</a></li>
-										<li><a href="index-5.html">Home Page 05</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">About Us</a>
-									<ul>
-										<li><a href="about.html">About Us</a></li>
-										<li><a href="team.html">Our Team</a></li>
-										<li><a href="case-studies.html">Case Studies</a></li>
-										<li><a href="testimonial.html">Testimonial</a></li>
-										<li><a href="not-found.html">Error Page</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">Services</a>
-									<ul>
-										<li><a href="services.html">Services</a></li>
-										<li><a href="services-2.html">Services Two</a></li>
-										<li><a href="services-single.html">Services Single</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">Portfolio</a>
-									<ul>
-										<li><a href="portfolio-2-column.html">Portfolio Two Column</a></li>
-										<li><a href="portfolio-3-column.html">Portfolio Three Column</a></li>
-										<li><a href="portfolio-4-column.html">Portfolio Four Column</a></li>
-										<li><a href="portfolio-masonry.html">Portfolio Masonry</a></li>
-										<li><a href="portfolio-single.html">Portfolio Single</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#">Blog</a>
-									<ul>
-										<li><a href="blog.html">Our Blog</a></li>
-										<li><a href="blog-list.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact us</a></li>
+								<li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="{{ url('about') }}">About Us</a></li>
+
+                                <li class="dropdown"><a href="#">Schools Update</a>
+                                    <ul>
+                                        <li><a href="{{ url('primaryschools') }}">Primary Schools</a></li>
+
+                                        <li><a href="{{ url('secondaryschools') }}">Secondary Schools</a>
+                                    </ul>
+                                </li>
+
+                            
+                                <li><a href="{{ url('competitions') }}">Competitions</a></li>
+                            
+                            <li><a href="{{ url('contact') }}">Contact us</a></li>
+                            <li><a href="{{ url('checkresults') }}">Check Results</a></li>
+                            <li><a href="{{ url('register') }}">Register</a></li>
+
+								
                             </ul>
                         </div>
                     </nav><!-- Main Menu End-->

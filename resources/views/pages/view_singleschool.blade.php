@@ -39,35 +39,35 @@
 										<div class="row clearfix">
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images")}}" alt="" />
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images")}}" alt="" />
 												</div>
 											</div>
                                             <div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images1")}}" alt="" />
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images1")}}" alt="" />
 												</div>
 											</div>
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images2")}}" alt="" />
-												</div>
-											</div>
-
-											<div class="column col-lg-6 col-md-6 col-sm-12">
-												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images3")}}" alt="" />
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images2")}}" alt="" />
 												</div>
 											</div>
 
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images4")}}" alt="" />
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images3")}}" alt="" />
 												</div>
 											</div>
 
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{ URL::asset("/public/../$view_pressreleases->images5")}}" alt="" />
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images4")}}" alt="" />
+												</div>
+											</div>
+
+											<div class="column col-lg-6 col-md-6 col-sm-12">
+												<div class="image">
+													<img style="width: 300px; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images5")}}" alt="" />
 												</div>
 											</div>
 										</div>
@@ -171,7 +171,7 @@
 							<div class="images-outer clearfix">
                                 <!--Image Box-->
                                 <figure class="image-box"><a href="{{ URL::asset("/public/../$view_pressreleases->images")}}" class="lightbox-image" data-caption="" data-fancybox="images" title="Image Title Here" data-fancybox-group="footer-gallery"><span class="overlay-box flaticon-plus-symbol"></span></a>
-                                <img src="{{ URL::asset("/public/../$view_pressreleases->images")}}" alt=""></figure>
+                                <img style="width: 100%; height: 200px;" src="{{ URL::asset("/public/../$view_pressreleases->images")}}" alt=""></figure>
                                 <!--Image Box-->
                                 <figure class="image-box"><a href="{{ URL::asset("/public/../$view_pressreleases->images1")}}" class="lightbox-image" data-caption="" data-fancybox="images" title="Image Title Here" data-fancybox-group="footer-gallery"><span class="overlay-box flaticon-plus-symbol"></span></a>
                                 <img src="{{ URL::asset("/public/../$view_pressreleases->images1")}}" alt=""></figure>

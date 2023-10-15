@@ -170,7 +170,7 @@
 
           <div class="input-group mb-3">
             <label for="">Logo</label>
-            <input name="logo" type="file" class="form-control" @error('logo') is-invalid @enderror"
+            <input required name="logo" type="file"  required class="form-control" @error('logo') is-invalid @enderror"
             value="{{ old('logo') }}" placeholder="logo">
             <div class="input-group-append">
               <div class="input-group-text">
@@ -183,7 +183,7 @@
           @enderror
     
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control"  @error('password') is-invalid @enderror"
+          <input type="text" name="password" class="form-control"  @error('password') is-invalid @enderror"
           value="{{ old('password') }}" placeholder="password">
           
           <div class="input-group-append">
@@ -197,8 +197,8 @@
         @enderror 
        
        
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Register</button>
           </div>
           <!-- /.col -->
         </div>
@@ -206,7 +206,7 @@
 
       
 
-      <a href="login" class="text-center">I already have a membership</a>
+      <a href="{{ url('login') }}" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

@@ -61,7 +61,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <input type="hidden" name="email" value="{{ Auth::guard('web')->user()->email }}" id="">
                         <input type="hidden" name="phone" value="{{ Auth::guard('web')->user()->phone }}" id="">
                         <input type="hidden" name="logo" value="{{ Auth::guard('web')->user()->logo }}" id="">
-                        <input type="text" name="slug" value="{{ Auth::guard('web')->user()->slug }}" id="">
+                        <input type="hidden" name="slug" value="{{ Auth::guard('web')->user()->slug }}" id="">
                        
                         <input type="text" class="form-control" name="title" placeholder="title">
 
@@ -75,7 +75,7 @@ l            <ol class="breadcrumb float-sm-right">
                     <div class="col-sm-6">
                         <div class="form-group">
                           <label>Image </label>
-                        <input type="file" name="images" @error('images')
+                        <input required type="file" name="images" @error('images')
                         @enderror  value="" class="form-control" >
                          
                         </div>

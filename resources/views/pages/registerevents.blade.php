@@ -108,7 +108,7 @@
                         
                           <div class="form-group">
                             <label>Passpot</label>
-                            <input type="file" name="images" class="form-control" @error('images')
+                            <input required type="file" name="images" class="form-control" @error('images')
                             @enderror placeholder="Passpot" value="">
                           </div>
                             @error('images')

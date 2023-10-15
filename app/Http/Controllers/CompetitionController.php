@@ -12,15 +12,15 @@ class CompetitionController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'classname' => ['required', 'string'],
-            'email' => ['required', 'string'],
-            'phone' => ['required', 'string'],
+            'email' => ['required', 'email', 'string', 'unique:competitions'],
+            'phone' => ['required', 'string', 'unique:competitions'],
             'schoolname' => ['required', 'string'],
             'fname' => ['required', 'string'],
             'middlename' => ['required', 'string'],
             'surname' => ['required', 'string'],
             'event_id' => ['required', 'string'],
             
-            'images' => 'nullable|mimes:jpg,png,jpeg'
+            'images' => 'required|mimes:jpg,png,jpeg'
         ]);
         // dd($request->all());
 

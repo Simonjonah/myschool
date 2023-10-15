@@ -111,8 +111,8 @@ class SchoolnewsController extends Controller
         return view('dashboard.viewyouradverts', compact('view_myblogs'));
     }
     
-    public function viewadverts($slug){
-        $viewsingle_myblogs = Schoolnew::where('slug', $slug)->first();
+    public function viewadverts($slug1){
+        $viewsingle_myblogs = Schoolnew::where('slug1', $slug1)->first();
         return view('dashboard.viewadverts', compact('viewsingle_myblogs'));
     }
     

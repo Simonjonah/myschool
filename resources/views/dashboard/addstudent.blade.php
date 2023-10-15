@@ -8,14 +8,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Parents </h1>
+            <h1 class="m-0 text-dark">Add Pupils/Students </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
 l            <ol class="breadcrumb float-sm-right">
               {{-- <li cass="breadcrumb-item"><a href="{{ route('admin.addnidnetsem2leve200l') }}" class="btn btn-success">Add Semester Courses</a></li> --}}
               <li class="breadcrumb-item"><a href="#">Home</a></li>
 
-              <li class="breadcrumb-item active">Parents  </li>
+              <li class="breadcrumb-item active">Add Pupils/Students  </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

@@ -77,7 +77,7 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
 
     $press_release = Blog::latest()->take(50)->get();
-    $schooladverts = Schoolnew::latest()->take(50)->get();
+    $schooladverts = Schoolnew::latest()->take(8)->get();
     $schools = User::latest()->take(8)->get();
     $member_teams = Team::orderby('created_at', 'ASC')->get();
     $events = Event::latest()->take(10)->get();
@@ -101,9 +101,9 @@ Route::get('/event_view/{slug}', function ($slug) {
     return view('pages.event_view', compact('view_titles', 'view_events'));
 });
 
-Route::get('/view_singleschool/{slug}', function ($slug) {
-    $view_pressreleases = Schoolnew::where('slug', $slug)->first();
-    $view_titles = Schoolnew::where('slug', $slug)->latest()->get();
+Route::get('/view_singleschool/{slug1}', function ($slug1) {
+    $view_pressreleases = Schoolnew::where('slug1', $slug1)->first();
+    $view_titles = Schoolnew::latest()->take(10)->get();
 
     return view('pages.view_singleschool', compact('view_titles', 'view_pressreleases'));
 });
@@ -619,7 +619,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/approveadvert/{slug1}', [SchoolnewsController::class, 'approveadvert'])->name('approveadvert');
         Route::put('/updateeadverts/{ref_no}', [SchoolnewsController::class, 'updateeadverts'])->name('updateeadverts');
         Route::get('/editadvert/{ref_no}', [SchoolnewsController::class, 'editadvert'])->name('editadvert');
-        Route::get('/viewadverts/{slug}', [SchoolnewsController::class, 'viewadverts'])->name('viewadverts');
+        Route::get('/viewadverts/{slug1}', [SchoolnewsController::class, 'viewadverts'])->name('viewadverts');
         Route::get('/viewyouradverts', [SchoolnewsController::class, 'viewyouradverts'])->name('viewyouradverts');
         Route::post('/createadverts', [BlogController::class, 'createadverts'])->name('createadverts');
         Route::get('/addaverts', [SchoolnewsController::class, 'addaverts'])->name('addaverts');

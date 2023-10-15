@@ -1,9 +1,9 @@
 @include('layouts.header')
 	<!--Page Title-->
-    <section class="page-title" style="background-image:url({{ asset('images/background/bri2.jpg') }})">
+    <section class="page-title" style="background-image:url({{ URL::asset("/public/../$view_allnews->logo")}})">
     	<div class="auto-container">
 			<div class="content">
-				<h1> <span>Welcome {{ $view_allnews->schoolname }} page</span></h1>
+				<h1> <span>Welcome to {{ $view_allnews->schoolname }} page</span></h1>
 				<ul class="page-breadcrumb">
 					<li><a href="home">Home</a></li>
 					<li>{{ $view_allnews->schoolname }}</li>
@@ -57,14 +57,14 @@
 								<li><span class="fa fa-calendar"></span>{{ $view_allschoolnew->created_at->format('D d, M Y, H:i')}}</li>
 								<li><b>Location:</b> {{ $view_allschoolnew->address }} <span class="fa fa-user"></span></li>
 							</ul>
-							 <a href="{{ url('view_singleschool/'.$view_allschoolnew->slug) }}">
+							 <a href="{{ url('view_singleschool/'.$view_allschoolnew->slug1) }}">
 
                     		<img style="height: 60px; border-radius: 50%;" src="{{ URL::asset("/public/../$view_allschoolnew->logo")}}" alt=""></a></h2></span>
-						    <h4><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug) }}">{{ $view_allschoolnew->title }}</a></h4>
-							<p><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug) }}">{{ $view_allschoolnew->schoolname }}</a></p>
-							{{-- <span><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug) }}">messages</a></span> --}}
+						    <h4><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug1) }}">{{ $view_allschoolnew->title }}</a></h4>
+							<p><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug1) }}">{{ $view_allschoolnew->schoolname }}</a></p>
+							{{-- <span><a href="{{ url('view_singleschool/'.$view_allschoolnew->slug1) }}">messages</a></span> --}}
 
-							<a class="btn btn-success" href="{{ url('view_singleschool/'.$view_allschoolnew->slug) }}">Continue Reading <span class="fa fa-angle-double-right"></span></a>
+							<a class="btn btn-success" href="{{ url('view_singleschool/'.$view_allschoolnew->slug1) }}">Continue Reading <span class="fa fa-angle-double-right"></span></a>
 						</div>
 					</div>
 				</div>

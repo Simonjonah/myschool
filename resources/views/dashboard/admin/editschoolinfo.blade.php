@@ -54,8 +54,8 @@
                       <!-- select -->
                       <div class="form-group">
                         <label> Title</label>
-                        {{-- <input type="text" name="academic_session" value="{{ Auth::guard('web')->user()-> }}" id=""> --}} --}}
-                        <input type="hidden" name="user_id" value="{{ $edit_school->id }}" id="">
+                        {{-- <input type="text" name="academic_session" value="{{ Auth::guard('web')->user()-> }}" id=""> --}} 
+                        {{-- <input type="text" name="user_id" value="{{ $edit_school->id }}" id=""> --}}
                         <input type="hidden" name="schoolname" value="{{ $edit_school->schoolname }}" id="">
                         <input type="hidden" name="address" value="{{ $edit_school->address }}" id="">
                         <input type="hidden" name="email" value="{{ $edit_school->email }}" id="">

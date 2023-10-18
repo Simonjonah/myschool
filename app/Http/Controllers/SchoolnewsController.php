@@ -351,13 +351,14 @@ class SchoolnewsController extends Controller
             'messages' => ['required', 'string'],
             'email' => ['required', 'string'],
             'phone' => ['required', 'string'],
-            'user_id' => ['required', 'string'],
+            // 'user_id' => ['required', 'string'],
             'schoolname' => ['required', 'string'],
             'address' => ['required', 'string'],
             'logo' => ['required', 'string'],
+            // 'slug' => ['required', 'string'],
             'images' => 'nullable|mimes:jpg,png,jpeg'
         ]);
-        // dd($request->all());
+        //dd($request->all());
         
         if ($request->hasFile('images')){
     
@@ -367,7 +368,7 @@ class SchoolnewsController extends Controller
     
         }
         $edit_myblogs['images'] = $path;
-        $edit_myblogs->user_id = $request->user_id;
+        // $edit_myblogs->user_id = $request->user_id;
         $edit_myblogs->email = $request->email;
         $edit_myblogs->phone = $request->phone;
         $edit_myblogs->address = $request->address;

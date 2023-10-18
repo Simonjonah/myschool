@@ -125,6 +125,8 @@ class EventController extends Controller
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
             $path = $request->file('logo')->storeAs('resourcelogo', $filename);
 
+        }else{
+            $path = 'noimage.jpg';
         }
         $edit_events['logo'] = $path;
         $edit_events->title = $request->title;

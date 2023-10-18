@@ -92,6 +92,8 @@ class BlogController extends Controller
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
             $path = $request->file('images')->storeAs('resourceimages', $filename);
 
+        }else{
+            $path = 'noimage.jpg';
         }
         $edit_blogs['images'] = $path;
         $edit_blogs->title = $request->title;

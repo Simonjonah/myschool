@@ -580,7 +580,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/editpsycomotor/{id}', [DomainController::class, 'editpsycomotor'])->name('editpsycomotor');
         Route::put('/updatedomains/{id}', [DomainController::class, 'updatedomains'])->name('updatedomains');
         Route::get('/deletepsycomotor/{ref_no}', [DomainController::class, 'deletepsycomotor'])->name('deletepsycomotor');
-        
+        Route::get('/editsection/{connect}', [SectionController::class, 'editsection'])->name('editsection');
         Route::get('/viewyourteachers/{section}', [SectionController::class, 'viewyourteachers'])->name('viewyourteachers');
         Route::get('/edittteachersc/{ref_no}', [TeacherController::class, 'edittteachersc'])->name('edittteachersc');
         Route::get('/approveteacherbysc/{ref_no}', [TeacherController::class, 'approveteacherbysc'])->name('approveteacherbysc');
@@ -595,7 +595,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/viewsection/{section}', [SectionController::class, 'viewsection'])->name('viewsection');
         Route::get('/deletesection/{ref_no}', [SectionController::class, 'deletesection'])->name('deletesection');
         Route::put('/updatesection/{ref_no}', [SectionController::class, 'updatesection'])->name('updatesection');
-        Route::get('/editsection/{ref_no}', [SectionController::class, 'editsection'])->name('editsection');
+       
         Route::get('/viewallsection', [SectionController::class, 'viewallsection'])->name('viewallsection');
         Route::post('/createsection', [SectionController::class, 'createsection'])->name('createsection');
         Route::get('/addsection', [SectionController::class, 'addsection'])->name('addsection');

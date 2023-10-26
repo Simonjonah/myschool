@@ -53,11 +53,11 @@
                         <tr>
                           <td>{{ $view_section->section }}</td>
                           
-                          <td><a href="{{ url('web/editsection/'.$view_section->ref_no) }}"
+                          <td><a href="{{ url('web/editsection/'.$view_section->connect) }}"
                             class='btn btn-default'>
                              <i class="far fa-edit"></i>
 
-                             <td><a href="{{ url('web/deletesection/'.$view_section->ref_no) }}"
+                             <td><a href="{{ url('web/deletesection/'.$view_section->connect) }}"
                                 class='btn btn-danger'>
                                 <i class="far fa-trash-alt"></i>
                             

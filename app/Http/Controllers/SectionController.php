@@ -41,15 +41,14 @@ class SectionController extends Controller
         )->get();
         return view('dashboard.viewallsection', compact('view_sections'));
     }
-    public function editsection($ref_no){
-        $edit_sections = Section::where('ref_no', $ref_no)->first();
+    public function editsection($connect){
+        $edit_sections = Section::where('connect', $connect)->first();
 
-        // $edit_sections = Section::where('ref_no', $ref_no)->first();
         return view('dashboard.editsection', compact('edit_sections'));
     }
 
-    public function updatesection (Request $request, $ref_no){
-        $edit_sections = Section::where('ref_no', $ref_no)->first();
+    public function updatesection (Request $request, $connect){
+        $edit_sections = Section::where('connect', $connect)->first();
 
 
         $request->validate([
@@ -65,8 +64,8 @@ class SectionController extends Controller
         return redirect()->back()->with('success', 'you have added successfully');
 
     }
-    public function deletesection($ref_no){
-        $edit_events = Section::where('ref_no', $ref_no)->delete();
+    public function deletesection($connect){
+        $edit_events = Section::where('connect', $connect)->delete();
 
      
 

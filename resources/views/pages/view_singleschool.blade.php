@@ -126,7 +126,7 @@
 						</div>
 						
 						<!--Blog Category Widget-->
-                        <div class="sidebar-widget sidebar-blog-category">
+                       <div class="sidebar-widget sidebar-blog-category">
                             <div class="sidebar-title-two">
                                 <h4>Categories</h4>
                             </div>
@@ -134,7 +134,7 @@
 								@foreach ($view_titles as $view_title)
 									@if ($view_title->status == 'approved')
 										
-										<li><a href="{{ url('view_singleschool/'.$view_title->slug) }}">{{ $view_title->title }}  <span></span></a></li>
+										<li><a href="{{ url('view_singleschool/'.$view_title->slug1) }}">{{ $view_title->title }}  <span></span></a></li>
 									@else
 										
 									@endif

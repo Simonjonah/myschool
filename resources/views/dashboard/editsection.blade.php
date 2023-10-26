@@ -21,7 +21,7 @@
                 <input class="form-control" placeholder="To:">
               </div> --}}
 
-                <form action="{{ url('web/updatesection/'.$edit_sections->ref_no) }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('web/updatesection/'.$edit_sections->connect) }}" method="post" enctype="multipart/form-data">
 
                 @csrf
 

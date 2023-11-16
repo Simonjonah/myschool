@@ -87,6 +87,10 @@ class TeacherassignController extends Controller
 
         return view('dashboard.teacher.myteachersubjects', compact('my_subjects'));
     }
-
+    public function viewallsubjectsteacher(){
+        $view_subjectsteachers = Teacherassign::where('teacher_id', auth::guard('teacher')->id()
+        )->get();
+        return view('dashboard.viewallsubjectsteacher', compact('view_subjectsteachers'));
+    }
     
 }

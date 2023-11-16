@@ -573,6 +573,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::post('/createschoolnews', [SchoolnewsController::class, 'createschoolnews'])->name('createschoolnews');
         
+        Route::get('/viewallsubjectsteacher', [TeacherassignController::class, 'viewallsubjectsteacher'])->name('viewallsubjectsteacher');
         Route::get('/approvedresultsc/{id}', [ResultController::class, 'approvedresultsc'])->name('approvedresultsc');
         Route::get('/addpsychomotors', [DomainController::class, 'addpsychomotors'])->name('addpsychomotors');
         Route::post('/createsdomains', [DomainController::class, 'createsdomains'])->name('createsdomains');
@@ -626,10 +627,11 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/viewclassesbysc/{classname}', [ClassnameController::class, 'viewclassesbysc'])->name('viewclassesbysc');
         Route::get('/viewterm/{term}', [TermController::class, 'viewterm'])->name('viewterm');
         Route::get('/viewalms/{alms}', [AlmController::class, 'viewalms'])->name('viewalms');
-        Route::get('/firstermresults/{term}', [TermController::class, 'firstermresults'])->name('firstermresults');
+        Route::get('/firstermresults/{classname}', [ClassnameController::class, 'firstermresults'])->name('firstermresults');
         Route::get('/deletestudentsc/{ref_no}', [StudentController::class, 'deletestudentsc'])->name('deletestudentsc');
         Route::post('/reachresultbysc', [ResultController::class, 'reachresultbysc'])->name('reachresultbysc');
         Route::post('/reachresultbystudentsc', [ResultController::class, 'reachresultbystudentsc'])->name('reachresultbystudentsc');
+        Route::post('/searchfortermbysch', [ResultController::class, 'searchfortermbysch'])->name('searchfortermbysch');
         
         Route::get('/allresults', [ResultController::class, 'allresults'])->name('allresults');
         Route::get('/viewyourstudentsecondary', [StudentController::class, 'viewyourstudentsecondary'])->name('viewyourstudentsecondary');

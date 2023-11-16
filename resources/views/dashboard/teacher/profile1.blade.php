@@ -1,5 +1,5 @@
-@include('dashboard.header')
-@include('dashboard.sidebar')
+@include('dashboard.teacher.header')
+@include('dashboard.teacher.sidebar')
 <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,6 +41,9 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Class</b> <a class="float-right">{{ Auth::guard('teacher')->user()->classname  }}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Mottor</b> <a class="float-right">{{ Auth::guard('teacher')->user()->motor  }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Number of Results</b> <a class="float-right">{{ $countresults }}</a>
@@ -217,4 +220,4 @@
       </div><!-- /.container-fluid -->
     </section>
  </div>
-    @include('dashboard.footer')
+    @include('dashboard.teacher.footer')

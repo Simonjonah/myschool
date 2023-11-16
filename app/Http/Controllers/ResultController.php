@@ -687,6 +687,31 @@ class ResultController extends Controller
         return $pdf->download('school_classpins.pdf');
          
         }
+
+
+        public function searchfortermbysch(Request $request){
+            $request->validate([
+                'term' => ['required', 'string'],
+                'academic_session' => ['required', 'string'],
+                'classname' => ['required', 'string'],
+            ]);
+            if($view_myresults = Result::where('term', $request->term)
+            ->where('academic_session', $request->academic_session)
+            ->where('classname', $request->classname)
+            ->exists()) {
+                $view_myresults = Result::orderby('created_at', 'DESC')
+                ->where('term', $request->term)
+                ->where('academic_session', $request->academic_session)
+                ->where('classname', $request->classname)
+
+                ->get(); 
+                }else{
+                    return view('dashboard.admin.noresult');
+                    //return redirect()->back()->with('fail', 'There is no students in these class!');
+                }
+                return view('dashboard.yourschoolreultsterm', compact('view_myresults'));
+        
+            }
 }
 
     

@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                     @foreach ($view_schoolpins as $view_schoolpin)
-                        @if ($view_schoolpin->student['section'] == 'Primary' || $view_schoolpin->student['section'] == 'Elementary' || $view_schoolpin->student['section'] == 'Pre-School' || $view_schoolpin->student['section'] == 'Nursery' || $view_schoolpin->student['section'] == 'Creche' || $view_schoolpin->student['section'] == 'Pre-school')
+                        @if ($view_schoolpin->student['section'] == 'Primary' || $view_schoolpin->student['section'] == 'Elementary' || $view_schoolpin->student['section'] == 'Junior Secondary'  || $view_schoolpin->student['section'] == 'junor secondary' || $view_schoolpin->student['section'] == 'Pre-School' || $view_schoolpin->student['section'] == 'Nursery' || $view_schoolpin->student['section'] == 'Creche' || $view_schoolpin->student['section'] == 'Pre-school')
                         <tr>
                             <td><a href="{{ url('admin/viewschoolpins/'.$view_schoolpin->user_id) }}">{{ $view_schoolpin->schoolname }}</a></td>
                             <td>{{ $view_schoolpin->classname }} <small><a href="{{ url('admin/viewresult/'.$view_schoolpin->id) }}">{{ $view_schoolpin->subjectname }}</a> </small></td>
@@ -132,7 +132,7 @@
                     <tbody>
                 
                         @foreach ($view_schoolpins as $view_schoolpin)
-                        @if ($view_schoolpin->student['section'] == 'High School' || $view_schoolpin->student['section'] == 'Secondary' || $view_schoolpin->student['section'] == 'High Schools' || $view_schoolpin->student['section'] == 'Secondary School' ||$view_schoolpin->section == 'Secondary')
+                        @if ($view_schoolpin->student['section'] == 'High School' || $view_schoolpin->student['section'] == 'Secondary' || $view_schoolpin->student['section'] == 'Senior Secondary' || $view_schoolpin->student['section'] == 'senior secondary'  || $view_schoolpin->student['section'] == 'High Schools' || $view_schoolpin->student['section'] == 'Secondary School' ||$view_schoolpin->section == 'Secondary')
                         <tr>
                           <td><a href="{{ url('admin/viewschoolpins/'.$view_schoolpin->user_id) }}">{{ $view_schoolpin->schoolname }}</a></td>
                           <td>{{ $view_schoolpin->classname }} <small><a href="{{ url('admin/viewresult/'.$view_schoolpin->id) }}">{{ $view_schoolpin->subjectname }}</a> </small></td>

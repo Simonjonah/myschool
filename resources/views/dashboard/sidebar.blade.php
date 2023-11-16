@@ -285,6 +285,14 @@
                   <p>View Subjects</p>
                 </a>
               </li>
+
+
+              <li class="nav-item">
+                <a href="{{ url('/web/viewallsubjectsteacher') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Teacher Subjects</p>
+                </a>
+              </li>
               
 
             </ul>
@@ -380,10 +388,10 @@
             <ul class="nav nav-treeview">
 
               <li class="nav-item">
-                @foreach ($view_terms as $view_term)
-                <a href="{{ url('/web/firstermresults/'.$view_term->term) }}" class="nav-link">
+                @foreach ($view_classes as $view_classe)
+                <a href="{{ url('/web/firstermresults/'.$view_classe->classname) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_term->term }} Results</p>
+                  <p>{{ $view_classe->classname }} Results</p>
                 </a>
                 @endforeach
               </li>

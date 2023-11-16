@@ -5,7 +5,7 @@
 <!-- Mirrored from themexriver.com/tfhtml/finano/index-5.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 17 Jan 2019 02:00:56 GMT -->
 <head>
 <meta charset="utf-8">
-<title>SchoolsUpdate.n,g the best innovative school management system | Homepage</title>
+<title>Schoolsupdate.ng - the best innovative school management system | Homepage</title>
 <!-- Stylesheets -->
 <link href="{{ asset('front/css/bootstrap.css')}}" rel="stylesheet">
 <link href="{{ asset('front/css/style.css')}}" rel="stylesheet">

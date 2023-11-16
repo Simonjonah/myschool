@@ -51,10 +51,15 @@
                 <h3 class="profile-username text-center">{{ Auth::guard('web')->user()->surname }} {{ Auth::guard('web')->user()->fname }}  {{ Auth::guard('web')->user()->middlename }}</h3>
 
                 <p class="text-muted text-center"> {{ Auth::guard('web')->user()->email }}</p>
+                {{-- <p class="text-muted text-center"> {{ Auth::guard('web')->user()->moto }}</p> --}}
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Class</b> <a class="float-right">{{ Auth::guard('web')->user()->classname  }}</a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>Mottor</b> <a class="float-right">{{ Auth::guard('web')->user()->motor  }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Section</b> <a class="float-right">{{ Auth::guard('web')->user()->section  }}</a>

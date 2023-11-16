@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-12">
-            <h1 class="m-0 text-dark"><a href="{{ url('/checkresults/'.Auth::user()->slug) }}" target="_blank">{{ url('/checkresults/'.Auth::user()->slug) }}</a></h1>
+            <h1 class="m-0 text-dark"><a style="font-size: 15px;" href="{{ url('/checkresults/'.Auth::user()->slug) }}" target="_blank">{{ url('/checkresults/'.Auth::user()->slug) }}</a></h1>
            
            @foreach ($view_notices as $view_notice)
             <h1 class="m-0 text-dark"><marquee behavior="" direction="">{!! $view_notice->messages !!}</marquee></h1>

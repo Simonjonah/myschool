@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Academicsession;
 use App\Models\Classname;
 use App\Models\Result;
 use App\Models\Section;
 use App\Models\Student;
+use App\Models\Term;
 use App\Models\Transaction;
 use App\Models\user;
 use Illuminate\Http\Request;
@@ -226,6 +228,18 @@ class ClassnameController extends Controller
     }
     
 
-    
+    public function firstermresults($classname){
+        $view_myresults = Classname::where('classname', $classname)->first();
+        $view_myresults = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())->get();
+        $view_classes = Classname::where('user_id', auth::guard('web')->id())->get();
+        $view_terms = Term::where('user_id', auth::guard('web')->id())->get();
+        $view_sessions = Academicsession::latest()->get();
+
+        $view_student_abujas = Classname::where('classname', $classname)->first();
+        $view_student_abujas = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())
+        ->where('section', 'Secondary')->get();
+
+        return view('dashboard.firstermresults', compact('view_sessions', 'view_terms', 'view_classes', 'view_student_abujas', 'view_myresults'));
+    }
     
 }

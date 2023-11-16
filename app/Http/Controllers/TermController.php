@@ -75,16 +75,7 @@ class TermController extends Controller
 
 
     
-    public function firstermresults($term){
-        $view_myresults = Term::where('term', $term)->first();
-        $view_myresults = Result::where('term', $term)->where('user_id', auth::guard('web')->id())->get();
-
-        $view_student_abujas = Term::where('term', $term)->first();
-        $view_student_abujas = Result::where('term', $term)->where('user_id', auth::guard('web')->id())
-        ->where('section', 'Secondary')->get();
-
-        return view('dashboard.firstermresults', compact('view_student_abujas', 'view_myresults'));
-    }
+    
 
     public function viewterm($term){
         $view_termtudents = Term::where('term', $term)->first();

@@ -90,26 +90,11 @@
         <span class="text-danger">{{ $message }}</span>
         @enderror
 
-{{--        
-        <div class="input-group mb-3">
-            <select name="classname" class="form-control" id="">
-                @foreach ($getyours as $getyour)
-                    <option value="{{ $getyour->classname }}">{{ $getyour->classname }}</option>
-                @endforeach
-                
-            </select>
-            
-          </div>
-          @error('classname')
-          <span class="text-danger">{{ $message }}</span>
-          @enderror --}}
-
           <div class="input-group mb-3">
             <select name="term" class="form-control" id="">
                 @foreach ($getyours as $getyour)
                     <option value="{{ $getyour->term }}">{{ $getyour->term }}</option>
                 @endforeach
-                
             </select>
             
           </div>

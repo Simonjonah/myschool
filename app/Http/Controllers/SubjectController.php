@@ -98,6 +98,9 @@ class SubjectController extends Controller
         )->get();
         return view('dashboard.editsubjectsc', compact('view_sections', 'edit_subject'));
     }
+
+   
+    
     public function deletesubject($id){
         $subjectsdelete = Subject::where('id', $id)->delete();
         return redirect()->back()->with('success', 'you have successfully deleted');

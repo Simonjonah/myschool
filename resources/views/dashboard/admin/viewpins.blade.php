@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                     @foreach ($view_pins as $view_pin)
-                        @if ($view_pin->student['section'] == 'Primary' || $view_pin->student['section'] == 'Elementary' || $view_pin->student['section'] == 'Pre-School' || $view_pin->student['section'] == 'Nursery' || $view_pin->student['section'] == 'Creche' || $view_pin->student['section'] == 'Pre-school')
+                        @if ($view_pin->student['section'] == 'Primary' || $view_pin->student['section'] == 'Elementary' || $view_pin->student['section'] == 'Pre-School' || $view_pin->student['section'] == 'Nursery' || $view_pin->student['section'] == 'Creche' || $view_pin->student['section'] == 'Pre-school' || $view_pin->student['section'] == 'junior secondary' || $view_pin->student['section'] == 'Junior Secondary')
                         <tr>
                             <td><a href="{{ url('admin/viewschoolpins/'.$view_pin->user_id) }}">{{ $view_pin->schoolname }}</a></td>
                             <td>{{ $view_pin->classname }} <small><a href="{{ url('admin/viewresult/'.$view_pin->id) }}">{{ $view_pin->subjectname }}</a> </small></td>
@@ -132,7 +132,7 @@
                     <tbody>
                 
                         @foreach ($view_pins as $view_pin)
-                        @if ($view_pin->student['section'] == 'High School' || $view_pin->student['section'] == 'Secondary' || $view_pin->student['section'] == 'High Schools' || $view_pin->student['section'] == 'Secondary School' ||$view_pin->section == 'Secondary')
+                        @if ($view_pin->student['section'] == 'High School' || $view_pin->student['section'] == 'Senior Secondary' || $view_pin->student['section'] == 'senior secondary' || $view_pin->student['section'] == 'Secondary' || $view_pin->student['section'] == 'High Schools' || $view_pin->student['section'] == 'Secondary School' ||$view_pin->section == 'Secondary')
                         <tr>
                           <td><a href="{{ url('admin/viewschoolpins/'.$view_pin->user_id) }}">{{ $view_pin->schoolname }}</a></td>
                           <td>{{ $view_pin->classname }} <small><a href="{{ url('admin/viewresult/'.$view_pin->id) }}">{{ $view_pin->subjectname }}</a> </small></td>

@@ -79,12 +79,12 @@
                       <tr>
                         <td>{{ $view_myresult->surname }}</td>
                         <td>{{ $view_myresult->fname }} <br> 
-                           <small> {{ $view_myresult->subjectname }}
+                           <small> {{ $view_myresult->subjectname }} <br>
+
+                            {{-- {{ $view_myresult->classname }} --}}
                           
                         </small>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                          Search Term
-                        </button>
+                        
                           {{-- <small> Teacher: <a href="{{ url('web/viewtteachersc/'.$view_myresult->teacher['ref_no']) }}">{{ $view_myresult->teacher['fname'] }} {{ $view_myresult->teacher['surname'] }} {{ $view_myresult->teacher['classname'] }} {{ $view_myresult->teacher['term'] }}</a> 
                           
                         </small> --}}
@@ -256,57 +256,6 @@
 </script>
 </body>
 </html>
-<div class="modal fade" id="modal-default">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Seach Term</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="{{ url('web/searchfortermbysch') }}" method="post">
-          @csrf
-          <div class="form-group">
-            <label for="">Classes</label>
-            <select class="form-control" name="classname">
-              @foreach ($view_classes as $view_classe)
-                <option value="{{ $view_classe->classname }}">{{ $view_classe->classname }}</option>
-                
-              @endforeach
-            </select>
-          </div>
 
-          <div class="form-group">
-            <label for="">Terms</label>
-            <select class="form-control" name="term">
-              @foreach ($view_terms as $view_term)
-                <option value="{{ $view_term->term }}">{{ $view_term->term }}</option>
-                
-              @endforeach
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="">Academic Session</label>
-            <select class="form-control" name="academic_session">
-              @foreach ($view_sessions as $view_session)
-                <option value="{{ $view_session->academic_session }}">{{ $view_session->academic_session }}</option>
-                
-              @endforeach
-            </select>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </form>
-      </div>
       
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+    

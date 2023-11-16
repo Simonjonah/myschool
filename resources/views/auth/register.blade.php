@@ -141,7 +141,7 @@
 
         <label for="">Mottor</label>
         <div class="input-group mb-3">
-          <input type="text" name="motor" class="form-control" placeholder="Mottor">
+          <input required type="text" name="motor" class="form-control" placeholder="Mottor">
           
           <div class="input-group-append">
             <div class="input-group-text">

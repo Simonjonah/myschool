@@ -68,10 +68,10 @@
         @enderror
 
 
-        <label for="">First Name</label>
+        <label for="">SurName</label>
         <div class="input-group mb-3">
           <input name="surname" type="text" class="form-control" @error('surname') is-invalid @enderror"
-          value="{{ old('surname') }}" placeholder="First Name">
+          value="{{ old('surname') }}" placeholder="SurName">
            
           <div class="input-group-append">
             <div class="input-group-text">
@@ -214,7 +214,7 @@
 
       
 
-      {{-- <a href="login" class="text-center">I already have a membership</a> --}}
+      <a href="{{ url('teacher/login') }}" class="text-center">I already Registered</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

@@ -573,6 +573,8 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::post('/createschoolnews', [SchoolnewsController::class, 'createschoolnews'])->name('createschoolnews');
         
+        Route::get('/subjectsassgned', [SubjectController::class, 'subjectsassgned'])->name('subjectsassgned');
+        Route::get('/deletesubjectscs/{id}', [TeacherassignController::class, 'deletesubjectscs'])->name('deletesubjectscs');
         Route::get('/viewallsubjectsteacher', [TeacherassignController::class, 'viewallsubjectsteacher'])->name('viewallsubjectsteacher');
         Route::get('/approvedresultsc/{id}', [ResultController::class, 'approvedresultsc'])->name('approvedresultsc');
         Route::get('/addpsychomotors', [DomainController::class, 'addpsychomotors'])->name('addpsychomotors');
@@ -606,7 +608,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/addterm', [TermController::class, 'addterm'])->name('addterm');
         Route::post('/createterm', [TermController::class, 'createterm'])->name('createterm');
         
-        Route::get('/viewyourstudentsprimary/{section}', [SectionController::class, 'viewyourstudentsprimary'])->name('viewyourstudentsprimary');
+        Route::get('/viewyourstudentsprimary/{classname}', [ClassnameController::class, 'viewyourstudentsprimary'])->name('viewyourstudentsprimary');
         Route::put('/updatealms/{id}', [AlmController::class, 'updatealms'])->name('updatealms');
         Route::get('/editalms/{id}', [AlmController::class, 'editalms'])->name('editalms');
         Route::get('/viewallalms', [AlmController::class, 'viewallalms'])->name('viewallalms');

@@ -88,9 +88,19 @@ class TeacherassignController extends Controller
         return view('dashboard.teacher.myteachersubjects', compact('my_subjects'));
     }
     public function viewallsubjectsteacher(){
-        $view_subjectsteachers = Teacherassign::where('teacher_id', auth::guard('teacher')->id()
+        $view_subjectsteachers = Teacherassign::where('user_id', auth::guard('web')->id()
         )->get();
         return view('dashboard.viewallsubjectsteacher', compact('view_subjectsteachers'));
     }
+
+    public function deletesubjectscs($id){
+        $view_subjectsteachers = Teacherassign::where('id', $id)->delete();
+
+        return redirect()->back()->with('success', 'You have deleted successfully');
+    }
+
+    
+
+    
     
 }

@@ -38,16 +38,13 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Teacher Name</th>
-
                     <th>Subjects</th>
-                    <th>Classes</th>
-                     <th>Section</th>
+                    <th>Section</th>
                    
 
-                    <th>Edit</th>
+                    {{-- <th>Edit</th> --}}
                     <th>Assigned Subjects</th>
-                    <th>Delete</th>
+                    {{-- <th>Delete</th> --}}
                     <th>Date</th>
 
                     
@@ -55,28 +52,25 @@
                   </thead>
                   <tbody>
 
-                    @foreach ($view_subjectsteachers as $view_subjectsteachers)
-                        {{-- @if ($view_subjectsteachers->section == 'Primary') --}}
+                    @foreach ($view_mysubjects as $view_mysubject)
+                        {{-- @if ($view_mysubject->section == 'Primary') --}}
                         <tr>
-                            <td>{{ $view_subjectsteachers->teacher['fname'] }} {{ $view_subjectsteachers->teacher['surname'] }}</td>
-
-                            <td>{{ $view_subjectsteachers->subject['subjectname'] }}</td>
-                            <td>{{ $view_subjectsteachers->classname }}</td>
-                            <td>{{ $view_subjectsteachers->section }}</td>
+                            <td>{{ $view_mysubject->subjectname }}</td>
+                            <td>{{ $view_mysubject->section }}</td>
                             
-                            <td><a href="{{ url('web/editsubjectsc/'.$view_subjectsteachers->id) }}"
+                            {{-- <td><a href="{{ url('web/editsubjectsc/'.$view_mysubject->id) }}"
                               class='btn btn-default'>
-                               <i class="far fa-edit"></i></td>
+                               <i class="far fa-edit"></i></td> --}}
 
-                               <td><a href="{{ url('web/assignedsubjects/'.$view_subjectsteachers->id) }}"
+                               <td><a href="{{ url('web/assignedsubjects/'.$view_mysubject->id) }}"
                                 class='btn btn-info'>
                                  <i class="far fa-edit"></i></td>
   
-                               <td><a href="{{ url('web/deletesubjectscs/'.$view_subjectsteachers->id) }}"
+                               {{-- <td><a href="{{ url('web/deletesubjectsc/'.$view_mysubject->id) }}"
                                   class='btn btn-danger'>
-                                  <i class="far fa-trash-alt"></i>
+                                  <i class="far fa-trash-alt"></i> --}}
                               
-                              <td>{{ $view_subjectsteachers->created_at->format('D d, M Y, H:i')}}</td>
+                              <td>{{ $view_mysubject->created_at->format('D d, M Y, H:i')}}</td>
   
                         
                           </tr>
@@ -93,17 +87,14 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>Teacher Name</th>
-
-                        <th>Subjects</th>
-                        <th>Classes</th>
-                         <th>Section</th>
-                       
-    
-                        <th>Edit</th>
-                        <th>Assigned Subjects</th>
-                        <th>Delete</th>
-                        <th>Date</th>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      {{-- <th>Edit</th> --}}
+                      <th>Assigned Subjects</th>
+                      {{-- <th>Delete</th> --}}
+                      <th>Date</th>
   
                       
                     </tr>
@@ -123,6 +114,96 @@
 
 
 
+
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      {{-- <th>Edit</th> --}}
+                      <th>Assigned Subjects</th>
+                      {{-- <th>Delete</th> --}}
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    @foreach ($view_mysubjects as $view_mysubject)
+                        @if ($view_mysubject->section == 'Secondary' || $view_mysubject->section == 'High School')
+                        <tr>
+                          <td>{{ $view_mysubject->subjectname }}</td>
+                          <td>{{ $view_mysubject->section }}</td>
+{{--                           
+                          <td><a href="{{ url('web/editsubjectsc/'.$view_mysubject->id) }}"
+                            class='btn btn-default'>
+                             <i class="far fa-edit"></i></td> --}}
+
+                             <td><a href="{{ url('web/assignedsubjects/'.$view_mysubject->id) }}"
+                              class='btn btn-info'>
+                               <i class="far fa-edit"></i></td>
+{{-- 
+                             <td><a href="{{ url('web/deletesubjectsc/'.$view_mysubject->id) }}"
+                                class='btn btn-danger'>
+                                <i class="far fa-trash-alt"></i> --}}
+                            
+                            <td>{{ $view_mysubject->created_at->format('D d, M Y, H:i')}}</td>
+
+                      
+                        </tr>
+  
+                        @else
+                            
+                        @endif
+                        
+                       
+                   
+                  @endforeach
+                      
+                
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <th>Subjects</th>
+                      <th>Section</th>
+                     
+  
+                      {{-- <th>Edit</th> --}}
+                      <th>Assigned Subjects</th>
+                      {{-- <th>Delete</th> --}}
+                      <th>Date</th>
+  
+                      
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -130,7 +211,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="#">Schoolsupdate</a>.</strong> All rights
+    <strong>Copyright &copy; 2014-2019 <a href="#">Golden Destiny Academy Schools</a>.</strong> All rights
     reserved.
   </footer>
 

@@ -90,6 +90,8 @@ class SchoolnewsController extends Controller
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
             $path = $request->file('images')->storeAs('resourceimages', $filename);
     
+        }else{
+            $path = 'noimage.jpg';
         }
         $edit_myblogs['images'] = $path;
         $edit_myblogs->user_id = $request->user_id;

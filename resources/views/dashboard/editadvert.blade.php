@@ -76,7 +76,7 @@ l            <ol class="breadcrumb float-sm-right">
                           <label>Image </label>
                           <td><img style="width: 30%; height: 60px;" src="{{ URL::asset("/public/../$edit_myblogs->images")}}" alt=""></td>
 
-                        <input type="file" name="images" @error('images')
+                        <input type="file" required name="images" @error('images')
                         @enderror  value="" class="form-control" >
                          
                         </div>
@@ -121,7 +121,7 @@ l            <ol class="breadcrumb float-sm-right">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.5
     </div>
-    <strong>Copyright &copy; 2023 <a href="httpS://myschoolafrica.com">Myschoolafrica.com</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="httpS://Schoolsupdate.com">Schoolsupdate.com</a>.</strong> All rights
     reserved.
   </footer>
 

@@ -107,15 +107,7 @@ class SectionController extends Controller
         return view('dashboard.viewsection', compact('view_sectiontudents'));
     }
 
-    public function viewyourstudentsprimary($section){
-        $view_primarypupils = Section::where('section', $section)->first();
-        $view_primarypupils = Student::where('section', $section)
-        ->where('user_id', auth::guard('web')->id())
-        ->get();
-
-       
-        return view('dashboard.viewyourstudentsprimary', compact('view_primarypupils'));
-    }
+    
 
     
 

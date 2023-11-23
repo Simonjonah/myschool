@@ -286,6 +286,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a href="{{ url('/web/subjectsassgned') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Assign Subjects</p>
+                </a>
+              </li>
+
 
               <li class="nav-item">
                 <a href="{{ url('/web/viewallsubjectsteacher') }}" class="nav-link">
@@ -482,10 +489,10 @@
               </li>
               
               <li class="nav-item">
-                @foreach ($view_sections as $view_section)
-                <a href="{{ url('/web/viewyourstudentsprimary/'.$view_section->section) }}" class="nav-link">
+                @foreach ($view_classes as $view_classe)
+                <a href="{{ url('/web/viewyourstudentsprimary/'.$view_classe->classname) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_section->section }}</p>
+                  <p>{{ $view_classe->classname }}</p>
                 </a>
                 @endforeach
 
@@ -553,6 +560,13 @@
                   <p>{{ $view_section->section }}</p>
                 </a>
                 @endforeach
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ url('/web/viewallsubjectsteacher') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Teacher Subjects</p>
+                </a>
               </li>
 
               <li class="nav-item">

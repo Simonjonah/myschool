@@ -61,7 +61,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <input type="hidden" name="address" value="{{ Auth::guard('web')->user()->address }}" id="">
                         {{-- <input type="text" name="logo" value="{{ Auth::guard('web')->user()->logo }}" id=""> --}}
                         {{-- <input type="text" name="email" value="{{ Auth::guard('web')->user()->email }}" id=""> --}}
-                        <input type="text" class="form-control" name="fname" placeholder="fname">
+                        <input type="text" value="{{ $edit_primarypupils->fname }}" class="form-control" name="fname" placeholder="fname">
 
                       </div>
 
@@ -70,21 +70,21 @@ l            <ol class="breadcrumb float-sm-right">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Middle Name</label>
-                       <input type="text" value="" required name="middlename" class="form-control" placeholder="Middle Name">
+                       <input type="text" value="{{ $edit_primarypupils->middlename }}" required name="middlename" class="form-control" placeholder="Middle Name">
                       </div>
                      
                     </div>
                  <div class="col-sm-6">
                       <div class="form-group">
                         <label>Surname</label>
-                        <input type="text" value="" required name="surname" class="form-control" placeholder="Surname">
+                        <input type="text" value="{{ $edit_primarypupils->surname }}" required name="surname" class="form-control" placeholder="Surname">
 
                       </div>
                     </div>
                    <div class="col-sm-6">
                       <div class="form-group">
                         <label>Age</label>
-                        <input type="text" name="age" value="" required class="form-control" placeholder="Age">
+                        <input type="text" name="age" value="{{ $edit_primarypupils->age }}" required class="form-control" placeholder="Age">
 
                       </div>
                     </div>
@@ -92,7 +92,7 @@ l            <ol class="breadcrumb float-sm-right">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Date of Birth</label>
-                        <input type="date" name="dob" value="" required class="form-control" placeholder="Date of Birth">
+                        <input type="date" name="dob" value="{{ $edit_primarypupils->dob }}" required class="form-control" placeholder="Date of Birth">
 
                       </div>
                     </div>
@@ -100,6 +100,7 @@ l            <ol class="breadcrumb float-sm-right">
                       <div class="form-group">
                         <label>Gender</label>
                         <select name="gender" class="form-control" id="">
+                          <option value="{{ $edit_primarypupils->gender }}">{{ $edit_primarypupils->gender }}</option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                         </select>
@@ -154,7 +155,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <div class="form-group">
                           <label>Reg. Number</label>
                         <input type="text" name="regnumber" @error('regnumber')
-                        @enderror  value="" class="form-control" placeholder="Reg Number">
+                        @enderror  value="{{ $edit_primarypupils->regnumber }}" class="form-control" placeholder="Reg Number">
                          
                         </div>
                         @error('regnumber')
@@ -167,7 +168,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <div class="form-group">
                           <label>State</label>
                         <input type="text" name="state" @error('state')
-                        @enderror  value="" class="form-control" placeholder="State">
+                        @enderror  value="{{ $edit_primarypupils->state }}" class="form-control" placeholder="State">
                          
                         </div>
                         @error('state')
@@ -179,7 +180,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <div class="form-group">
                           <label>Local Government</label>
                         <input type="text" name="lga" @error('lga')
-                        @enderror  value="" class="form-control" placeholder="Local Government">
+                        @enderror  value="{{ $edit_primarypupils->lga }}" class="form-control" placeholder="Local Government">
                          
                         </div>
                         @error('lga')
@@ -223,6 +224,8 @@ l            <ol class="breadcrumb float-sm-right">
                     <div class="col-sm-6">
                         <div class="form-group">
                           <label>Passport </label>
+                          <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$mmy_teacher->logo")}}" alt=""></td>
+
                         <input type="file" name="images" @error('images')
                         @enderror  value="" class="form-control" >
                          

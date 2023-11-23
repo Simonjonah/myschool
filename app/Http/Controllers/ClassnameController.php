@@ -241,5 +241,14 @@ class ClassnameController extends Controller
 
         return view('dashboard.firstermresults', compact('view_sessions', 'view_terms', 'view_classes', 'view_student_abujas', 'view_myresults'));
     }
+
+
+    public function viewyourstudentsprimary($classname){
+        $view_primarypupils = Classname::where('classname', $classname)->first();
+        $view_primarypupils = Student::where('classname', $classname)
+        ->where('user_id', auth::guard('web')->id())
+        ->get();
+        return view('dashboard.viewyourstudentsprimary', compact('view_primarypupils'));
+    }
     
 }

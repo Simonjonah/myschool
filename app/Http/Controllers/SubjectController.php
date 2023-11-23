@@ -84,8 +84,15 @@ class SubjectController extends Controller
         )->get();
         return view('dashboard.viewallsubjects', compact('view_mysubjects'));
     }
-    
 
+
+    public function subjectsassgned(){
+        $view_mysubjects = Subject::where('user_id', auth::guard('web')->id()
+        )->get();
+        return view('dashboard.subjectsassgned', compact('view_mysubjects'));
+    }
+    
+    
     
     public function editsubject($id){
         $edit_subject = Subject::find($id);

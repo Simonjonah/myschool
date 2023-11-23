@@ -73,18 +73,18 @@
                           <td><a href="{{ url('web/editstudentsc/'.$view_primarypupil->ref_no1) }}"
                             class='btn btn-default'>
                              <i class="far fa-edit"></i>
-                      
+                             <td><a href="{{ url('web/addresults/'.$view_primarypupil->ref_no1) }}"
+                              class='btn btn-info'>
+                               Add Results
+                           </a></td>
+    
+                           <td><a href="{{ url('web/deletestudentsc/'.$view_primarypupil->ref_no1) }}"
+                            class='btn btn-danger'>
+                             Delete
+                         </a></td>
                         </tr>
 
-                        <td><a href="{{ url('web/addresults/'.$view_primarypupil->ref_no1) }}"
-                          class='btn btn-info'>
-                           Add Results
-                       </a></td>
-
-                       <td><a href="{{ url('web/deletestudentsc/'.$view_primarypupil->ref_no1) }}"
-                        class='btn btn-danger'>
-                         Delete
-                     </a></td>
+                       
                     {{-- @else
                     @endif --}}
                   @endforeach

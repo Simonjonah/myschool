@@ -102,7 +102,19 @@
           <span class="text-danger">{{ $message }}</span>
           @enderror
 
-       
+          <div class="input-group mb-3">
+            <select name="classname" class="form-control" id="">
+                @foreach ($getclasses as $getclasse)
+                    <option value="{{ $getclasse->classname }}">{{ $getclasse->classname }}</option>
+                @endforeach
+            </select>
+            
+          </div>
+          @error('classname')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+
+          
        
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Check Results</button>

@@ -52,7 +52,7 @@
                   <tr>
                     <td>{{ Auth::guard('teacher')->user()->fname }}</td>
                     <td>{{ Auth::guard('teacher')->user()->surname }}</td>
-                    <td><a href="{{ url('teacher/addresultsbyteacher/'.$my_subject->ref_no) }}"> {{ $my_subject->classname }}</a></td>
+                    <td><a href="{{ url('teacher/yourclassbyteacher/'.$my_subject->classname) }}"> {{ $my_subject->classname }}</a></td>
                     <td>{{ $my_subject->subject['subjectname'] }}</td>
                     <td>{{ $my_subject->section }}</td>
                    

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('user_id');
             $table->string('connect');
+            $table->string('slug');
             
             $table->string('classname');
             $table->string('section');

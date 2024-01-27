@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('student_id');
             $table->string('psycomoto');
             $table->string('cogname');
+            $table->text('signature')->nullable();
+
             $table->string('ref_no1');
             $table->string('teacher_comment')->nullable();
             $table->timestamps();

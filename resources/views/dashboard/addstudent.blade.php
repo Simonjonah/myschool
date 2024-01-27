@@ -59,6 +59,7 @@ l            <ol class="breadcrumb float-sm-right">
                         <input type="hidden" name="schoolname" value="{{ Auth::guard('web')->user()->schoolname }}" id="">
                         <input type="hidden" name="ref_no1" value="{{ Auth::guard('web')->user()->ref_no1 }}" id="">
                         <input type="hidden" name="address" value="{{ Auth::guard('web')->user()->address }}" id="">
+                        <input type="hidden" name="slug" value="{{ Auth::guard('web')->user()->slug }}" id="">
                         {{-- <input type="text" name="logo" value="{{ Auth::guard('web')->user()->logo }}" id=""> --}}
                         {{-- <input type="text" name="email" value="{{ Auth::guard('web')->user()->email }}" id=""> --}}
                         <input type="text" class="form-control" name="fname" placeholder="fname">

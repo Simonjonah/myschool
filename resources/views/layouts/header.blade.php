@@ -20,6 +20,8 @@
 
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+<meta name="google-site-verification" content="HLZL6-mvd_4271jOWNPxSwUzJLd3imbClkcMd5XdKbI" />
 </head>
 
 <body>
@@ -158,5 +160,7 @@
             </div>
         </div>
         <!--End Sticky Header-->
+        
+        
 		
     </header>

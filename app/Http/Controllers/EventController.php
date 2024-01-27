@@ -116,19 +116,19 @@ class EventController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'message' => ['required', 'string'],
-            'logo' => 'nullable|mimes:jpg,png,jpeg'
+            'images' => 'nullable|mimes:jpg,png,jpeg'
         ]);
       
-        if ($request->hasFile('logo')){
+        if ($request->hasFile('images')){
 
-            $file = $request['logo'];
+            $file = $request['images'];
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
-            $path = $request->file('logo')->storeAs('resourcelogo', $filename);
+            $path = $request->file('images')->storeAs('resourcelogo', $filename);
 
         }else{
             $path = 'noimage.jpg';
         }
-        $edit_events['logo'] = $path;
+        $edit_events['images'] = $path;
         $edit_events->title = $request->title;
         $edit_events->message = $request->message;
         $edit_events->update();

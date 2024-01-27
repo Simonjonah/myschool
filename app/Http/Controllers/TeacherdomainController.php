@@ -18,6 +18,7 @@ class TeacherdomainController extends Controller
         $psycomotos = $request->input('psycomoto');
         $teacher_ids = $request->input('teacher_id');
         $ref_no1s = $request->input('ref_no1');
+        $signatures = $request->input('signature');
         
         
       
@@ -28,6 +29,7 @@ class TeacherdomainController extends Controller
                 'psycomoto' => $psycomotos[$i],
                 'teacher_id' => $teacher_ids[$i],
                 'ref_no1' => $ref_no1s[$i],
+                'signature' => $signatures[$i],
                 'ref_no' => substr(rand(0,time()),0, 9),
                 'connect' => substr(rand(0,time()),0, 9),
                 

@@ -30,7 +30,7 @@
 
    @if (Auth::guard('web')->user()->status == null)
      <h3>In Review
-      Please Pay the sum of N5,000 for six(6) Months and N10,000 for One Year(1).
+      Please {{ Auth::guard('web')->user()->schoolname }} Pay a one time registration of N5000.
       through this Account details:  <br>
       Account Name: Ime King Udoh <br>
       Account Number: 240 101 6006 <br>
@@ -38,9 +38,9 @@
 
      </h3>
    @elseif (Auth::guard('web')->user()->status == 'suspend')
-    <h1>{{ Auth::guard('web')->user()->fname }}, You have been suspended</h1>
+    <h1>{{ Auth::guard('web')->user()->schoolname }}, You have been suspended</h1>
     @elseif (Auth::guard('web')->user()->status == 'reject')
-    <h1>{{ Auth::guard('web')->user()->fname }}, You have been rejected</h1>
+    <h1>{{ Auth::guard('web')->user()->schoolname }}, You have been rejected</h1>
    
    
       </div><!-- /.container-fluid -->
@@ -50,7 +50,20 @@
 @elseif (Auth::guard('web')->user()->status == 'admitted')    
 <section class="content">
   
+  @if (Auth::guard('web')->user()->signature == null)
+    <h1>Please Upload Head Teacher's Signature here</h1>
+    <form action="{{ url('web/createsignature/'.Auth::guard('web')->user()->ref_no1) }}" method="post" enctype="multipart/form-data">
+      @csrf
+      @method('PUT')
+      <div class="form-group">
+        <input type="file" class="form-control" name="signature" id="">
 
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  @else
+
+  @endif
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <div class="row">

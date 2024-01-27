@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Golden Destiny Academy Terminal Result</title>
+    @foreach ($getyour_results as $getyour_result)
+    @if ($getyour_result->status == 'approved')
+        
+    @else
+        
+    @endif
+
+@endforeach
+    <title>{{ $getyour_result->schoolname }}</title>
 </head>
 <style>
     /* table{
@@ -49,6 +57,29 @@ table, tr, td{
 
 </style>
 <body>
+
+    <?php
+
+        //  $position = 0;
+
+        // $rank = 1;
+    // echo $studentpositions;
+
+    // foreach ($studentpositions as $studentposition) {
+    //  echo "Rank: " . $rank . ", Sum: " . $studentposition->total_score . "<br>";
+    // $rank++;
+
+    //     // $position += $studentpositions;
+    // }
+
+
+    // foreach ($totalScoreAndRank as $studentposition) {
+    //     echo "Rank: " . $rank . ", Sum: " . $studentposition->total_score . "<br>";
+    //     $rank++;
+    // }
+
+    // $totalScore
+    ?>
        
    @php
        $total_score = 0;
@@ -70,18 +101,18 @@ table, tr, td{
         <tr>
             <th style="text-align: center; width: 120px; height: 100px; padding: 0px">
                 {{-- <img src="{{'data:image/png;base64,'.base64_encode(file_get_contents(public_path('assets/dist/img/AdminLTELogo.png')))}}"> --}}
-                <img src="{{ public_path('public/../'.$getyour_result->logo) }}">
+                {{-- <img src="{{ public_path('public/../'.$getyour_result->logo) }}"> --}}
+				<img style="width: 100%; height: 30px" src="{{ URL::asset("/public/../$getyour_result->logo")}}">
             </th>
-           
             <th style="text-transform:uppercase; text-align: center; width: 450px;"><h1>{{ $getyour_result->schoolname }}</h1>
                 <p style="font-weight: normal; margin-bottom: -8px;">{{ $getyour_result->address }}</p>
                 <p  style="font-weight: normal; font-style:italic">Motor: {{ $getyour_result->motor }}</p> 
             </th>
                 
             <th style="text-align: center; width: 120px;">
-                <img style="width: 100%; height: 10%;" src="{{ public_path('public/../'.$getyour_result->images) }}">
+                {{-- <img style="width: 100%; height: 10%;" src="{{ public_path('public/../'.$getyour_result->images) }}"> --}}
+				<img style="width: 100%; height: 100px" src="{{ URL::asset("/public/../$getyour_result->images")}}">
 
-               
             </th>
         </tr>
        
@@ -99,12 +130,11 @@ table, tr, td{
 
         <table id="myTable">
             <tr>
-              <th>AFFECTIVE DOMAIN (UBJECT OFFERED) </th>
-              <th>CA 1</th>
-              <th>CA 2</th>
-              <th>CA 3</th>
-              <th>EXAMS</th>
-              <th>TOTAL</th>
+              <th>SUBJECT OFFERED</th>
+              <th>CAT 1</th>
+              <th>CAT 2</th>
+              <th>CAT 3</th>
+              <th>EXAMINATION</th>
               <th>TOTAL</th>
               <th>-</th>
               <th>GRADE</th>
@@ -119,8 +149,8 @@ table, tr, td{
               <td>50</td>
               <td>100</td>
               <td>-</td>
-              <td>-</td>
-              <td>-</td>
+              {{-- <td>-</td> --}}
+              {{-- <td>-</td> --}}
 
             </tr>
        
@@ -128,10 +158,10 @@ table, tr, td{
                 @if ($getyour_result->status == 'approved')
                     @php
                     $total_score +=$getyour_result->test_1 + $getyour_result->test_2 + $getyour_result->test_3 + $getyour_result->exams;
+                    // $position +=$getyour_result->test_1 + $getyour_result->test_2 + $getyour_result->test_3 + $getyour_result->exams;
                 @endphp
             <tr>
-                <td>{{ $getyour_result->subjectname }}</td>
-                <td>{{ $getyour_result->test_1 }}</td>
+                <td style="text-align: left; font-size: 10px;">{{ $getyour_result->subjectname }}</td>
                 <td>{{ $getyour_result->test_1 }}</td>
                 <td>{{ $getyour_result->test_2 }}</td>
                 <td>{{ $getyour_result->test_3 }}</td>
@@ -176,13 +206,11 @@ table, tr, td{
                 <td>-</td>
                 <td>-</td>
                 <td>-</td>
-                {{-- <td>-</td> --}}
-                <td><b>{{ $total_score }}</b></td>
-                <td><b>-</b></td>
                 <td>-</td>
+                <td><b>{{ $total_score }}</b></td>
                 <td></td>
                 <td>Grade</td>
-
+                
               </tr>
 
           </table>
@@ -195,20 +223,24 @@ table, tr, td{
 
           </style>
           
-          <div class="container" style="margin-top: 50px;">
+          <div class="container" style="margin-top: 10px;">
             <div class="row">
                 <div class="col">
                     <div class="psy">
                         <table class="table">
                             <tr>
                               <th>AFFECTIVE DOMAIN</th>
-                              <th colspan="5">GRADE</th>
-                             
-                
-                            @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
+                              <th>4</th>
+                              <th>3</th>
+                              <th>2</th>
+                              <th>1</th>
+                            </tr>
+
+                            <tr>
+                                @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
                             @if ($getyour_resultsdomain->psycomoto == 'Cognitive Domain')
                                 <tr>
-                                <td>{{ $getyour_resultsdomain->cogname }}</td>
+                                <td style="text-align: left">{{ $getyour_resultsdomain->cogname }}</td>
                                 <td>{{ $getyour_resultsdomain->punt1 }}</td>
                                 <td>{{ $getyour_resultsdomain->punt2 }}</td>
                                 <td>{{ $getyour_resultsdomain->punt3 }}</td>
@@ -220,6 +252,8 @@ table, tr, td{
                             @endif
                             
                             @endforeach
+                            </tr>
+                            
                  
                           </table>
                     </div>
@@ -229,12 +263,16 @@ table, tr, td{
                             <tr>
                               
                               <th>PSYCOMOTOR DOMAIN</th>
-                              <th colspan="4">GRADE</th>
-                             
-                            @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
+                              <th>4</th>
+                              <th>3</th>
+                              <th>2</th>
+                              <th>1</th>
+                            </tr>
+                             <tr>
+                                @foreach ($getyour_resultsdomains as $getyour_resultsdomain)
                             @if ($getyour_resultsdomain->psycomoto == 'Psychomotor Domain')
                                 <tr>
-                                <td>{{ $getyour_resultsdomain->cogname }}</td>
+                                <td style="text-align: left;">{{ $getyour_resultsdomain->cogname }}</td>
                                 <td>{{ $getyour_resultsdomain->punt1 }}</td>
                                 <td>{{ $getyour_resultsdomain->punt2 }}</td>
                                 <td>{{ $getyour_resultsdomain->punt3 }}</td>
@@ -248,6 +286,8 @@ table, tr, td{
                             {{-- <td colspan="5" style="text-align: center">AFFECTIVE/PSYCOMOTOR DOMAIN</td> --}}
                 
                             @endforeach
+                             </tr>
+                            
                             
                 
                           </table>
@@ -295,8 +335,18 @@ table, tr, td{
                 <td>{{ $getyour_result->gender }}</td>
                 <td>TOTAL SCORE OBTAINABLE:</td>
                 <td>{{ $total_subject * 100 }}</td>
-                <td>NO. OF DISTINGTIONS (A-B):</td>
-                <td>7A's, 3B's</td>
+                @php
+                    // $rank = 1;
+                @endphp
+                <td>
+                  
+                    
+    {{-- @foreach ($studentpositions as $studentposition)
+    <li>
+        Name:  Score: {{ $studentposition['total_score'] }} - Position: {{ $loop->index + 1}}
+    </li>
+@endforeach --}}
+                   </td>
             </tr>
     
             <tr>
@@ -316,8 +366,8 @@ table, tr, td{
                
                 <td>PERCENTAGE:</td>
                 <td>{{ $total_score/100 }}</td>
-                <td>PUPIL'S GRADE IN CLASS:</td>
-                <td>B</td>
+                {{-- <td>PUPIL'S GRADE IN CLASS:</td>
+                <td>B</td> --}}
             </tr>
             
         
@@ -342,19 +392,26 @@ table, tr, td{
             <table style="margin-top: 2px;">
                 <tr>
                     <td>Class Teacher's Comment</td>
-                    <td>{{ $getyour_result->teacher_comment}}								
-                    </td>
-                    <td>Signature: </td>
+                    <td>{{ $getyour_result->teacher_comment}}</td>
+                    <td>Position: {{ $rankedStudents->rank }}</td>
+                    <td>
+                        {{-- @foreach ($rankedStudents as  $team)
+                        
+                        {{ $team->rank }} --}}
+                        {{-- @endforeach --}}
+                    </td> 
                 </tr>
 
                 <tr>
                     <td>Head Teacher's Comment</td>
                     <td>{{ $getyour_result->headteach_comment}}								
                     </td>
-                    <td>Signature: </td>
+                <td>Signature: <img style="width: 30px; height: 30px" src="{{ URL::asset("/public/../$getyour_result->logo")}}"></td>
                 </tr>
         
             </table>
   
 </body>
-</html>
+</html><script type="text/javascript"> 
+    window.addEventListener("load", window.print());
+  </script>

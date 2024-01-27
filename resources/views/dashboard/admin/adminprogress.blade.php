@@ -40,7 +40,7 @@
                     <th>Phone</th>
                     <th>Surname</th>
                     <th>First Name</th>
-                    <th>Ref NO</th>
+                    <th>Reg Number</th>
                     <th>Gender</th>
                     <th>Logo</th>
                     <th>View</th>
@@ -58,7 +58,7 @@
 
                         <td>{{ $view_primarypupl->surname }}</td>
                         <td>{{ $view_primarypupl->fname }}</td>
-                        <td>{{ $view_primarypupl->ref_no }}</td>
+                        <td>{{ $view_primarypupl->regnumber }}</td>
                         <td>{{ $view_primarypupl->gender }}</td>
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_primarypupl->images")}}" alt=""></td>
                         <td><a href="{{ url('admin/viewstudent/'.$view_primarypupl->ref_no) }}"
@@ -88,7 +88,7 @@
                     <th>Section</th>
                       <th>Surname</th>
                       <th>First Name</th>
-                      <th>Ref NO</th>
+                      <th>Reg Number</th>
                       <th>Gender</th>
                       <th>Logo</th>
                       <th>View</th>

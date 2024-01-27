@@ -145,9 +145,10 @@ Route::get('/team', function () {
 Route::get('/checkresults/{slug}', function ($slug) {
     $getyours = User::where('slug', $slug)->first();
     $getyours = Result::where('slug', $slug)->get();
+    $getclasses = Classname::where('slug', $slug)->get();
 
     $addacademics = Academicsession::latest()->get();
-    return view('pages.checkresults', compact('getyours', 'addacademics'));
+    return view('pages.checkresults', compact('getclasses', 'getyours', 'addacademics'));
 });
 
 
@@ -243,6 +244,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::middleware(['auth:admin'])->group(function() {
         
         
+        Route::get('delteresultsad/{id}', [ResultController::class, 'delteresultsad'])->name('delteresultsad');
         Route::get('deletecomstudent/{ref_no}', [CompetitionController::class, 'deletecomstudent'])->name('deletecomstudent');
         Route::get('viewcompetitions', [CompetitionController::class, 'viewcompetitions'])->name('viewcompetitions');
         Route::get('viewschoolnews', [SchoolnewsController::class, 'viewschoolnews'])->name('viewschoolnews');
@@ -267,11 +269,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('viewvisit', [VisitController::class, 'viewvisit'])->name('viewvisit');
         Route::get('addparent', [UserController::class, 'addparent'])->name('addparent');
         Route::get('viewcontact', [ContactController::class, 'viewcontact'])->name('viewcontact');
-        Route::get('bookingdelete/{id}', [BookingController::class, 'bookingdelete'])->name('bookingdelete');
-        Route::get('viewbookings', [BookingController::class, 'viewbookings'])->name('viewbookings');
         Route::put('changgeteacherclass/{id}', [UserController::class, 'changgeteacherclass'])->name('changgeteacherclass');
         Route::get('changeclasses/{ref_no}', [UserController::class, 'changeclasses'])->name('changeclasses');
-        Route::get('queriedteachersreply', [QueryController::class, 'queriedteachersreply'])->name('queriedteachersreply');
         Route::get('academedelete/{id}', [AcademicsessionController::class, 'academedelete'])->name('academedelete');
         Route::put('updatesession/{id}', [AcademicsessionController::class, 'updatesession'])->name('updatesession');
         Route::get('academedit/{id}', [AcademicsessionController::class, 'academedit'])->name('academedit');
@@ -572,6 +571,8 @@ Route::prefix('web')->name('web.')->group(function() {
 
         Route::get('/home', [UserController::class, 'home'])->name('home');
         Route::post('/createschoolnews', [SchoolnewsController::class, 'createschoolnews'])->name('createschoolnews');
+        Route::put('updatecomments/{id}', [ResultController::class, 'updatecomments'])->name('updatecomments');
+        Route::put('createsignature/{ref_no1}', [UserController::class, 'createsignature'])->name('createsignature');
         
         Route::get('/subjectsassgned', [SubjectController::class, 'subjectsassgned'])->name('subjectsassgned');
         Route::get('/deletesubjectscs/{id}', [TeacherassignController::class, 'deletesubjectscs'])->name('deletesubjectscs');
@@ -603,6 +604,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::post('/createsection', [SectionController::class, 'createsection'])->name('createsection');
         Route::get('/addsection', [SectionController::class, 'addsection'])->name('addsection');
         Route::get('/mysubjectsguestion', [TeacherassignController::class, 'mysubjectsguestion'])->name('mysubjectsguestion');
+        Route::get('addcomment/{id}', [ResultController::class, 'addcomment'])->name('addcomment');
         
         Route::get('/editquestion/{id}', [QuestionController::class, 'editquestion'])->name('editquestion');
         Route::get('/addterm', [TermController::class, 'addterm'])->name('addterm');
@@ -630,6 +632,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/viewterm/{term}', [TermController::class, 'viewterm'])->name('viewterm');
         Route::get('/viewalms/{alms}', [AlmController::class, 'viewalms'])->name('viewalms');
         Route::get('/firstermresults/{classname}', [ClassnameController::class, 'firstermresults'])->name('firstermresults');
+        Route::get('/firstermresultsapproved/{classname}', [ClassnameController::class, 'firstermresultsapproved'])->name('firstermresultsapproved');
         Route::get('/deletestudentsc/{ref_no}', [StudentController::class, 'deletestudentsc'])->name('deletestudentsc');
         Route::post('/reachresultbysc', [ResultController::class, 'reachresultbysc'])->name('reachresultbysc');
         Route::post('/reachresultbystudentsc', [ResultController::class, 'reachresultbystudentsc'])->name('reachresultbystudentsc');
@@ -671,7 +674,7 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/teacherviewresults2nd/{id}', [ResultController::class, 'teacherviewresults2nd'])->name('teacherviewresults2nd');
         Route::get('/pensulatermresults', [ResultController::class, 'pensulatermresults'])->name('pensulatermresults');
         Route::get('/addpsychomotor/{user_id}', [ResultController::class, 'addpsychomotor'])->name('addpsychomotor');
-        Route::put('/createpsychomotoro/{id}', [ResultController::class, 'createpsychomotoro'])->name('createpsychomotoro');
+        Route::post('/createpsychomotoro', [StudentdomainController::class, 'createpsychomotoro'])->name('createpsychomotoro');
         Route::post('/createresults', [ResultController::class, 'createresults'])->name('createresults');
         Route::put('/assignstudentclass/{ref_no}', [UserController::class, 'assignstudentclass'])->name('assignstudentclass');
         Route::get('addresults/{id}', [StudentController::class, 'addresults'])->name('addresults');
@@ -710,6 +713,8 @@ Route::prefix('web')->name('web.')->group(function() {
         Route::get('/profile/{ref_no}', [UserController::class, 'profile'])->name('profile');
         Route::get('/admisionletter', [UserController::class, 'admisionletter'])->name('classesdelete');
         Route::get('assignedstudent/{ref_no}', [UserController::class, 'assignedstudent'])->name('assignedstudent');
+        Route::get('/deleteresultbysch/{id}', [ResultController::class, 'deleteresultbysch'])->name('deleteresultbysch');
+        Route::get('/addsignature', [UserController::class, 'addsignature'])->name('addsignature');
         
         Route::get('/logout', [UserController::class, 'logout'])->name('logout'); 
         
@@ -738,9 +743,8 @@ Route::prefix('teacher')->name('teacher.')->group(function() {
         Route::get('/addpsychomotorteacher1/{teacher_id}', [ResultController::class, 'addpsychomotorteacher1'])->name('addpsychomotorteacher1');
         Route::post('/createdomain', [TeacherdomainController::class, 'createdomain'])->name('createdomain');
         Route::get('/tecacherdomainadd/{ref_no1}', [TeacherController::class, 'tecacherdomainadd'])->name('tecacherdomainadd');
-        Route::get('/addpayment', [PaymentController::class, 'addpayment'])->name('addpayment');
-        Route::get('/addfeedingpayment', [PaymentController::class, 'addfeedingpayment'])->name('addfeedingpayment');
-        Route::post('/createfeeding', [PaymentController::class, 'createfeeding'])->name('createfeeding');
+        Route::get('/addcommentteacher/{student_id}', [ResultController::class, 'addcommentteacher'])->name('addcommentteacher');
+        Route::put('/teachercomment/{id}', [ResultController::class, 'teachercomment'])->name('teachercomment');
         Route::get('/viewfeedinfees', [PaymentController::class, 'viewfeedinfees'])->name('viewfeedinfees');
         Route::get('/addbuspayment', [PaymentController::class, 'addbuspayment'])->name('addbuspayment');
         Route::get('/viewbusfees', [PaymentController::class, 'viewbusfees'])->name('viewbusfees');
@@ -772,6 +776,7 @@ Route::prefix('teacher')->name('teacher.')->group(function() {
         Route::get('/profile1/{ref_no}', [TeacherController::class, 'profile1'])->name('profile1');
         Route::get('/tecacherviewresultbysub', [ResultController::class, 'tecacherviewresultbysub'])->name('tecacherviewresultbysub');
         Route::get('/addpsychomotorteacher/{id}', [ResultController::class, 'addpsychomotorteacher'])->name('addpsychomotorteacher');
+        Route::get('/deleteresultbysch/{id}', [ResultController::class, 'deleteresultbysch'])->name('deleteresultbysch');
         
 
         Route::get('/logout', [TeacherController::class, 'logout'])->name('logout'); 

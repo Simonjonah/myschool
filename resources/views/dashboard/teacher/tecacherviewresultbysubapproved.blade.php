@@ -132,6 +132,10 @@
                                 <i class="fas fa-user">Add Psychomotor</i> 
                               </a></th>
 
+                              <th> <a href="{{ url('teacher/addcommentteacher/'.$view_myresult_result->id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-user">Add comment</i> 
+                              </a></th>
+
                               {{-- <th> <a href="{{ url('teacher/addpsychomotorteacher/'.$view_myresult_result->id) }}" class="btn btn-sm btn-primary">
                                 <i class="fas fa-user">Add </i> 
                               </a></th> --}}

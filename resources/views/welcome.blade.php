@@ -7,12 +7,12 @@
       
     @foreach ($press_release as $press_releases)
       @if ($press_releases->status == 'approved')
-      <div class="slide" style="background-image:url('{{ URL::asset("/public/../$press_releases->images")}}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+      <div class="slide" style="background-image:url('{{ URL::asset("/public/../$press_releases->logo")}}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
         <div class="auto-container">
         <div class="content alternate">
-          <h1 class="alternate" style="color: green;">{{ $press_releases->title }}</h1>
+          <h1 class="alternate" style="color: green;"></h1>
           <div class="text alternate">messages</div>
-          <div class="text alternate"><a class="theme-btn btn-style-twelve" href="{{ url('press_single/'.$press_releases->slug)  }}">Continue Reading <span class="fa fa-angle-double-right"></span></a></div>
+          <div class="text alternate"><a class="theme-btn btn-style-twelve" href="#">Continue Reading <span class="fa fa-angle-double-right"></span></a></div>
         </div>
         </div>
     </div>

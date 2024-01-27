@@ -44,8 +44,9 @@
                   <thead>
                     <tr>
                       <th>Classes</th>
-                      <th>Subjects</th>
-                      <th>Lastname</th>
+                      <th>Surname</th>
+                      <th>Firstname</th>
+                      <th>Moddlename</th>
                       <th>Term</th>
                       <th>Section</th>
 
@@ -65,8 +66,10 @@
                     @if ($view_yourstudent->schoolname == Auth::guard('teacher')->user()->schoolname && $view_yourstudent->term == Auth::guard('teacher')->user()->term  && $view_yourstudent->ref_no1 == Auth::guard('teacher')->user()->ref_no1)
                       <tr>
                         <td>{{ $view_yourstudent->classname }}</td>
-                        <td>{{ $view_yourstudent->middlename }}</td>
+                        <td>{{ $view_yourstudent->surname }}</td>
+
                         <td>{{ $view_yourstudent->fname }}</td>
+                        <td>{{ $view_yourstudent->middlename }}</td>
                         <td>{{ $view_yourstudent->term }}</td>
                         <td>{{ $view_yourstudent->section }}
                             <small style="color: red">{{ $view_yourstudent->classname }}</small>
@@ -74,7 +77,7 @@
   
                         <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$view_yourstudent->images")}}" alt=""></td>
                         <td><a href="{{ url('teacher/addresultsbyteacher/'.$view_yourstudent->ref_no) }}"
-                            class='btn btn-default'>
+                            class='btn btn-default'>Add Results
                             <i class="far fa-eye"></i>
                         </a></td>
                         <td>@if ($view_yourstudent->status == null)
@@ -110,8 +113,9 @@
                   <tfoot>
                     <tr>
                       <th>Classes</th>
-                      <th>Subjects</th>
-                      <th>Lastname</th>
+                      <th>Surname</th>
+                      <th>Firstname</th>
+                      <th>Moddlename</th>
                       <th>Term</th>
                       <th>Section</th>
 

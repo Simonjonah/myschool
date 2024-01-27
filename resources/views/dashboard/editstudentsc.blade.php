@@ -150,7 +150,7 @@ l            <ol class="breadcrumb float-sm-right">
                     </div>
 
 
-
+{{-- 
                      <div class="col-sm-6">
                         <div class="form-group">
                           <label>Reg. Number</label>
@@ -161,7 +161,7 @@ l            <ol class="breadcrumb float-sm-right">
                         @error('regnumber')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
-                      </div>
+                      </div> --}}
 
                       
                       <div class="col-sm-6">
@@ -224,7 +224,7 @@ l            <ol class="breadcrumb float-sm-right">
                     <div class="col-sm-6">
                         <div class="form-group">
                           <label>Passport </label>
-                          <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$mmy_teacher->logo")}}" alt=""></td>
+                          <td><img style="width: 100%; height: 60px;" src="{{ URL::asset("/public/../$edit_primarypupils->logo")}}" alt=""></td>
 
                         <input type="file" name="images" @error('images')
                         @enderror  value="" class="form-control" >

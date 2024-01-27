@@ -59,10 +59,10 @@
                 <div class="table-responsive">
                   {{-- <p class="lead">Behaviour</p> --}}
     
-                  <form action="{{ url('web/createpsychomotoro/'.$add_psychomotor->id) }}" method="post" enctype="multipart/form-data">
+                  <form action="{{ url('web/createpsychomotoro') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
-                    @method('PUT')
+                    {{-- @method('PUT') --}}
                     <table class="table table-bordered">
                       <tr>
                         {{-- <td><input type="text" name="" value="{{ $add_psychomotor->images }}" id=""></td> --}}
@@ -71,109 +71,60 @@
                         <th style="width:50%">B</th>
                         <th style="width:50%">C</th>
                         <th style="width:50%">D</th>
+                      <th style="width:50%">E</th>
+
                       </tr>
 
 
                       @foreach ($view_domains as $view_domain)
-                      <tr>
-                        <th>{{ $view_domain->cogname }}</th>
-                        <td><input type="checkbox" name="1" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="2" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="3" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="4" value="Yes" id=""></td>
-                        
-                      </tr>
+                        {{-- @if ($view_domain->psycomoto == 'Cognitive Domain') --}}
+                        <tr>
+                          <th>{{ $view_domain->cogname }}</th>
+                          <input type="text" name="cogname[]" value="{{ $view_domain->cogname }}" id="">
+                          <input type="text" name="psycomoto[]" value="{{ $view_domain->psycomoto }}" id="">
+                         
+                          <td><select name="punt1[]" class="" id="">
+                            <option value="">No</option>  
+                            <option value="Yes">Yes</option>  
+                          </select></td>
+                          <td><select name="punt2[]" class="" id="">
+                            <option value="">No</option>  
+                            <option value="Yes">Yes</option>  
+                          </select></td>
+                          <td><select name="punt3[]" class="" id="">
+                            <option value="">No</option>  
+                            <option value="Yes">Yes</option>  
+                          </select></td>
+                          <td><select name="punt4[]" class="" id="">
+                            <option value="">No</option>  
+                            <option value="Yes">Yes</option>  
+                          </select></td>
+                          <td><select name="punt5[]" class="" id="">
+                            <option value="">No</option>  
+                            <option value="Yes">Yes</option>  
+                          </select></td>
+                          {{-- <td><input type="checkbox" name="punt1[]" value="Yes" id=""></td>
+                          <td><input type="checkbox" name="punt2[]" value="Yes" id=""></td>
+                          <td><input type="checkbox" name="punt3[]" value="Yes" id=""></td>
+                          <td><input type="checkbox" name="punt4[]" value="Yes" id=""></td>
+                          <td><input type="checkbox" name="punt5[]" value="Yes" id=""></td> --}}
+                          
+                          <input type="hidden" name="teacher_id[]" value="{{ $add_psychomotor->teacher_id }}">
+                          <input type="hidden" name="student_id[]" value="{{ $add_psychomotor->student_id }}">
+                          <input type="hidden" name="ref_no1[]" value="{{ $view_domain->ref_no1 }}" id="">
+                          <input type="hidden" name="term[]" value="{{ $add_psychomotor->term }}" id="">
+                          
+                          
+                        </tr>
+                        {{-- @else
+                          
+                        @endif --}}
+                      
                       @endforeach
-                      {{-- <tr>
-                        <th>Punctuality</th>
-                        <td><input type="checkbox" name="punt1" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="punt2" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="punt3" value="Yes" id=""></td>
-                        <td><input type="checkbox" name="punt4" value="Yes" id=""></td>
-                        
-                      </tr>
-                      
-                      <tr>
-                        <th>Politeness</th>
-                
-                        <td><input type="checkbox" value="Yes" name="polite1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="polite2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="polite3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="polite4" id=""></td>
-                        
-                      </tr>
-
-                      <tr>
-                        <th>Responsibility</th>
-                      
-                        <td><input type="checkbox" value="Yes" name="respond1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="respond2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="respond3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="respond4" id=""></td>
-                        
-                      </tr>
-                      <tr>
-                        <th>Corporation</th>
-                      
-                        <td><input type="checkbox" value="Yes" name="corporate1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="corporate2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="corporate3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="corporate4" id=""></td>
-                        
-                      </tr>
-                      <tr>
-                        <th>Neatness</th>
-                        <td><input type="checkbox" value="Yes" name="neat1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="neat2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="neat3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="neat4" id=""></td>
-                      </tr>
-                      
-  
-                      <tr>
-                        <th>Attentiveness</th>
-                        <td><input type="checkbox" value="Yes" name="attentive1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="attentive2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="attentive3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="attentive4" id=""></td>
-                        
-                      </tr>
-                      <tr>
-                        <th>Initiative</th>
-                
-                        <td><input type="checkbox" value="Yes" name="init1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="init2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="init3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="init4" id=""></td>
-                        
-                      </tr>
-                      <tr>
-                        <th>Organisation</th>
                     
-                        <td><input type="checkbox" value="Yes" name="organ1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="organ2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="organ3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="organ4" id=""></td>
-                        
-                      </tr>
-                      <tr>
-                        <th>Perseverance</th>
-                        <td><input type="checkbox" value="Yes" name="pers1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="pers2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="pers3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="pers4" id=""></td>
-                      </tr>
-
-                      <tr>
-                        <th>Attitude to Work</th>
-                        <td><input type="checkbox" value="Yes" name="atti1" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="atti2" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="atti3" id=""></td>
-                        <td><input type="checkbox" value="Yes" name="atti4" id=""></td>
-                      </tr> --}}
                     </table>
                       <div class="form-group">
-                          <textarea class="form-control" name="teacher_comment" id="" cols="20" rows="5" placeholder="Teacher's Comment"></textarea>
+                          <textarea class="form-control" name="teacher_comment[]" id="" cols="20" rows="5" placeholder="Teacher's Comment"></textarea>
                       </div>
                 </div>
                
@@ -192,89 +143,56 @@
                       <th style="width:50%">B</th>
                       <th style="width:50%">C</th>
                       <th style="width:50%">D</th>
+                      <th style="width:50%">E</th>
                     </tr>
 
                     @foreach ($view_pscos as $view_psco)
+                    {{-- @if ($view_psco->psycomoto == 'Psychomotor Domain') --}}
                     <tr>
                       <th>{{ $view_psco->cogname }}</th>
-                      <td><input type="checkbox" value="Yes" name="1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="4" id=""></td>
-                    </tr>
+                      
+                      <input type="text" name="cogname[]" value="{{ $view_psco->cogname }}" id="">
+                      <input type="text" name="psycomoto[]" value="{{ $view_domain->psycomoto }}" id="">
+                      <td><select name="punt1[]" class="" id="">
+                        <option value="">No</option>  
+                        <option value="Yes">Yes</option>  
+                      </select></td>
+                      <td><select name="punt2[]" class="" id="">
+                        <option value="">No</option>  
+                        <option value="Yes">Yes</option>  
+                      </select></td>
+                      <td><select name="punt3[]" class="" id="">
+                        <option value="">No</option>  
+                        <option value="Yes">Yes</option>  
+                      </select></td>
+                      <td><select name="punt4[]" class="" id="">
+                        <option value="">No</option>  
+                        <option value="Yes">Yes</option>  
+                      </select></td>
+                      <td><select name="punt5[]" class="" id="">
+                        <option value="">No</option>  
+                        <option value="Yes">Yes</option>  
+                      </select></td>
+                      {{-- <td><input type="checkbox" value="Yes" name="punt1[]" id=""></td>
+                      <td><input type="checkbox" value="Yes" name="punt2[]" id=""></td>
+                      <td><input type="checkbox" value="Yes" name="punt3[]" id=""></td>
+                      <td><input type="checkbox" value="Yes" name="punt4[]" id=""></td>
+                      <td><input type="checkbox" name="punt5[]" value="Yes" id=""></td> --}}
+
+                      <input type="hidden" name="teacher_id[]" value="{{ $add_psychomotor->teacher_id }}">
+                      <input type="hidden" name="student_id[]" value="{{ $add_psychomotor->student_id }}">
+                      <input type="hidden" name="ref_no1[]" value="{{ $view_psco->ref_no1 }}" id="">
+                      <input type="hidden" name="term[]" value="{{ $add_psychomotor->term }}" id="">
+                      
+
+                     
+                    </tr> 
+                    {{-- @else
+                      
+                    @endif --}}
+                   
                     @endforeach
-{{--                    
-                    <tr>
-                      <th>Handwriting</th>
-                      <td><input type="checkbox" value="Yes" name="hand1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="hand2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="hand3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="hand4" id=""></td>
-                    </tr>
-    
-                    <tr>
-                      <th>Technical Work</th>
-                      <td><input type="checkbox" value="Yes" name="tech1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tech2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tech3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tech4" id=""></td>
-                    </tr>
-                    <tr>
-                      <th>Handling Tools</th>
-                      <td><input type="checkbox" value="Yes" name="tool1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tool2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tool3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="tool4" id=""></td>
-                    </tr>
-    
-                    <tr>
-                      <th>Practical Works</th>
-                      <td><input type="checkbox" value="Yes" name="pract1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="pract2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="pract3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="pract4" id=""></td>
-                    </tr>
-    
-                    <tr>
-                      <th>Craftmanship</th>
-                      <td><input type="checkbox" value="Yes" name="craft1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="craft2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="craft3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="craft4" id=""></td>
-                    </tr>
 
-                    <tr>
-                      <th>Music Skills</th>
-                      <td><input type="checkbox" value="Yes" name="music1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="music2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="music3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="music4" id=""></td>
-                    </tr>
-
-                    <tr>
-                      <th>Computer Skills</th>
-                      <td><input type="checkbox" value="Yes" name="comp1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="comp2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="comp3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="comp4" id=""></td>
-                    </tr>
-
-                    <tr>
-                      <th>Sports</th>
-                      <td><input type="checkbox" value="Yes" name="sport1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="sport2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="sport3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="sport4" id=""></td>
-                    </tr>
-
-                    <tr>
-                      <th>Drawing/Painting</th>
-                      <td><input type="checkbox" value="Yes" name="paint1" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="paint2" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="paint3" id=""></td>
-                      <td><input type="checkbox" value="Yes" name="paint4" id=""></td>
-                    </tr>
-                   --}}
                   </table>
     
                 </div>

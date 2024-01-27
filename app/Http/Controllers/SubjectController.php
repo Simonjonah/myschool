@@ -30,7 +30,7 @@ class SubjectController extends Controller
 
     public function createsubject (Request $request){
         $request->validate([
-            'subjectname' => ['required', 'string', 'max:255'],
+            'subjectname' => ['required', 'string', 'max:255', 'unique:subjects'],
             'section' => ['required', 'string', 'max:255'],
             'user_id' => ['required', 'string', 'max:255'],
             'ref_no1' => ['required', 'string', 'max:255'],

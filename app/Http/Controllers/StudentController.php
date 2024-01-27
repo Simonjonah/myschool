@@ -50,6 +50,7 @@ class StudentController extends Controller
             'age' => ['nullable', 'string'],
             'dob' => ['required', 'string'],
             'alms' => ['nullable', 'string'],
+            'slug' => ['nullable', 'string'],
             'term' => ['required', 'string'],
             'ref_no1' => ['required', 'string'],
             'section' => ['required', 'string'],
@@ -78,6 +79,7 @@ class StudentController extends Controller
         $add_adimission->middlename = $request->middlename;
         $add_adimission->surname = $request->surname;
         $add_adimission->age = $request->age;
+        $add_adimission->slug = $request->slug;
         $add_adimission->state = $request->state;
         $add_adimission->fname = $request->fname;
         $add_adimission->lga = $request->lga;

@@ -52,21 +52,25 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                {{-- <p class="hidden-center">
-                  <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                </p> --}}
-
                 <div class="table-responsive">
-                  {{-- <p class="lead">Behaviour</p> --}}
     
                   <form action="{{ url('teacher/createpsychomotorobyteacher') }}" method="post">
                     @csrf
+                    @if (Session::get('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
+  
+                    @if (Session::get('fail'))
+                    <div class="alert alert-danger">
+                    {{ Session::get('fail') }}
+                    @endif
 
-                    {{-- @method('PUT') --}}
                       <table class="table table-bordered">
                         <tr>
                           <th style="width:50%">COGNITIVE BEHAVIOUR:</th>
-                          <th style="width:50%"></th>
+                          {{-- <th style="width:50%"></th> --}}
                           <th style="width:50%">A</th>
 
                           <th style="width:50%">B</th>
@@ -78,33 +82,34 @@
                         @if ($view_yourdomain->psycomoto == 'Cognitive Domain')
                         <tr>
                             <th>{{ $view_yourdomain->cogname }} <input type="hidden" value="{{ $view_yourdomain->cogname }}" name="cogname[]" value="Yes" id=""></th>
-                            <td><input type="hidden" name="psycomoto[]" value="{{ $view_yourdomain->psycomoto }}" id=""></td>
-                            <td><select name="punt1[]" class="form-control" id="">
+                            <input type="hidden" name="psycomoto[]" value="{{ $view_yourdomain->psycomoto }}" id="">
+                            <td><select name="punt1[]" class="" id="">
                               <option value="">No</option>  
                               <option value="Yes">Yes</option>  
                             </select></td>
-                            <td><select name="punt2[]" class="form-control" id="">
+                            <td><select name="punt2[]" class="" id="">
                               <option value="">No</option>  
                               <option value="Yes">Yes</option>  
                             </select></td>
-                            <td><select name="punt3[]" class="form-control" id="">
+                            <td><select name="punt3[]" class="" id="">
                               <option value="">No</option>  
                               <option value="Yes">Yes</option>  
                             </select></td>
 
-                            <td><select name="punt4[]" class="form-control" id="">
+                            <td><select name="punt4[]" class="" id="">
                               <option value="">No</option>  
                               <option value="Yes">Yes</option>  
                             </select></td>
-                            <td><select name="punt5[]" class="form-control" id="">
+                            <td><select name="punt5[]" class="" id="">
                               <option value="">No</option>  
                               <option value="Yes">Yes</option>  
                             </select></td>
                           
-                            <td><input type="hidden" name="teacher_id[]" value="{{ Auth::guard('teacher')->user()->id }}" id=""></td>
-                            <td><input type="hidden" name="student_id[]" value="{{ $view_yourtudents->student_id }}" id=""></td>
-                            <td><input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" id=""></td>
-                            <td><input type="hidden" name="term[]" value="{{ Auth::guard('teacher')->user()->term }}" id=""></td>
+                            <input type="hidden" name="teacher_id[]" value="{{ Auth::guard('teacher')->user()->id }}" id="">
+                            <input type="hidden" name="student_id[]" value="{{ $view_yourtudents->student_id }}" id="">
+                            <input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" id="">
+                            <input type="hidden" name="term[]" value="{{ Auth::guard('teacher')->user()->term }}" id="">
+                          <input type="hidden" name="signature[]" value="{{ $view_yourdomain->signature }}" id="">
                             
                           </tr>
                         @else
@@ -112,26 +117,14 @@
                         @endif
                        
                        @endforeach
-                        
-    
-                        
                       </table>
-                      {{-- <div class="form-group">
-                          <textarea class="form-control" name="teacher_comment[]" id="" cols="20" rows="5" placeholder="Teacher's Comment"></textarea>
-                      </div> --}}
-
                       <div class="form-group">
-                        {{-- <input class="form-control" name="nextterm" placeholder="Next term"> --}}
                     </div>
                 </div>
                
               </div>
               <!-- /.col -->
               <div class="col-md-6">
-                {{-- <p class="text-center">
-                  <strong>Goal Completion</strong>
-                </p> --}}
-
                 <div class="table-responsive">
                   <table class="table">
                     <tr>
@@ -146,33 +139,34 @@
                         @if ($view_yourdomain->psycomoto == 'Psychomotor Domain')
                         <tr>
                           <th>{{ $view_yourdomain->cogname }} <input type="hidden" value="{{ $view_yourdomain->cogname }}" name="cogname[]" value="Yes" id=""></th>
-                          <td><input type="hidden" name="psycomoto[]" value="{{ $view_yourdomain->psycomoto }}" id=""></td>
-                          <td><select name="punt1[]" class="form-control" id="">
+                          <input type="hidden" name="psycomoto[]" value="{{ $view_yourdomain->psycomoto }}" id="">
+                          <td><select name="punt1[]" class="" id="">
                             <option value="">No</option>  
                             <option value="Yes">Yes</option>  
                           </select></td>
-                          <td><select name="punt2[]" class="form-control" id="">
+                          <td><select name="punt2[]" class="" id="">
                             <option value="">No</option>  
                             <option value="Yes">Yes</option>  
                           </select></td>
-                          <td><select name="punt3[]" class="form-control" id="">
+                          <td><select name="punt3[]" class="" id="">
                             <option value="">No</option>  
                             <option value="Yes">Yes</option>  
                           </select></td>
 
-                          <td><select name="punt4[]" class="form-control" id="">
+                          <td><select name="punt4[]" class="" id="">
                             <option value="">No</option>  
                             <option value="Yes">Yes</option>  
                           </select></td>
-                          <td><select name="punt5[]" class="form-control" id="">
+                          <td><select name="punt5[]" class="" id="">
                             <option value="">No</option>  
                             <option value="Yes">Yes</option>  
                           </select></td>
                         
-                          <td><input type="hidden" name="teacher_id[]" value="{{ Auth::guard('teacher')->user()->id }}" id=""></td>
-                          <td><input type="hidden" name="student_id[]" value="{{ $view_yourtudents->student_id }}" id=""></td>
-                          <td><input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" id=""></td>
-                          <td><input type="hidden" name="term[]" value="{{ Auth::guard('teacher')->user()->term }}" id=""></td>
+                          <input type="hidden" name="teacher_id[]" value="{{ Auth::guard('teacher')->user()->id }}" id="">
+                          <input type="hidden" name="student_id[]" value="{{ $view_yourtudents->student_id }}" id="">
+                          <input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" id="">
+                          <input type="hidden" name="signature[]" value="{{ $view_yourdomain->signature }}" id="">
+                          <input type="hidden" name="term[]" value="{{ Auth::guard('teacher')->user()->term }}" id="">
                           
                         </tr>
                         @else

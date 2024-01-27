@@ -341,6 +341,12 @@
                     <p>View</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="{{ url('/web/addsignature') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Add Signature</p>
+                  </a>
+                </li>
                 
               @endforeach
               
@@ -398,20 +404,50 @@
                 @foreach ($view_classes as $view_classe)
                 <a href="{{ url('/web/firstermresults/'.$view_classe->classname) }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>{{ $view_classe->classname }} Results</p>
+                  <p>{{ $view_classe->classname }} Unapproved Results</p>
                 </a>
                 @endforeach
               </li>
 
-              <li class="nav-item">
+              {{-- <li class="nav-item">
               
                 <a href="{{ url('/web/allresults') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Results</p>
                 </a>
                 
+              </li> --}}
+
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>
+                    Approved Results
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+    
+                  <li class="nav-item">
+                    @foreach ($view_classes as $view_classe)
+                    <a href="{{ url('/web/firstermresultsapproved/'.$view_classe->classname) }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>{{ $view_classe->classname }} Approved Results</p>
+                    </a>
+                    @endforeach
+                  </li>
+    
+                  <li class="nav-item">
+                  
+                    <a href="{{ url('/web/allresults') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>All Results</p>
+                    </a>
+                    
+                  </li>
+                  
+                </ul>
               </li>
-              
             </ul>
           </li>
           

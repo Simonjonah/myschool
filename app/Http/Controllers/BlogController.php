@@ -83,19 +83,19 @@ class BlogController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'messages' => ['required', 'string'],
-            'images' => 'nullable|mimes:jpg,png,jpeg'
+            'logo' => 'nullable|mimes:jpg,png,jpeg'
         ]);
       
-        if ($request->hasFile('images')){
+        if ($request->hasFile('logo')){
 
-            $file = $request['images'];
+            $file = $request['logo'];
             $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
-            $path = $request->file('images')->storeAs('resourceimages', $filename);
+            $path = $request->file('logo')->storeAs('resourceimages', $filename);
 
         }else{
             $path = 'noimage.jpg';
         }
-        $edit_blogs['images'] = $path;
+        $edit_blogs['logo'] = $path;
         $edit_blogs->title = $request->title;
         $edit_blogs->messages = $request->messages;
         $edit_blogs->slug = SlugService::createSlug(Blog::class, 'slug', $request->title);

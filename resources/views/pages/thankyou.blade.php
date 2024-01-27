@@ -25,7 +25,7 @@
                     <div class="info-column col-lg-12">
                       <div class="contactform">
                       
-                        <h4 style="color: green">Please Copy this Ref Number Before you Closed the page <span style="color: red;">{{ $vew_regid->ref_no }}</span></h4>
+                        <h4 style="color: green">Please Copy this Exams Number Before you Closed the page <span style="color: red;">{{ $vew_regid->ref_no }}</span></h4>
               
                     </div>
                   </div>

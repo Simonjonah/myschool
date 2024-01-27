@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DomainController extends Controller
 {
-    //
-   //
+
 
    public function addpsychomotors(){
 
@@ -25,10 +24,13 @@ public function createsdomains (Request $request){
         'ref_no1' => ['required', 'string', 'max:255'],
         'connect' => ['required', 'string', 'max:255'],
         'psycomoto' => ['required', 'string', 'max:255'],
+        // 'signature' => ['required', 'string', 'max:255'],
+        
         
     ]);
     // dd($request->all());
     $add_psyo = new Domain();
+    $add_psyo->signature = $request->signature;
     $add_psyo->psycomoto = $request->psycomoto;
     $add_psyo->user_id = $request->user_id;
     $add_psyo->cogname = $request->cogname;

@@ -72,93 +72,101 @@
                       //  $total_score = 0;
                     @endphp
                     @foreach ($view_myresults as $view_myresult)
+                      @if ($view_myresult->status == null)
                       @php
-                         // $total_score +=$view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams;
-                          
-                      @endphp
-                      <tr>
-                        <td>{{ $view_myresult->surname }}</td>
-                        <td>{{ $view_myresult->fname }} <br> 
-                           <small> {{ $view_myresult->subjectname }}
-                          
-                        </small>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
-                          Search Term
-                        </button>
-                          {{-- <small> Teacher: <a href="{{ url('web/viewtteachersc/'.$view_myresult->teacher['ref_no']) }}">{{ $view_myresult->teacher['fname'] }} {{ $view_myresult->teacher['surname'] }} {{ $view_myresult->teacher['classname'] }} {{ $view_myresult->teacher['term'] }}</a> 
-                          
-                        </small> --}}
-                      
-                      </td>
-                        <td>{{ $view_myresult->middlename }} <br> <small> Class: {{ $view_myresult->classname }}</small></td>
-                        <td>{{ $view_myresult->regnumber }} <br> <small> Term: {{ $view_myresult->term }}</small></td>
-                        <td> @if ( $view_myresult->status == null)
-                          <span class="badge badge-warning">In review</span>
-                          
-                        @elseif ( $view_myresult->status == 'approved')
-                        <span class="badge badge-success">Approved</span>
-                          @elseif ( $view_myresult->status == 'suspend')
-                          <a href="#" class="btn btn-warning btn-block"><b>Suspended</b></a>
-      
-                          @elseif ( $view_myresult->status == 'admitted')
-                          <a href="#" class="btn btn-danger btn-block"><b>Reject</b></a>
-                          @else
-                          
-                        @endif</td>
-                        <td><a href="{{ url('web/addpsychomotor/'.$view_myresult->id) }}"
-                          class='btn btn-default'>
-                          Add Psycomotor
-                           <i class="far fa-eye"></i>
-
+                      // $total_score +=$view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams;
                        
-
-                      {{-- <td>{{ $view_myresult->user['ref_no'] }}</td> --}}
-                      <td>{{ $view_myresult->test_1 }}</td>
-                      <td>{{ $view_myresult->test_2 }}</td>
-                      <td>{{ $view_myresult->test_3 }}</td>
-                      <td>{{ $view_myresult->exams }}</td>
-                      <td>{{ $view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams }}</td>
-                      <td>@if ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 79)
-                       <p>A</p>
-                        @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 69)
-                        <p>B</p>
-
-
-                        @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 59)
-                        <p>C</p>
-
-                        @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 49)
-                        <p>D</p>
-
-                        @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 40)
-                        <p>E</p>
-
-                        @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 39)
-                        <p>F</p>
-
-                        @else
-                        <p>F</p>
-                      @endif</td>
-
-                      {{-- <td></td> --}}
-                         
-                      
-                      <td><a href="{{ url('web/approvedresultsc/'.$view_myresult->id)}}"
-                        class='btn btn-info'>
-                         Approved
-                     </a></td>
-                         <td><a href="{{ url('web/teacherviewresults/'.$view_myresult->student_id)}}"
-                          class='btn btn-default'>
-                           <i class="far fa-eye"></i>
-                       </a></td>
+                   @endphp
+                   <tr>
+                     <td>{{ $view_myresult->surname }}</td>
+                     <td>{{ $view_myresult->fname }} <br> 
+                        <small> {{ $view_myresult->subjectname }}
                        
+                     </small>
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
+                       Search Term
+                     </button>
+                       {{-- <small> Teacher: <a href="{{ url('web/viewtteachersc/'.$view_myresult->teacher['ref_no']) }}">{{ $view_myresult->teacher['fname'] }} {{ $view_myresult->teacher['surname'] }} {{ $view_myresult->teacher['classname'] }} {{ $view_myresult->teacher['term'] }}</a> 
+                       
+                     </small> --}}
+                   
+                   </td>
+                     <td>{{ $view_myresult->middlename }} <br> <small> Class: {{ $view_myresult->classname }}</small></td>
+                     <td>{{ $view_myresult->regnumber }} <br> <small> Term: {{ $view_myresult->term }}</small>
+                       <a href="{{ url('web/approvedresultsc/'.$view_myresult->id)}}"
+                         class='btn btn-info'>
+                          Approved
+                      </a>
+                     </td>
+                     <td> @if ( $view_myresult->status == null)
+                       <span class="badge badge-warning">In review</span>
+                       
+                     @elseif ( $view_myresult->status == 'approved')
+                     <span class="badge badge-success">Approved</span>
+                       @elseif ( $view_myresult->status == 'suspend')
+                       <a href="#" class="btn btn-warning btn-block"><b>Suspended</b></a>
+   
+                       @elseif ( $view_myresult->status == 'admitted')
+                       <a href="#" class="btn btn-danger btn-block"><b>Reject</b></a>
+                       @else
+                       
+                     @endif</td>
+                     <td><a href="{{ url('web/addpsychomotor/'.$view_myresult->id) }}"
+                       class='btn btn-default'>
+                       Add Psycomotor
+                        <i class="far fa-eye"></i>
+
+                    
+
+                   {{-- <td>{{ $view_myresult->user['ref_no'] }}</td> --}}
+                   <td>{{ $view_myresult->test_1 }}</td>
+                   <td>{{ $view_myresult->test_2 }}</td>
+                   <td>{{ $view_myresult->test_3 }}</td>
+                   <td>{{ $view_myresult->exams }}</td>
+                   <td>{{ $view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams }}</td>
+                   <td>@if ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 79)
+                    <p>A</p>
+                     @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 69)
+                     <p>B</p>
+
+
+                     @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 59)
+                     <p>C</p>
+
+                     @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 49)
+                     <p>D</p>
+
+                     @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 40)
+                     <p>E</p>
+
+                     @elseif ($view_myresult->test_1 + $view_myresult->test_2 + $view_myresult->test_3 + $view_myresult->exams > 39)
+                     <p>F</p>
+
+                     @else
+                     <p>F</p>
+                   @endif</td>
+
                   
+                      <td><a href="{{ url('web/teacherviewresults/'.$view_myresult->student_id)}}"
+                       class='btn btn-default'>
+                        <i class="far fa-eye"></i>
+                    </a></td>
+                    
+                    <td><a href="{{ url('web/deleteresultbysch/'.$view_myresult->id)}}"
+                     class='btn btn-danger'>
+                      <i class="far fa-trash-alt"></i>
+                  </a></td>
+               
 
-                      </tr>
+                   </tr>
+                  
+              
+              
+                      @else
+                        
+                      @endif
+                 @endforeach
                      
-                    @endforeach
-                 
-                 
                    
                   </tbody>
                   <tfoot>

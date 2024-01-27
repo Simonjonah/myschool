@@ -60,7 +60,7 @@
                     <th>Edit</th>
 
               
-                    {{-- <th>Date</th> --}}
+                    <th>Delete</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -168,6 +168,12 @@
                      <i class="far fa-edit"></i>
                  </a></td>
                  </tr>
+
+                 <td><a href="{{ url('admin/delteresultsad/'.$view_result->id)}}"
+                  class='btn btn-danger'>
+                   <i class="far fa-trash-alt"></i>
+               </a></td>
+               </tr>
                
 
 
@@ -205,7 +211,7 @@
                         <th>Edit</th>
     
                   
-                        {{-- <th>Date</th> --}}
+                        <th>Delete</th>
                       </tr>
                   </tfoot>
                 </table>

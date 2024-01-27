@@ -61,14 +61,14 @@
                       <div class="form-group">
                         <label> Image</label>
                         <img style="width: 50%; height: 50%;" class="profile-user-img img-fluid"
-                            src="{{ URL::asset("/public/../$edit_events->logo")}}"
+                            src="{{ URL::asset("/public/../$edit_events->images")}}"
                             alt="User profile picture">
-                        <input type="file" @error('logo')
-                        @enderror value="{{ old('logo') }}" class="form-control" name="logo"> 
+                        <input type="file" @error('images')
+                        @enderror value="{{ old('images') }}" class="form-control" name="images"> 
                       </div>
                   
                     </div>
-                    @error('logo')
+                    @error('images')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror 
                      

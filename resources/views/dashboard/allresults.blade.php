@@ -63,6 +63,7 @@
                     <th>Grade</th>
                     <th>Approved</th>
                     <th>View</th>
+                    <th>Delete</th>
 
                   </tr>
                   </thead>
@@ -153,6 +154,11 @@
                           class='btn btn-default'>
                            <i class="far fa-eye"></i>
                        </a></td>
+
+                       <td><a href="{{ url('web/deleteresultbysch/'.$view_resultall->id)}}"
+                        class='btn btn-danger'>
+                         <i class="far fa-trash-alt"></i>
+                     </a></td>
                        
                   
 
@@ -183,7 +189,7 @@
                       <th>Approved</th>
                       <th>View</th>
                 
-                      {{-- <th>Date</th> --}}
+                      <th>Delete</th>
                     </tr>
                   </tfoot>
                 </table>

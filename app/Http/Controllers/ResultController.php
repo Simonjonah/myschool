@@ -7,6 +7,7 @@ use App\Models\Domain;
 use Illuminate\Http\Request;
 use App\Models\Result;
 use App\Models\Pin;
+use App\Models\Position;
 use App\Models\User;
 use App\Models\Psycomotor;
 use App\Models\Studentdomain;
@@ -14,6 +15,8 @@ use App\Models\Subject;
 use App\Models\Teacherdomain;
 use App\Models\Term;
 use PDF;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Auth;
 class ResultController extends Controller
 {
@@ -98,9 +101,7 @@ class ResultController extends Controller
         $images_ds = $request->input('images');
         $logo_ds = $request->input('logo');
         $schoolnames = $request->input('schoolname');
-        
-        
-        
+        $slugs = $request->input('slug');
       
         for ($i = 0; $i < count($subjectnames); $i++) {
             $data[] = [
@@ -110,7 +111,7 @@ class ResultController extends Controller
                 'test_2' => $test_2s[$i],
                 'test_3' => $test_3s[$i],
                 'exams' => $examss[$i],
-                'user_id' => $user_ids[$i],
+                'user_id' =>$user_ids[$i],
                 'teacher_id' =>$teacher_ids[$i],
                 'schoolname' =>$schoolnames[$i],
                 'motor' =>$motors[$i],
@@ -128,8 +129,7 @@ class ResultController extends Controller
                 'images' => $images_ds[$i],
                 'pins' => substr(rand(0,time()),0, 9),
                 'logo' => $logo_ds[$i],
-
-
+                'slug' => $slugs[$i],
                 
             ];
         }
@@ -144,7 +144,6 @@ class ResultController extends Controller
 
     public function createresultsad(Request $request){
         
-
         $data = [];
         $subjectnames = $request->input('subjectname');
         $test_1s = $request->input('test_1');
@@ -219,6 +218,7 @@ class ResultController extends Controller
     public function addpsychomotor($id){
         $add_psychomotor = Result::find($id);
         $view_domains = Domain::where('psycomoto', 'Cognitive Domain')->get();
+        // $view_pscos = Domain::whereNotIn('psycomoto','Cognitive Domain')->get();
         $view_pscos = Domain::where('psycomoto', 'Psychomotor Domain')->get();
 
         return view('dashboard.addpsychomotor', compact('view_pscos','add_psychomotor', 'view_domains'));
@@ -589,31 +589,89 @@ class ResultController extends Controller
                 return redirect()->back()->with('fail', 'There is no results for you!');
             }
             
-            $view_psyos = Studentdomain::where('term', $request->term)->get();
+            $view_cogs = Studentdomain::where('term', $request->term)
+            ->where('psycomoto', 'Cognitive Domain')->get();
+
+            $view_psyos = Studentdomain::where('term', $request->term)
+            ->where('psycomoto', 'Psychomotor Domain')
+            ->get();
 
             $total_subject = Result::where('academic_session', $request->academic_session)
         ->where('term', $request->term)->count();
-        return view('dashboard.yourresultschools', compact('total_subject', 'view_psyos', 'view_myresult_results'));
+        return view('dashboard.yourresultschools', compact('view_cogs', 'total_subject', 'view_psyos', 'view_myresult_results'));
           
         }
 
 
         public function yourresultfinale(Request $request){
-            $request->validate([
-                'pins' => ['required', 'string'],
-                'regnumber' => ['required', 'string',],
-                'academic_session' => ['required', 'string',],
-                'term' => ['required', 'string',],
-    
-            ], [
-                'pins.exist'=>'This email does not exist in the admins table'
-            ]);
+       
+
+        $request->validate([
+            'pins' => ['required', 'string'],
+            'regnumber' => ['required', 'string'],
+            'academic_session' => ['required', 'string'],
+            'term' => ['required', 'string'],
+            'classname' => ['required', 'string'],
+
+        ], [
+            'pins.exist'=>'This email does not exist in the admins table'
+        ]);
         if($getyour_results = Result::where('regnumber', $request->regnumber)->where('term', $request->term)
+        ->where('pins', $request->pins)
         ->exists()) {
-        $getyour_results = Result::where('academic_session', $request->academic_session)->get();
+        $getyour_results = Result::where('regnumber',  $request->regnumber
+        )->where('academic_session', $request->academic_session)
+        ->where('classname', $request->classname)
+        ->get();
         }else{
             return redirect()->back()->with('fail', 'There is no results for you!');
         }
+
+    
+        // dd($result);
+       $collection = collect($getyour_results);
+
+       $filteredData = $collection->where('regnumber', $request->regnumber);
+        $sum0 = $filteredData->sum('test_1');
+        $sum1 = $filteredData->sum('test_2');
+        $sum2 = $filteredData->sum('test_3');
+        $sum3 = $filteredData->sum('exams');
+        $sum = $sum0 + $sum1 + $sum2 + $sum3;
+        // if ($request->term == null && $request->academic_session == null && $request->classname == null) {
+            Position::create([
+                'regnumber' => $request->regnumber,
+                'term' => $request->term,
+                'pins' => $request->pins,
+                'classname' => $request->classname,
+                'academic_session' => $request->academic_session,
+                'total_score' => $sum,
+            ]);
+      
+        
+        $studentpositions = Position::orderBy('total_score', 'Asc')->where('term', $request->term)
+        ->where('academic_session', $request->academic_session)
+        ->where('classname', $request->classname)->get();
+        
+        // $studentpos = Position::orderBy('total_score', 'Asc')->where('term', $request->term)
+        // ->where('academic_session', $request->academic_session)
+        // ->where('classname', $request->classname)
+        // ->where('total_score', $sum)->get();
+
+        $rank = 1;
+        foreach ($studentpositions as $student) {
+            $student->update(['rank' => $rank] = ['rank' => $rank]);
+            $rank++;
+        }
+        // foreach ($dataToUpdate as $data) {
+        //     // Find the student by ID
+        //     $student = Student::find($data['id']);
+        
+        //     // Update the total score  imfisftm_update1
+        //     $student->update(['total_score' => $data['total_score']]);
+        // }
+        $rankedStudents = Position::orderBy('rank')->where('term', $request->term)
+        ->where('academic_session', $request->academic_session)
+        ->where('classname', $request->classname)->where('regnumber', $request->regnumber)->first();
 
         $total_subject = Result::where('academic_session', $request->academic_session)
         ->where('term', $request->term)->count();
@@ -622,9 +680,10 @@ class ResultController extends Controller
         ->where('term', $request->term)->count();
         $getyour_resultsdomains = Studentdomain::where('term', $request->term)->get();
            
-        $pdf = PDF::loadView('pages.pdf', compact('getyour_resultsdomains', 'total_subject', 'getyour_results'));
+       return view('pages.pdf', compact('rankedStudents', 'studentpositions', 'getyour_resultsdomains', 'total_subject', 'getyour_results'));
+       // $pdf = PDF::loadView('pages.pdf', compact('getyour_resultsdomains', 'total_subject', 'getyour_results'));
     
-        return $pdf->download('school_report.pdf');
+       //return $pdf->download('school_report.pdf');
          
         }
 
@@ -711,7 +770,71 @@ class ResultController extends Controller
                 }
                 return view('dashboard.yourschoolreultsterm', compact('view_myresults'));
         
-            }
+    }
+
+    public function delteresultsad($id){
+        $delete = Result::where('id', $id)->delete();
+        return redirect()->back()->with('success', 'You have deleted successfully');
+    }
+
+    public function deleteresultbysch($id){
+        $delete = Result::where('id', $id)->delete();
+        return redirect()->back()->with('success', 'You have deleted successfully');
+    }
+
+  
+    public function addcomment($id){
+        $add_comment = Result::find($id);
+        return view('dashboard.addcomment', compact('add_comment'));
+    }
+
+     
+
+ public function updatecomments(Request $request, $id){
+    $add_comment = Result::find($id);
+    $request->validate([
+        'headteach_comment' => 'required|string'
+    ]);
+    $add_comment->headteach_comment = $request->headteach_comment;
+    $add_comment->update();
+
+    if ($add_comment) {
+    return redirect()->back()->with('success', 'You have created comment successfully');
+
+    }else{
+    return redirect()->back()->with('fail', 'You have deleted successfully');
+
+    }
+
+        return redirect()->back()->with('success', 'You have deleted successfully');
+    }
+
+    
+    public function addcommentteacher($id){
+        $addcommentbyteacher = Result::find($id);
+        return view('dashboard.teacher.addcommentteacher', compact('addcommentbyteacher'));
+     }
+
+     public function teachercomment(Request $request, $id){
+        $add_comment = Result::find($id);
+        $request->validate([
+            'teacher_comment' => 'required|string',
+            'next_term' => 'required|string',
+        ]);
+        $add_comment->next_term = $request->next_term;
+        $add_comment->teacher_comment = $request->teacher_comment;
+        $add_comment->update();
+    
+        if ($add_comment) {
+        return redirect()->back()->with('success', 'You have created comment successfully');
+    
+        }else{
+        return redirect()->back()->with('fail', 'You have deleted successfully');
+    
+        }
+    
+            return redirect()->back()->with('success', 'You have deleted successfully');
+        }
 }
 
     

@@ -905,6 +905,33 @@ class UserController extends Controller
         return view('pages.searchresults', ['results' => $results]);
     }
 
+    public function addsignature(){
+
+        return view('dashboard.addsignature');
+    }
+    public function createsignature (Request $request, $ref_no1){
+       $addsignature = User::where('ref_no1', $ref_no1)->first();
+        $request->validate([
+            'signature' => 'required|mimes:jpg,png,jpeg'
+        ]);
+
+        if ($request->hasFile('signature')){
+
+            $file = $request['signature'];
+            $filename = 'SimonJonah-' . time() . '.' . $file->getClientOriginalExtension();
+            $path = $request->file('signature')->storeAs('resourceimages', $filename);
+
+        }else{
+
+            $path = 'noimage.jpg';
+        }
+
+    
+        $addsignature['signature'] = $path;
+        $addsignature->update();
+        return redirect()->back()->with('success', 'You have successfully add child to parent');
+
+    }
 
 
     public function logout(){
@@ -912,41 +939,5 @@ class UserController extends Controller
         return redirect('login');
     }
 
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-     
-
-    
-    
-     
-    
-    
-    
-    
-    
-   
-    
     
 }

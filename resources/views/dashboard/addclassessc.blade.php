@@ -35,6 +35,7 @@
                 <div class="form-group">
                   <input type="hidden" class="form-control" name="user_id" value="{{ Auth::guard('web')->user()->id }}" placeholder=":">
                   <input type="hidden" class="form-control" name="ref_no1" value="{{ Auth::guard('web')->user()->ref_no1 }}" placeholder=":">
+                  <input type="hidden" class="form-control" name="slug" value="{{ Auth::guard('web')->user()->slug }}" placeholder=":">
                   
                   <input type="hidden" class="form-control" name="connect" value="{{ Auth::guard('web')->user()->connect }}" placeholder=":">
                   {{-- <input class="form-control" name="images" value="{{ Auth::guard('web')->user()->images }}" placeholder=":"> --}}

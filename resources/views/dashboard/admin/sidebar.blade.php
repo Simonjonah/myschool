@@ -4,7 +4,7 @@
     <a href="{{ url('admin/home') }}" class="brand-link">
       <img src="{{ asset('assets/dist/img/AdminLTELogo.jpg') }}" alt="AdminLTE Logo" class="brand-image "
            style="opacity: .8">
-      <span class="brand-text font-weight-light"><br>MYSCHOOL.AFRICA </span>
+      <span class="brand-text font-weight-light"><br>SCHOOLSUPDATE.NG </span>
     </a>
     
       <?php
@@ -92,13 +92,13 @@
             <ul class="nav nav-treeview">
 
               <li class="nav-item">
-                <a href="{{ route('admin.addblog') }}" class="nav-link">
+                <a href="{{ url('admin/addblog') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Press Releasse</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.viewblog') }}" class="nav-link">
+                <a href="{{ url('admin/viewblog') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Press Releasse</p>
                 </a>
@@ -158,7 +158,7 @@
               <li class="nav-item">
                 
                 <li class="nav-item">
-                  <a href="{{ route('admin.viewbookings') }}" class="nav-link">
+                  <a href="{{ url('admin/viewbookings') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View Bookings</p>
                   </a>
@@ -166,7 +166,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('admin.viewcontact') }}" class="nav-link">
+                <a href="{{ url('admin/viewcontact') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Contact</p>
                 </a>

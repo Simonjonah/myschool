@@ -29,6 +29,7 @@ class ClassnameController extends Controller
             'classname' => ['required', 'string', 'max:255'],
             'section' => ['required', 'string', 'max:255'],
             'connect' => ['required', 'string', 'max:255'],
+            //'slug' => ['required', 'string', 'max:255'],
             
         ]);
         $addclasses = new Classname();
@@ -36,6 +37,7 @@ class ClassnameController extends Controller
         $addclasses->classname = $request->classname;
         $addclasses->section = $request->section;
         $addclasses->connect = $request->connect;
+        //$addclasses->slug = $request->slug;
         $addclasses->ref_no = substr(rand(0,time()),0, 9);
        
         $addclasses->save();
@@ -57,6 +59,7 @@ class ClassnameController extends Controller
             'classname' => ['required', 'string', 'max:255'],
             'section' => ['required', 'string', 'max:255'],
             'ref_no1' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255'],
             
         ]);
         $addclasses = new Classname();
@@ -64,6 +67,7 @@ class ClassnameController extends Controller
         $addclasses->classname = $request->classname;
         $addclasses->section = $request->section;
         $addclasses->ref_no1 = $request->ref_no1;
+        $addclasses->slug = $request->slug;
         $addclasses->connect = substr(rand(0,time()),0, 9);
        
         $addclasses->save();
@@ -242,6 +246,23 @@ class ClassnameController extends Controller
         return view('dashboard.firstermresults', compact('view_sessions', 'view_terms', 'view_classes', 'view_student_abujas', 'view_myresults'));
     }
 
+
+    public function firstermresultsapproved($classname){
+        $view_myresults = Classname::where('classname', $classname)->first();
+        $view_myresults = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())->get();
+        $view_classes = Classname::where('user_id', auth::guard('web')->id())->get();
+        $view_terms = Term::where('user_id', auth::guard('web')->id())->get();
+        $view_sessions = Academicsession::latest()->get();
+
+        $view_student_abujas = Classname::where('classname', $classname)->first();
+        $view_student_abujas = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())
+        ->where('section', 'Secondary')->get();
+
+        return view('dashboard.firstermresultsapproved', compact('view_sessions', 'view_terms', 'view_classes', 'view_student_abujas', 'view_myresults'));
+    }
+
+
+    
 
     public function viewyourstudentsprimary($classname){
         $view_primarypupils = Classname::where('classname', $classname)->first();

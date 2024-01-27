@@ -248,15 +248,15 @@
                     </tr>
                    
 
-                    @foreach ($view_psyos as $view_psyo)
-                    @if ($view_psyo->psycomoto == 'Cognitive Domain')
+                    @foreach ($view_cogs as $view_cog)
+                    @if ($view_cog->psycomoto == 'Cognitive Domain')
                         <tr>
-                        <td>{{ $view_psyo->cogname }}</td>
-                        <td>{{ $view_psyo->punt1 }}</td>
-                        <td>{{ $view_psyo->punt2 }}</td>
-                        <td>{{ $view_psyo->punt3 }}</td>
-                        <td>{{ $view_psyo->punt4 }}</td>
-                        <td>{{ $view_psyo->punt5 }}</td>
+                        <td>{{ $view_cog->cogname }}</td>
+                        <td>{{ $view_cog->punt1 }}</td>
+                        <td>{{ $view_cog->punt2 }}</td>
+                        <td>{{ $view_cog->punt3 }}</td>
+                        <td>{{ $view_cog->punt4 }}</td>
+                        <td>{{ $view_cog->punt5 }}</td>
                     </tr>
                     @else
                         
@@ -355,11 +355,11 @@
               <div class="row no-print">
                 <div class="col-12">
                   {{-- <button type="submit" class="btn btn-success"><i class="far fa-bell"></i> Submit
-                    Submit 
+                    
                   </button> --}}
                 
-                  {{-- <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                  <a href="{{ url('web/addcomment/'.$view_myresult_result->id) }}" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Add Comment</a>
+                  {{-- <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
                     Payment
                   </button> --}}
 

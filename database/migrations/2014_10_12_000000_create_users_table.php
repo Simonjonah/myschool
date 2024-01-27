@@ -37,7 +37,8 @@ return new class extends Migration
             $table->string('role')->nullable();
             $table->string('slug')->nullable();
             $table->string('ref_no')->nullable();
-
+            $table->text('signature')->nullable();
+            
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();

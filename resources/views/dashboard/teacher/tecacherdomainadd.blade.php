@@ -55,6 +55,7 @@
                             <input type="hidden" name="psycomoto[]"  value="{{ $view_yourdomain->psycomoto }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             <input type="hidden" name="teacher_id[]"  value="{{ Auth::guard('teacher')->user()->id }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             <input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <input type="hidden" name="signature[]" value="{{ $view_yourdomain->signature }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                         
                           </div>
                         @else
@@ -92,6 +93,7 @@
                             <input type="hidden" name="ref_no1[]" value="{{ $view_yourdomain->ref_no1 }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             <input type="hidden" name="psycomoto[]"  value="{{ $view_yourdomain->psycomoto }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                             <input type="hidden" name="teacher_id[]"  value="{{ Auth::guard('teacher')->user()->id }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <input type="hidden" name="signature[]" value="{{ $view_yourdomain->signature }}" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                         
                         </div>
                         @else

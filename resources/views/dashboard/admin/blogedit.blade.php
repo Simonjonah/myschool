@@ -61,14 +61,14 @@
                       <div class="form-group">
                         <label> Image</label>
                         <img style="width: 50%; height: 50%;" class="profile-user-img img-fluid"
-                            src="{{ URL::asset("/public/../$edit_blogs->images")}}"
+                            src="{{ URL::asset("/public/../$edit_blogs->logo")}}"
                             alt="User profile picture">
-                        <input type="file" @error('images')
-                        @enderror value="{{ old('images') }}" class="form-control" name="images"> 
+                        <input type="file" @error('logo')
+                        @enderror value="{{ old('logo') }}" class="form-control" name="logo"> 
                       </div>
                   
                     </div>
-                    @error('images')
+                    @error('logo')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror 
                      
@@ -97,6 +97,8 @@
     </section>
     <!-- /.content -->
   </div>
+
+  
   <script type="text/javascript">
     $(function() {
       const Toast = Swal.mixin({

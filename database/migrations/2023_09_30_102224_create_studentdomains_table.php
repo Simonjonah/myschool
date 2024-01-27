@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('cogname');
             $table->string('psycomoto');
             $table->string('punt1')->nullable();
+            $table->text('signature')->nullable();
+
             $table->string('teacher_id');
             $table->string('student_id');
             $table->string('ref_no1');

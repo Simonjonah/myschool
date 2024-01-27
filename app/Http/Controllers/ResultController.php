@@ -648,7 +648,7 @@ class ResultController extends Controller
             ]);
       
         
-        $studentpositions = Position::orderBy('total_score', 'Asc')->where('term', $request->term)
+        $studentpositions = Position::orderBy('total_score', 'DESC')->where('term', $request->term)
         ->where('academic_session', $request->academic_session)
         ->where('classname', $request->classname)->get();
         

@@ -333,8 +333,8 @@ table, tr, td{
                 <td>{{ $getyour_result->regnumber }}</td>
                 <td>SEX:</td>
                 <td>{{ $getyour_result->gender }}</td>
-                <td>TOTAL SCORE OBTAINABLE:</td>
-                <td>{{ $total_subject * 100 }}</td>
+                {{-- <td>TOTAL SCORE OBTAINABLE:</td>
+                <td>{{ $total_subject * 100 }}</td> --}}
                 @php
                     // $rank = 1;
                 @endphp
@@ -393,7 +393,7 @@ table, tr, td{
                 <tr>
                     <td>Class Teacher's Comment</td>
                     <td>{{ $getyour_result->teacher_comment}}</td>
-                    <td>Position: {{ $rankedStudents->rank }}</td>
+                    <td>Position: {{ $rankedStudents->rank }} </td>
                     <td>
                         {{-- @foreach ($rankedStudents as  $team)
                         

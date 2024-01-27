@@ -249,7 +249,11 @@ class ClassnameController extends Controller
 
     public function firstermresultsapproved($classname){
         $view_myresults = Classname::where('classname', $classname)->first();
-        $view_myresults = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())->get();
+        $view_myresults = Result::where('classname', $classname)->where('user_id', auth::guard('web')->id())->
+        
+        where('status', 'approved')->get();
+        
+        
         $view_classes = Classname::where('user_id', auth::guard('web')->id())->get();
         $view_terms = Term::where('user_id', auth::guard('web')->id())->get();
         $view_sessions = Academicsession::latest()->get();

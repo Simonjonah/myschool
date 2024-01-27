@@ -135,7 +135,7 @@
                         @if ($view_pin->student['section'] == 'High School' || $view_pin->student['section'] == 'Senior Secondary' || $view_pin->student['section'] == 'senior secondary' || $view_pin->student['section'] == 'Secondary' || $view_pin->student['section'] == 'High Schools' || $view_pin->student['section'] == 'Secondary School' ||$view_pin->section == 'Secondary')
                         <tr>
                           <td><a href="{{ url('admin/viewschoolpins/'.$view_pin->user_id) }}">{{ $view_pin->schoolname }}</a></td>
-                          <td>{{ $view_pin->classname }} <small><a href="{{ url('admin/viewresult/'.$view_pin->id) }}">{{ $view_pin->subjectname }}</a> </small></td>
+                          <td>{{ $view_pin->classname }} Reg No: {{ $view_pin->regnumber }}  <small><a href="{{ url('admin/viewresult/'.$view_pin->id) }}">{{ $view_pin->subjectname }}</a> </small></td>
                           @if ($view_pin->status == null)
                           <td><span class="badge badge-warning">Pending</span></td>
                           @else
